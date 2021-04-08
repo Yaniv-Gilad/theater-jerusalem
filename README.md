@@ -60,7 +60,7 @@ The aim is to streamline the work during the productions and improve the monitor
 ### Non-Functional
 - Login will take up to 5 seconds.
 - The database size should not exceed 10 GB.
-- The site will support up to 100 users simultaneously. 
+- The site will support up to 100 users simultaneously.   
 
 
 
