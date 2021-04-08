@@ -8,7 +8,7 @@ The group's goal is to promote learning and creation through theater, especially
 The aim is to streamline the work during the productions and improve the monitoring by dozens of counters - with the help of one software through which the production will be managed in all its aspects. The product that will be developed will allow simple control and management of the group's ongoing activities and the management of the project budget.
 
 ### Use cases UML Diagram
-![use case](https://github.com/chapnitsky/theater-jerusalem/blob/main/use%20case.png)
+![use case](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/use%20case.png)
 ### Use case templates
 #### Template for login
 - Name – Login.
