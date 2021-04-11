@@ -50,7 +50,7 @@ The aim is to streamline the work during the productions and improve the monitor
 ## Requirements
 ### Functional
 
-- The site will support the following operating systems: windows7-10.
+- The site will support the following operating systems: windows 7-10.
 - The site will support the following browsers: edge, chrome.
 - The dates on the site will be synchronized to Google Calendar.
 - Add / delete / update / export files. 
