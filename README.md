@@ -9,6 +9,9 @@ The aim is to streamline the work during the productions and improve the monitor
 
 ### Use cases UML Diagram
 ![use case](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/use%20case.png)
+
+### Architecture
+![architecture](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/theater-jerusalem.mdj)
 ### Use case templates
 #### Template for login
 - Name – Login.
