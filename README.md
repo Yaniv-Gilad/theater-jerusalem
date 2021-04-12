@@ -8,7 +8,10 @@ The group's goal is to promote learning and creation through theater, especially
 The aim is to streamline the work during the productions and improve the monitoring by dozens of counters - with the help of one software through which the production will be managed in all its aspects. The product that will be developed will allow simple control and management of the group's ongoing activities and the management of the project budget.
 
 ### Use cases UML Diagram
-![use case](https://github.com/chapnitsky/theater-jerusalem/blob/main/use%20case.png)
+![use case](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/use%20case.png)
+
+### Architecture
+![architecture](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/theater-jerusalem.mdj)
 ### Use case templates
 #### Template for login
 - Name – Login.
@@ -50,8 +53,8 @@ The aim is to streamline the work during the productions and improve the monitor
 ## Requirements
 ### Functional
 
-- The site will support the following operating systems: windows7-10, ios 10-14.
-- The site will support the following browsers: safari, IE, edge, chrome, firefox.
+- The site will support the following operating systems: windows 7-10.
+- The site will support the following browsers: edge, chrome.
 - The dates on the site will be synchronized to Google Calendar.
 - Add / delete / update / export files. 
 - Add / delete folders.
@@ -60,8 +63,4 @@ The aim is to streamline the work during the productions and improve the monitor
 ### Non-Functional
 - Login will take up to 5 seconds.
 - The database size should not exceed 10 GB.
-- The site will support up to 100 users simultaneously.   
-
-
-
-
+- The site will support up to 100 users simultaneously. 
