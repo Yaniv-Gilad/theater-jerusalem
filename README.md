@@ -11,6 +11,7 @@ The aim is to streamline the work during the productions and improve the monitor
 ![use case](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/use%20case.png)
 
 ### Architecture
+#### Deployment Diagram
 ![architecture](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/Deployment%20Diagram.jpg)
 ### Use case templates
 #### Template for login
