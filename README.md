@@ -13,6 +13,10 @@ The aim is to streamline the work during the productions and improve the monitor
 ### Architecture
 #### Deployment Diagram
 ![architecture](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/Deployment%20Diagram.jpg)
+
+#### Class Diagram
+![architecture](https://github.com/Yaniv-Gilad/theater-jerusalem/blob/main/Deployment%20Diagram.jpg)
+
 ### Use case templates
 #### Template for login
 - Name – Login.
