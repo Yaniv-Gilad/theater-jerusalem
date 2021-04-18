@@ -69,7 +69,7 @@ The aim is to streamline the work during the productions and improve the monitor
 - The database size should not exceed 10 GB.
 - The site will support up to 100 users simultaneously. 
 
-### Risks Assessment
+## Risks Assessment
 
 | #    | Risk | Likely to occur | Steps to reduce risk | Response | Severity |
 |------|---|--------|-------------|------------|---------|
