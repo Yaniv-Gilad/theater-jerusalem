@@ -1,4 +1,3 @@
-
 import {Component} from "react"
 import {auth} from "../Firebase/firebase"
 import '../App.css'
