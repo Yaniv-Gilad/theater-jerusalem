@@ -1,8 +1,8 @@
 
 import {Component} from "react"
 import firebase from "firebase"
-import {auth} from "./Firebase/firebase"
-import './App.css'
+import {auth} from "../Firebase/firebase"
+import '../App.css'
 
 class Login extends Component
 {
