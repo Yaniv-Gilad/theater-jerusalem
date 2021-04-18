@@ -74,8 +74,8 @@ The aim is to streamline the work during the productions and improve the monitor
 | #    | Risk | Likely to occur | Steps to reduce risk | Response | Severity |
 |------|---|--------|-------------|------------|---------|
 | 1    | Working with new tools in unfamiliar environment | Medium | to work in a known environment or learn how to work in the new environment before start working in it        | Getting familiar with the software tools used for development by attending classes, asking friends and various tutorials | Medium |
-| 2    | 	Customer will not be satisfied with the final result | Low | 	We will initiate meeting at each stage of the development process to see whether the customer likes the continued development | we will try to have an agreement with the client | Low |
-| 3    | Change system requirements | Low   | keeping up communication with the client | Re-coordinate expectations | Medium |
+| 2    | Change system requirements | Low   | keeping up communication with the client | Re-coordinate expectations | Medium |
+| 3    | 	Customer will not be satisfied with the final result | Low | 	We will initiate meeting at each stage of the development process to see whether the customer likes the continued development | we will try to have an agreement with the client | Low |
 
 
 
