@@ -2,6 +2,7 @@ import {Component} from "react"
 import {auth} from "../Firebase/firebase"
 import '../App.css'
 
+
 class Login extends Component
 {
     constructor(props) {
@@ -11,6 +12,7 @@ class Login extends Component
           password:""
         }
     }
+
 
    render() {
     return( 
@@ -55,6 +57,12 @@ class Login extends Component
      .then((res)=>{
        console.log("can login")
         console.log(res)
+        this.props.history.push(
+          {
+            pathname: "/newPage",
+            data:res.user
+          })
+        
      }).catch((e)=>{
        console.log("not found user")
      })
