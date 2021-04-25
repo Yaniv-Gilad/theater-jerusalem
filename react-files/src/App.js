@@ -9,12 +9,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Router>
-            <Switch>
-                <Route exact path="/" component={Login}/>
-                <Route exact path="/newPage" component={NewPage}/>
-            </Switch>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/newPage" component={NewPage} />
+          </Switch>
         </Router>
-       { /* <Login />
+        { /* <Login />
         <NewPage /> */ }
       </header>
     </div>
