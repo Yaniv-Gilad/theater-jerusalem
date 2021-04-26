@@ -1,6 +1,6 @@
 import './App.css';
-import Login from "./Components/login";
-import NewPage from "./Components/newPage";
+import Login from "./Components/Login";
+import HomePage from "./Components/HomePage";
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -11,11 +11,9 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/newPage" component={NewPage} />
+            <Route exact path="/Home" component={HomePage} />
           </Switch>
         </Router>
-        { /* <Login />
-        <NewPage /> */ }
       </header>
     </div>
   );

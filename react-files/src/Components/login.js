@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { auth } from "../Firebase/firebase"
-import '../App.css'
+import '../CSS/Login.css'
 
 
 class Login extends Component {
@@ -15,7 +15,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Login">
         <h1>Login</h1>
         <input type="email"
           id="email"
@@ -57,7 +57,7 @@ class Login extends Component {
         console.log(res)
         this.props.history.push(
           {
-            pathname: "/newPage",
+            pathname: "/Home",
             data: res.user
           })
 
