@@ -1,7 +1,3 @@
-html { height: 100% }
-::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
-::selection { background: #fe57a1; color: #fff; text-shadow: none; }
-body { background-image: radial-gradient( cover, rgba(92,100,111,1) 0%,rgba(31,35,40,1) 100%), url('http://i.minus.com/io97fW9I0NqJq.png') }
 .login {
   background: #eceeee;
   border: 1px solid #42464b;
@@ -32,8 +28,8 @@ input[type="password"], input[type="text"] {
   box-sizing: border-box;
   color: #696969;
   height: 39px;
-  margin: 31px 0 0 29px;
-  padding-left: 37px;
+  margin: 29px 0 0 0;
+  padding-left: 5px;
   transition: box-shadow 0.3s;
   width: 240px;
 }
@@ -86,13 +82,13 @@ input[type="submit"] {
   position:relative;
   cursor:pointer;
   border: none;  
-  background-color: #37a69b;
+  background-color: #8a0220;
   background-image: linear-gradient(top,#3db0a6,#3111);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius:5px;
-  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #497a78, 0px 10px 5px #999;
+  box-shadow: inset 0px 1px 0px #f32d69, 0px 5px 0px 0px #6b0012, 0px 10px 5px rgb(85, 0, 0);
 }
 
 .shadow {
@@ -108,5 +104,13 @@ input[type="submit"] {
 
 input[type="submit"]:active {
   top:3px;
-  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #31524d, 0px 5px 3px #999;
+  box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px  #6b0012, 0px 5px 3px #999;
+}
+
+#logo{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 2%;
+  top: 2%;
 }
