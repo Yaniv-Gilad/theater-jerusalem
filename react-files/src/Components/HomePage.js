@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { auth, db} from "../Firebase/firebase"
+import { auth, db, storage} from "../Firebase/firebase"
 import '../CSS/HomePage.css'
 import LOGO from '../Photos/logo.jpeg'
 import {NavLink} from 'react-router-dom'
@@ -7,27 +7,34 @@ import {NavLink} from 'react-router-dom'
 class HomePage extends Component {
   constructor(props) {
     super(props);
-    fetch(props);
 
     // console.log(props.location)
     this.state = {
       data: props.location.data,
       allUsers: []
     }
-
+    let get = this.fetch('productions.json');
+    console.log(get);
     
   }
-  async fetch(){
-    const prods = db.ref('Productions');
-    prods.on("value", (snapshot)=>{
-      snapshot.forEach(data => {
-        const dataVal = data.val()
-        console.log(dataVal)
+
+  fetch(wanted_name){
+    let reff = storage.ref('');
+    let ret = 'aaaa';
+    reff.list().then(function (res) {
+      res.prefixes.forEach(function (fix) {
+        // console.log(fix.name)
+      })
+      res.items.forEach(function (item){
+        if (item.name == wanted_name) {
+          ret = item.toString()
+        }
+        
       })
     })
+    return ret;
 
   }
-
   async componentDidMount() {
     // console.log("********* started did mount **********")
     
@@ -56,6 +63,7 @@ class HomePage extends Component {
   }
 
   render() {//Called whenever there is a change in state
+    // this.fetch();
     return (
       <div className="HomePage">
         <nav className='home_nav'>
