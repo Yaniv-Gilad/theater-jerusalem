@@ -12,43 +12,76 @@ class Login extends Component {
     }
   }
 
-
   render() {
     return (
       <div className="Login">
-        <h1>Login</h1>
-        <input type="email"
-          id="email"
-          placeholder="userName@email.com"
-          title="email"
-          //required = {true}
-          onChange={(event) => {
-            this.setState({ email: event.target.value })
-            //console.log((event.target.value))
-          }}
-        />
+        <div class="login">
 
-        <br />
-        <input type="password"
-          id="password"
-          placeholder="password"
-          title="password"
-          //required = {true}
-          onChange={(event) => {
-            this.setState({ password: event.target.value })
-            //console.log((event.target.value))
-          }}
-        />
+          <input type="text" placeholder="userName@email.com" id="username"
+            onChange={(event) => {
+              this.setState({ email: event.target.value })
+              //console.log((event.target.value))
+            }}
+          />
 
-        <br />
-        <button onClick={() => {
-          this.login()
-          console.log(this.state)
-        }}>Login</button>
+          <input type="password" placeholder="password" id="password"
+            onChange={(event) => {
+              this.setState({ password: event.target.value })
+              //console.log((event.target.value))
+            }}
+          />
+
+          <a href="#" class="forgot">forgot password?</a>
+          
+          <input type="submit" value="Sign In"
+            onClick={() => {
+              this.login()
+              console.log(this.state)
+            }} />
+        
+        </div>
+        <div class="shadow"></div>
       </div>
 
     )
   }
+
+  // render() {
+  //   return (
+  //     <div className="Login">
+  //       <h1>Login</h1>
+  //       <input type="email"
+  //         id="email"
+  //         placeholder="userName@email.com"
+  //         title="email"
+  //         //required = {true}
+  //         onChange={(event) => {
+  //           this.setState({ email: event.target.value })
+  //           //console.log((event.target.value))
+  //         }}
+  //       />
+
+  //       <br />
+  //       <input type="password"
+  //         id="password"
+  //         placeholder="password"
+  //         title="password"
+  //         //required = {true}
+  //         onChange={(event) => {
+  //           this.setState({ password: event.target.value })
+  //           //console.log((event.target.value))
+  //         }}
+  //       />
+
+  //       <br />
+  //       <button onClick={() => {
+  //         this.login()
+  //         console.log(this.state)
+  //       }}>Login</button>
+  //     </div>
+
+  //   )
+  // }
 
   login() {
     auth.signInWithEmailAndPassword(this.state.email, this.state.password)
