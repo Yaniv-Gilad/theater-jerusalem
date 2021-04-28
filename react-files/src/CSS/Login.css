@@ -4,11 +4,11 @@
     text-align: center;
     cursor: pointer;
     outline: none;
-    color: #fff;
-    background-color: #00edf5;
+    color: rgb(80, 4, 4);
+    background-color: #f50000;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 9px rgba(170, 87, 87, 0.808);
   }
 
 .Login button:hover {background-color: #563e8e}
