@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { auth, db } from "../Firebase/firebase"
 import '../CSS/HomePage.css'
+import LOGO from '../Photos/logo.jpeg'
 
 
 class HomePage extends Component {
@@ -50,6 +51,7 @@ class HomePage extends Component {
               pathname: "/"
             })
         }}>Logout</button>
+        <img id='home_logo' src={LOGO} alt=""></img>
       </div>
 
     )
