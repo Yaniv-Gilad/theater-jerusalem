@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { auth } from "../Firebase/firebase"
 import '../CSS/Login.css'
+import LOGO from "../Photos/logo.jpeg"
 
 
 class Login extends Component {
@@ -15,6 +16,7 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
+        <img src={LOGO} id="logo"></img>
         <div class="login">
 
           <input type="text" placeholder="userName@email.com" id="username"
@@ -46,42 +48,6 @@ class Login extends Component {
     )
   }
 
-  // render() {
-  //   return (
-  //     <div className="Login">
-  //       <h1>Login</h1>
-  //       <input type="email"
-  //         id="email"
-  //         placeholder="userName@email.com"
-  //         title="email"
-  //         //required = {true}
-  //         onChange={(event) => {
-  //           this.setState({ email: event.target.value })
-  //           //console.log((event.target.value))
-  //         }}
-  //       />
-
-  //       <br />
-  //       <input type="password"
-  //         id="password"
-  //         placeholder="password"
-  //         title="password"
-  //         //required = {true}
-  //         onChange={(event) => {
-  //           this.setState({ password: event.target.value })
-  //           //console.log((event.target.value))
-  //         }}
-  //       />
-
-  //       <br />
-  //       <button onClick={() => {
-  //         this.login()
-  //         console.log(this.state)
-  //       }}>Login</button>
-  //     </div>
-
-  //   )
-  // }
 
   login() {
     auth.signInWithEmailAndPassword(this.state.email, this.state.password)
