@@ -22,25 +22,29 @@ class Login extends Component {
           <input type="text" placeholder="userName@email.com" id="username"
             onChange={(event) => {
               this.setState({ email: event.target.value })
-              //console.log((event.target.value))
             }}
           />
 
           <input type="password" placeholder="password" id="password"
             onChange={(event) => {
               this.setState({ password: event.target.value })
-              //console.log((event.target.value))
+            }}
+            onKeyDown={(event) => {
+              if (event.key == 'Enter') {
+                this.login()
+                console.log(this.state)
+              }
             }}
           />
 
           <a href="#" class="forgot">forgot password?</a>
-          
-          <input type="submit" value="Sign In"
+
+          <input type="submit" value="כניסה למערכת"
             onClick={() => {
               this.login()
               console.log(this.state)
             }} />
-        
+
         </div>
         <div class="shadow"></div>
       </div>
