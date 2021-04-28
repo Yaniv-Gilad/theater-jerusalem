@@ -2,7 +2,7 @@ import { Component } from "react"
 import { auth, db } from "../Firebase/firebase"
 import '../CSS/HomePage.css'
 import LOGO from '../Photos/logo.jpeg'
-
+import {NavLink} from 'react-router-dom'
 
 class HomePage extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class HomePage extends Component {
       allUsers: []
     }
 
+    
   }
 
   async componentDidMount() {
@@ -43,14 +44,34 @@ class HomePage extends Component {
   }
 
   render() {//Called whenever there is a change in state
+    let a = 0;
+    
     return (
       <div className="HomePage">
-        <button onClick={() => {
-          this.props.history.push(
-            {
-              pathname: "/"
-            })
-        }}>Logout</button>
+        <nav className='home_nav'>
+          <ul>
+            <li>
+            <NavLink className='navlink1' to='/' exact>
+            הפקה חדשה
+            </NavLink>
+            </li>
+            <li>
+            <NavLink className='navlink2' to='/' exact>
+            מחיקת הפקה
+            </NavLink>
+            </li>
+            <li>
+            <NavLink className='navlink3' to='/' exact>
+            navlink3
+            </NavLink>
+            </li>
+            <li>
+            <NavLink className='navlink4' to='/' exact>
+            navlink4
+            </NavLink>
+            </li>
+          </ul>
+        </nav>
         <img id='home_logo' src={LOGO} alt=""></img>
       </div>
 

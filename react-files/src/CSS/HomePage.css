@@ -1,3 +1,9 @@
+
+.HomePage body{
+  font-family: 'Roboto', sans-serif;
+  background: #fff;
+}
+
 .HomePage button{
     padding: 15px 25px;
     font-size: 24px;
@@ -18,4 +24,12 @@
   height: 100px;
   right: 2%;
   top : 2%;
+}
+
+nav li{
+  display: inline-block;
+  margin: 20px;
+  padding: 50px;
+  left: 20%;
+  top : 50%;
 }
