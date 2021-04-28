@@ -44,10 +44,12 @@ class HomePage extends Component {
   render() {//Called whenever there is a change in state
     return (
       <div className="HomePage">
-        <h1>Home Page</h1>
         <button onClick={() => {
-
-        }}>Back</button>
+          this.props.history.push(
+            {
+              pathname: "/"
+            })
+        }}>Logout</button>
       </div>
 
     )
