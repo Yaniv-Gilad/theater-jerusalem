@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import LOGO from "../Photos/logo.jpeg"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,20 +62,20 @@ export default function RecipeReviewCard(result) {
         //   </IconButton>
         // }
         title={result.name}
-        subheader="September 14, 2016"
+        subheader={result.date}
       />
       <CardMedia
         className={classes.media}
-        image="/static/images/cards/paella.jpg"
+        image={LOGO}
         title="Paella dish"
       />
-      <CardContent>
+      {/* <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like.
         </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
+      </CardContent> */}
+      {/* <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
@@ -91,7 +92,7 @@ export default function RecipeReviewCard(result) {
         >
           <ExpandMoreIcon />
         </IconButton>
-      </CardActions>
+      </CardActions> */}
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Method:</Typography>
