@@ -11,33 +11,33 @@ class HomePage extends Component {
     // console.log(props.location)
     this.state = {
       data: props.location.data,
-      allUsers: []
+      allUsers: [],
+      productions: [],
     }
-    let get = this.fetch('productions.json');
-    console.log(get);
+    // let get = this.fetch('productions.json');
+    // console.log(get);
     
   }
 
-  fetch(wanted_name){
-    let reff = storage.ref('');
-    let ret = 'aaaa';
-    reff.list().then(function (res) {
-      res.prefixes.forEach(function (fix) {
-        // console.log(fix.name)
-      })
-      res.items.forEach(function (item){
-        if (item.name == wanted_name) {
-          ret = item.toString()
-        }
+  // fetch(wanted_name){
+  //   let reff = storage.ref('');
+  //   let ret = 'aaaa';
+  //   reff.list().then(function (res) {
+  //     res.prefixes.forEach(function (fix) {
+  //       // console.log(fix.name)
+  //     })
+  //     res.items.forEach(function (item){
+  //       if (item.name == wanted_name) {
+  //         ret = item.toString()
+  //       }
         
-      })
-    })
-    return ret;
+  //     })
+  //   })
+  //   return ret
+  //}
 
-  }
   async componentDidMount() {
     // console.log("********* started did mount **********")
-    
     let user = auth.currentUser;
     if (user == null) {
       // console.log("NOT signed in")
@@ -54,12 +54,24 @@ class HomePage extends Component {
         pathname: '/Home',
         data: user
       })
-      // console.log(user)
+      this.getData();
     }
 
     // var all_users = await db.collection("user").get()//user:name of collection on db
     // this.setState({ allUsers: all_users.docs })
     // console.log(all_users.docs)
+  }
+
+  getData()
+  {
+    var allProductions=[]
+    db.collection("productions").get().then(res=>{
+      res.forEach(production => {
+        allProductions.push(production.data())
+        console.log(production.data().name)
+      });
+    })
+    this.setState({productions:allProductions})
   }
 
   render() {//Called whenever there is a change in state
@@ -90,6 +102,12 @@ class HomePage extends Component {
             </li>
           </ul>
         </nav>
+        {
+         console.log(this.state.productions) 
+        }
+        <button onClick={()=>{
+        this.getData()
+        }} >click me</button>
         <img id='home_logo' src={LOGO} alt=""></img>
       </div>
 
