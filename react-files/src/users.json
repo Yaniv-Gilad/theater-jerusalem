@@ -1,0 +1,26 @@
+[
+  {
+    "name": "noam",
+    "password": "password1",
+    "profession": "king",
+    "id": "1",
+    "last_update": "29/04/2021",
+    "description": " קשה יש רק בלחם וגם אותו אוכלים"
+  },
+  {
+    "name": "daniel",
+    "password": "password1",
+    "profession": "king",
+    "id": "3",
+    "last_update": "26/03/2021",
+    "description": " בסוף זה יעבוד"
+  },
+  {
+    "name": "Miriam N",
+    "password": "1234567",
+    "profession": "Lecturer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": " ננוח כבר בקבר"
+  }
+]
