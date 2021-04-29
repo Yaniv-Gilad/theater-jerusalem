@@ -17,7 +17,7 @@ class File_comp extends Component {
       <div className="File_comp">
         {Data.map((data,index) =>(
         <div>
-            <Card name={Data.name}/>
+            <Card name={data.name}  date ={data.last_update}/>
             {console.log(Data.name)}
         </div>
         ))}
