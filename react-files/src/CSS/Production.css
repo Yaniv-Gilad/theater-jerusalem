@@ -1,8 +1,14 @@
 .Production p{
-    color: black;
+    color: white;
 }
 
 .Production{
     background-color: rgb(161, 161, 161);
+    margin: 4%;
+    display: inline-block;
+    max-width: 20%;
+}
 
+.Production button{
+    background-color: rgb(155, 154, 155);
 }

@@ -20,7 +20,7 @@ class HomePage extends Component {
 
   async componentDidMount() {
     console.log("********* started did mount **********")
-    
+
     let user = auth.currentUser;
     if (user == null) {
       console.log("NOT signed in")
@@ -50,7 +50,7 @@ class HomePage extends Component {
     return (
       <div className="HomePage">
         {dataToRender}
-        <button onClick={() => {
+        <button id="logout" onClick={() => {
           this.props.history.push(
             {
               pathname: "/"
