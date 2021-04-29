@@ -16,7 +16,7 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <img src={LOGO} id="logo"></img>
+        <img src={LOGO} id="logo" alt="logo pic"></img>
         <div class="login">
 
           <input type="text" placeholder="userName@email.com" id="username"
@@ -30,14 +30,14 @@ class Login extends Component {
               this.setState({ password: event.target.value })
             }}
             onKeyDown={(event) => {
-              if (event.key == 'Enter') {
+              if (event.key === 'Enter') {
                 this.login()
                 console.log(this.state)
               }
             }}
           />
 
-          <a href="#" class="forgot">forgot password?</a>
+          <a href="/" class="forgot">forgot password?</a>
 
           <input type="submit" value="כניסה למערכת"
             onClick={() => {

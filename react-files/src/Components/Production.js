@@ -19,7 +19,7 @@ class Production extends Component {
         return (
             <a href={this.state.href}>
                 <div className="Production">
-                    <img src={MASK} id="mask" width="120px" height="120px"></img>
+                    <img src={MASK} id="mask" width="120px" height="120px" alt="producation logo"></img>
                     <p>{this.state.name}</p>
                     <p>{this.state.description}</p>
                     <p>{this.state.lastUpdated}</p>
