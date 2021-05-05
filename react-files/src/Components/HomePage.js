@@ -1,10 +1,10 @@
 import { Component } from "react"
-import { auth, db, storage} from "../Firebase/firebase"
+import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/HomePage.css'
 import Production from "./Production.js"
 import prodData from "../productionsData.js"
 import LOGO from '../Photos/logo.jpeg'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 class HomePage extends Component {
   constructor(props) {
@@ -14,12 +14,12 @@ class HomePage extends Component {
     this.state = {
       data: props.location.data,
       allUsers: [],
-      images : []
+      projects: []
     }
   }
-  getIMGdiv(){
-    return this.state.images.map((image,index)=>(
-      <img key ={index} width="100" height="100" src={image}/>
+  getIMGdiv() {
+    return this.state.images.map((image, index) => (
+      <img key={index} width="100" height="100" src={image} />
     ))
   }
 
@@ -28,7 +28,6 @@ class HomePage extends Component {
 
     let user = auth.currentUser;
     if (user == null) {
-      // console.log("NOT signed in")
       this.props.history.push(
         {
           pathname: "/"
@@ -36,34 +35,35 @@ class HomePage extends Component {
     }
 
     else {
-      // console.log("signed in !!")
       this.setState({ user: user })
       this.props.history.push({
         pathname: '/Home',
         data: user
       })
-      storage.refFromURL("gs://theater-841bd.appspot.com").listAll().then(res=>{
-        // res.prefixes.forEach(async file=>{
-        //   var typeFile = file.name.split(".")
-        //   console.log(file.list())
-        //     // if(typeFile[typeFile.length-1]=="png"||typeFile[typeFile.length-1]=="jpeg") {
-        //         var image = await file.getDownloadURL()
-        //         images.push(image)
-        // })
-        let arr = []
-        res.items.forEach(async file=>{
-            var typeFile = file.name.split(".")
-            //if(typeFile[typeFile.length-1]=="png"||typeFile[typeFile.length-1]=="jpeg") {
-            var image = await file.getDownloadURL()
-              arr.push(image);
-        })
-        this.setState({...this.state, images: arr})
-      })
+
+      storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+        .then((res) => {
+          let p = []
+          res.prefixes.forEach((folderRef) => {
+           
+            let name = folderRef.name;
+            // var forestRef = storage.ref().child(name + "/");
+            // forestRef.getMetadata()
+            //   .then((metadata) => {
+            //     console.log(metadata)
+            //   })
+
+            let p1 = { "name": name }
+            p.push(p1)
+          });
+
+          this.setState({ ...this.state, projects: p })
+          console.log(this.state.projects)
+        }
+        );
+      
     }
 
-    // var all_users = await db.collection("user").get()//user:name of collection on db
-    // this.setState({ allUsers: all_users.docs })
-    // console.log(all_users.docs)
   }
 
   render() {//Called whenever there is a change in state
@@ -85,7 +85,7 @@ class HomePage extends Component {
   }
 
   getData() {
-    let dataToReturn = prodData.map(production => <Production prod={production} />);
+    let dataToReturn = this.state.projects.map(production => <Production prod={production} />);
     return dataToReturn;
   }
 
