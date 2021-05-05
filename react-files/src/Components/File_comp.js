@@ -15,11 +15,13 @@ class File_comp extends Component {
   render() {
     return (
       <div className="File_comp">
+        <h1>{"פה בשביל לעודד"}</h1>
+        <p></p>
         {Data.map((data,index) =>(
-        <div>
-            <Card name={data.name}  date ={data.last_update}/>
-            {console.log(Data.name)}
-        </div>
+            <Card name = {data.name} description = {data.description}/>
+            // {/* <Card name={data.name}  date ={data.last_update} type ={data.type}/>
+            // {console.log(Data.name)} */}
+            
         ))}
           
       </div>
