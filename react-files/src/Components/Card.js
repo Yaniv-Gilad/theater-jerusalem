@@ -24,7 +24,7 @@ class Card extends Component {
       {/* <button id="imgButton"> */}
       <p></p>
           <img src={TRASH}></img>
-          {/* </button> */}
+          {/* </button> */ }
 
       </div>
 
