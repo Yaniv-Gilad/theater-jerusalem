@@ -1,5 +1,10 @@
+
 .HomePage{
   color: black;
+
+.HomePage body{
+  font-family: 'Roboto', sans-serif;
+  background: #fff;
 }
 
 .HomePage button{
@@ -9,8 +14,25 @@
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #631111;
+    background-color: #c72121;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 0 9px #999;
   }
+
+
+#home_logo{
+  position:absolute;
+  width: 100px;
+  height: 100px;
+  right: 2%;
+  top : 2%;
+}
+
+nav li{
+  display: inline-block;
+  margin: 20px;
+  padding: 50px;
+  left: 20%;
+  top : 50%;
+}
