@@ -14,9 +14,13 @@ class Login extends Component {
     }
   }
 
+
   render() {
+
     return (
+
       <div className="Login">
+        <div id="welcome">ברוכים הבאים</div>
         <img src={LOGO} id="logo" alt="logo pic"></img>
         <div class="login">
         <img src={curtain} id="curtain" alt="curtain"></img>

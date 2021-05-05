@@ -20,6 +20,14 @@
   text-align: center;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.2), 0 1px 0 #fff;
 }
+#welcome{
+    color: #74031b;
+    position: absolute;
+    left: 42%;
+    top: 10%;
+    font-size: 50px;
+    font-family:serif
+  }
 input[type="password"], input[type="text"] {
   background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
   border: 1px solid #a1a3a3;
@@ -48,7 +56,7 @@ input[type="password"]:focus, input[type="text"]:focus {
   background: url(http://i.minus.com/ibitS19pe8PVX6.png) no-repeat;
   display: block;
   height: 16px;
-  margin-top: -20px;
+  margin-top: -10px;
   width: 87px;
   z-index: -1;
 }
@@ -81,8 +89,8 @@ input[type="submit"] {
   position:relative;
   cursor:pointer;
   border: none;  
-  background-color: #8a0220;
-  background-image: linear-gradient(top,#3db0a6,#3111);
+  background-color: #7c0b24e7;
+  background-image: linear-gradient(top,#3db0a6,rgba(41, 15, 15, 0.067));
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
