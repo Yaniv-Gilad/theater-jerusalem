@@ -11,30 +11,16 @@ class HomePage extends Component {
     // console.log(props.location)
     this.state = {
       data: props.location.data,
-      allUsers: []
+      allUsers: [],
+      images : []
     }
-    let get = this.fetch('productions.json');
-    console.log(get);
-    
+  }
+  getIMGdiv(){
+    return this.state.images.map((image,index)=>(
+      <img key ={index} width="100" height="100" src={image}/>
+    ))
   }
 
-  fetch(wanted_name){
-    let reff = storage.ref('');
-    let ret = 'aaaa';
-    reff.list().then(function (res) {
-      res.prefixes.forEach(function (fix) {
-        // console.log(fix.name)
-      })
-      res.items.forEach(function (item){
-        if (item.name == wanted_name) {
-          ret = item.toString()
-        }
-        
-      })
-    })
-    return ret;
-
-  }
   async componentDidMount() {
     // console.log("********* started did mount **********")
     
@@ -54,7 +40,32 @@ class HomePage extends Component {
         pathname: '/Home',
         data: user
       })
-      // console.log(user)
+      storage.refFromURL("gs://theater-841bd.appspot.com").listAll().then(res=>{
+        // res.prefixes.forEach(async file=>{
+        //   var typeFile = file.name.split(".")
+        //   console.log(file.list())
+        //     // if(typeFile[typeFile.length-1]=="png"||typeFile[typeFile.length-1]=="jpeg") {
+        //         var image = await file.getDownloadURL()
+        //         images.push(image)
+        // })
+        let arr = []
+        res.items.forEach(async file=>{
+            var typeFile = file.name.split(".")
+            // console.log(file.name)
+            //if(typeFile[typeFile.length-1]=="png"||typeFile[typeFile.length-1]=="jpeg") {
+            var image = await file.getDownloadURL()
+              // console.log(image)
+              arr.push(image);
+              // console.log(arr)
+
+        })
+        // let old = this.state;
+        // old.images = arr;
+        // this.setState(old)
+        console.log(arr)
+        this.setState({...this.state, images: arr})
+        // console.log('compon '+this.state.images)
+      })
     }
 
     // var all_users = await db.collection("user").get()//user:name of collection on db
@@ -63,33 +74,9 @@ class HomePage extends Component {
   }
 
   render() {//Called whenever there is a change in state
-    // this.fetch();
     return (
       <div className="HomePage">
-        <nav className='home_nav'>
-          <ul>
-            <li>
-            <NavLink className='navlink1' to='/' exact>
-            הפקה חדשה
-            </NavLink>
-            </li>
-            <li>
-            <NavLink className='navlink2' to='/' exact>
-            מחיקת הפקה
-            </NavLink>
-            </li>
-            <li>
-            <NavLink className='navlink3' to='/' exact>
-            navlink3
-            </NavLink>
-            </li>
-            <li>
-            <NavLink className='navlink4' to='/' exact>
-            navlink4
-            </NavLink>
-            </li>
-          </ul>
-        </nav>
+        {/* {console.log(this.getIMGdiv())} */}
         <img id='home_logo' src={LOGO} alt=""></img>
       </div>
 
