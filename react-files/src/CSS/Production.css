@@ -3,11 +3,12 @@
 }
 
 .Production{
-    background-color: rgb(161, 161, 161);
+    background-color: rgb(180, 7, 7);
     margin: 4%;
     display: inline-block;
-    max-width: 20%;
-    max-height: 10%;
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
 }
 
 .Production button{
