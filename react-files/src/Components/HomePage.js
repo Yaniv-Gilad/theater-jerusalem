@@ -2,6 +2,10 @@ import { Component } from "react"
 import { auth, db } from "../Firebase/firebase"
 import '../CSS/HomePage.css'
 
+import Production from "./Production.js"
+import prodData from "../productionsData.js"
+
+
 
 class HomePage extends Component {
   constructor(props) {
@@ -16,7 +20,7 @@ class HomePage extends Component {
 
   async componentDidMount() {
     console.log("********* started did mount **********")
-    
+
     let user = auth.currentUser;
     if (user == null) {
       console.log("NOT signed in")
@@ -42,9 +46,12 @@ class HomePage extends Component {
   }
 
   render() {//Called whenever there is a change in state
+    let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <button onClick={() => {
+        <h2><u>Productions</u></h2>
+        {dataToRender}
+        <button id="logout" onClick={() => {
           this.props.history.push(
             {
               pathname: "/"
@@ -53,6 +60,11 @@ class HomePage extends Component {
       </div>
 
     )
+  }
+
+  getData() {
+    let dataToReturn = prodData.map(production => <Production prod={production} />);
+    return dataToReturn;
   }
 
 }
