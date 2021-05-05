@@ -2,7 +2,7 @@ import { Component } from "react"
 import { auth } from "../Firebase/firebase"
 import '../CSS/Login.css'
 import LOGO from "../Photos/logo.jpeg"
-import curtain from "../Photos/curtain.png"
+import curtain from "../Photos/Unt.png"
 
 
 class Login extends Component {
