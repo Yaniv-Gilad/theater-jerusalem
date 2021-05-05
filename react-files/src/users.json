@@ -1,26 +1,75 @@
 [
   {
-    "name": "noam",
+    "name": "Yael",
     "password": "password1",
     "profession": "king",
     "id": "1",
     "last_update": "29/04/2021",
-    "description": " קשה יש רק בלחם וגם אותו אוכלים"
+    "description": "תחיה את העכשיו",
+    "type": "word"
   },
   {
-    "name": "daniel",
-    "password": "password1",
-    "profession": "king",
-    "id": "3",
-    "last_update": "26/03/2021",
-    "description": " בסוף זה יעבוד"
-  },
-  {
-    "name": "Miriam N",
+    "name": "Yaniv",
     "password": "1234567",
     "profession": "Lecturer",
     "id": "34521377",
     "last_update": "20/02/2021",
-    "description": " ננוח כבר בקבר"
+    "description": "תחיה ותן לחיות",
+    "type": "word"
+  },
+  {
+    "name": "Ella",
+    "password": "dfdg",
+    "profession": "Designer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": "שיואוו",
+    "type": "word"
+  },
+  {
+    "name": "yehuda",
+    "password": "dfdg",
+    "profession": "Designer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": "אוכל",
+    "type": "word"
+  },
+  {
+    "name": "Noa",
+    "password": "dfdg",
+    "profession": "Designer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": "אוכל",
+    "type": "word"
+  },
+  {
+    "name": "Barak",
+    "password": "dfdg",
+    "profession": "Designer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": "ילד טוב",
+    "type": "word"
+  },
+  {
+    "name": "Doron",
+    "password": "dfdg",
+    "profession": "Designer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": "אוכל",
+    "type": "word"
+  },
+  {
+    "name": "Doron",
+    "password": "dfdg",
+    "profession": "Designer",
+    "id": "34521377",
+    "last_update": "20/02/2021",
+    "description": "מזון זה כח",
+    "type": "word"
   }
+
 ]
