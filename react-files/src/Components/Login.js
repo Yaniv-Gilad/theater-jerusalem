@@ -42,7 +42,7 @@ class Login extends Component {
           <input type="submit" value="כניסה למערכת"
             onClick={() => {
               this.login()
-              console.log(this.state)
+              // console.log(this.state)
             }} />
 
         </div>
@@ -56,8 +56,8 @@ class Login extends Component {
   login() {
     auth.signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((res) => {
-        console.log("can login")
-        console.log(res)
+        // console.log("can login")
+        // console.log(res)
         this.props.history.push(
           {
             pathname: "/Home",
