@@ -17,11 +17,6 @@ class HomePage extends Component {
       projects: []
     }
   }
-  getIMGdiv() {
-    return this.state.images.map((image, index) => (
-      <img key={index} width="100" height="100" src={image} />
-    ))
-  }
 
   async componentDidMount() {
     console.log("********* started did mount **********")
@@ -45,14 +40,7 @@ class HomePage extends Component {
         .then((res) => {
           let p = []
           res.prefixes.forEach((folderRef) => {
-           
             let name = folderRef.name;
-            // var forestRef = storage.ref().child(name + "/");
-            // forestRef.getMetadata()
-            //   .then((metadata) => {
-            //     console.log(metadata)
-            //   })
-
             let p1 = { "name": name }
             p.push(p1)
           });
