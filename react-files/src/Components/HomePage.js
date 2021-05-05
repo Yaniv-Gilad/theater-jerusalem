@@ -51,20 +51,11 @@ class HomePage extends Component {
         let arr = []
         res.items.forEach(async file=>{
             var typeFile = file.name.split(".")
-            // console.log(file.name)
             //if(typeFile[typeFile.length-1]=="png"||typeFile[typeFile.length-1]=="jpeg") {
             var image = await file.getDownloadURL()
-              // console.log(image)
               arr.push(image);
-              // console.log(arr)
-
         })
-        // let old = this.state;
-        // old.images = arr;
-        // this.setState(old)
-        console.log(arr)
         this.setState({...this.state, images: arr})
-        // console.log('compon '+this.state.images)
       })
     }
 
