@@ -1,0 +1,23 @@
+
+.File_comp h1 {
+    color:turquoise;
+}
+
+.File_comp .Card{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 15px;
+    border-radius: 50%;
+    background-color:beige; 
+    border: #11ad99;
+    border-width: 5px;
+    border-style: solid;
+    color:turquoise;
+    /* background-color: beige; */
+}
+.File_comp .Card img{
+    width: 20px;
+    height: 20px;
+}
+
