@@ -49,6 +49,7 @@ class HomePage extends Component {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
+        <h2><u>Productions</u></h2>
         {dataToRender}
         <button id="logout" onClick={() => {
           this.props.history.push(
