@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import HomePage from "./Components/HomePage";
 import React from 'react'
@@ -15,6 +16,7 @@ function App() {
           </Switch>
         </Router>
       </header>
+      <Footer/>
     </div>
   );
 }
