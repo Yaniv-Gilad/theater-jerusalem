@@ -72,12 +72,14 @@ class HomePage extends Component {
       <div className="HomePage">
         <h2><u>Productions</u></h2>
         {dataToRender}
+        <div id="wrapper">
         <button id="logout" onClick={() => {
           this.props.history.push(
             {
               pathname: "/"
             })
-        }}>Logout</button>
+          }}>Logout</button>
+        </div>
 
       </div>
 
