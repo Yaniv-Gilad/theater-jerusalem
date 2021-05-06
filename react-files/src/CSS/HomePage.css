@@ -1,38 +1,27 @@
-
-.HomePage{
-  color: black;
+.HomePage {
+  min-width: 100vw;
+  min-height: 100vh;
 }
-.HomePage body{
-  font-family: 'Roboto', sans-serif;
-  background: #fff;
-}
-
-.HomePage button{
-    padding: 15px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #c72121;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 9px #999;
-  }
-
-
-#home_logo{
-  position:absolute;
-  width: 100px;
-  height: 100px;
-  right: 2%;
-  top : 2%;
+.HomePage h4, h1{
+  color:turquoise;
+  text-align: center;
 }
 
-nav li{
+.HomePage .Production{
   display: inline-block;
-  margin: 20px;
-  padding: 50px;
-  left: 20%;
-  top : 50%;
+  width: 200px;
+  height: 200px;
+  margin: 15px;
+  padding: 5%;
+  border-radius: 50%;
+  background-color:beige; 
+  border: #11ad99;
+  border-width: 5px;
+  border-style: solid;
+  color:turquoise;
 }
+.HomePage .Production img{
+  width: 20px;
+  height: 20px;
+}
+

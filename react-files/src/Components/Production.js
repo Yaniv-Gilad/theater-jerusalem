@@ -1,5 +1,5 @@
 import { Component } from "react"
-import '../CSS/Production.css'
+import TRASH from "../Photos/trash.png"
 
 class Production extends Component {
 
@@ -12,18 +12,30 @@ class Production extends Component {
         }
     }
 
-    
 
-    render() {
+    render() {//Called whenever there is a change in state
         return (
-            <a href={this.state.href}>
-                <div className="Production">
-                    <p>{this.state.name}</p>
-                    <p>{this.state.created}</p>
-                </div>
-            </a>
-        );
+            <div className="Production">
+                <h4>{this.state.name}</h4>
+                {this.state.created}
+                <p></p>
+                <img src={TRASH}></img>
+
+            </div>
+
+        )
     }
+
+    // render() {
+    //     return (
+    //         <a href={this.state.href}>
+    //             <div className="Production">
+    //                 <p>{this.state.name}</p>
+    //                 <p>{this.state.created}</p>
+    //             </div>
+    //         </a>
+    //     );
+    // }
 }
 
 export default Production
