@@ -2,6 +2,7 @@ import { Component } from "react"
 import { auth } from "../Firebase/firebase"
 import '../CSS/Login.css'
 import LOGO from "../Photos/logo.jpeg"
+import curtain from "../Photos/Unt.png"
 
 
 class Login extends Component {
@@ -13,12 +14,16 @@ class Login extends Component {
     }
   }
 
+
   render() {
+
     return (
+
       <div className="Login">
+        <div id="welcome">ברוכים הבאים</div>
         <img src={LOGO} id="logo" alt="logo pic"></img>
         <div class="login">
-
+        <img src={curtain} id="curtain" alt="curtain"></img>
           <input type="text" placeholder="userName@email.com" id="username"
             onChange={(event) => {
               this.setState({ email: event.target.value })
