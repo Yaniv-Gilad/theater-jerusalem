@@ -70,7 +70,7 @@ class HomePage extends Component {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <h2><u>Productions</u></h2>
+        <h1><u>Productions</u></h1>
         {dataToRender}
         <div id="wrapper">
         <button id="logout" onClick={() => {

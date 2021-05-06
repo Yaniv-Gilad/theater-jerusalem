@@ -4,23 +4,24 @@
   color: black;
   background-color: beige;
 }
-.HomePage h4, h1{
+/* .HomePage h5{
   color:white;
   text-align: center;
-}
+} */
 
 .HomePage .Production{
   display: inline-block;
-  width: 200px;
-  height: 200px;
-  margin: 15px;
-  padding: 5%;
+  width: 10%;
+  height: 10%;
+  margin: 2%;
+  padding: 3%;
   border-radius: 50%;
   background-color:rgb(167, 167, 167); 
   border: #424649dc;
   border-width: 5px;
   border-style: solid;
   color:#424649dc;
+  font-size: 70%;
 }
 .HomePage .Production img{
   width: 20px;
