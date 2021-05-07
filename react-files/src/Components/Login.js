@@ -23,16 +23,16 @@ class Login extends Component {
         <div id="welcome">ברוכים הבאים</div>
         <img src={LOGO} id="logo" alt="logo pic"></img>
         <div class="login">
-        <img src={curtain} id="curtain" alt="curtain"></img>
+          <img src={curtain} id="curtain" alt="curtain"></img>
           <input type="text" placeholder="userName@email.com" id="username"
             onChange={(event) => {
-              this.setState({ email: event.target.value })
+              this.setState({ ...this.state, email: event.target.value })
             }}
           />
 
           <input type="password" placeholder="password" id="password"
             onChange={(event) => {
-              this.setState({ password: event.target.value })
+              this.setState({ ...this.state, password: event.target.value })
             }}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
@@ -70,7 +70,8 @@ class Login extends Component {
           })
 
       }).catch((e) => {
-        console.log("not found user")
+        alert("Wrong Email or password")
+        //console.log("not found user")
       })
   }
 }
