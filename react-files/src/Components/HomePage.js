@@ -3,7 +3,7 @@ import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/HomePage.css'
 import Production from "./Production.js"
 import prodData from "../productionsData.js"
-import LOGO from '../Photos/logo.jpeg'
+import LOGO from '../Photos/logo.jpg'
 import { NavLink } from 'react-router-dom'
 
 class HomePage extends Component {
