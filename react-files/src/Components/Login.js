@@ -1,7 +1,7 @@
 import { Component } from "react"
 import { auth } from "../Firebase/firebase"
 import '../CSS/Login.css'
-import LOGO from "../Photos/logo.jpg"
+import LOGO from "../Photos/logo.png"
 import curtain from "../Photos/Unt.png"
 
 
