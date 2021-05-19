@@ -15,8 +15,9 @@ function App() {
             <Route exact path="/Home" component={HomePage} />
           </Switch>
         </Router>
+        <Footer className='footer'/>
       </header>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
