@@ -47,6 +47,8 @@ class HomePage extends Component {
           res.prefixes.forEach((folderRef) => {
            
             let name = folderRef.name;
+            if (name == "ARCHIVE")
+              return;
             // var forestRef = storage.ref().child(name + "/");
             // forestRef.getMetadata()
             //   .then((metadata) => {
