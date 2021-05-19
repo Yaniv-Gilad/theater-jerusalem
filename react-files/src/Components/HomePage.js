@@ -6,6 +6,7 @@ import prodData from "../productionsData.js"
 import LOGO from '../Photos/logo.png'
 import { NavLink } from 'react-router-dom'
 import ARCHIVE from "../Photos/archive.png"
+import ADD from "../Photos/add_black_24dp.png"
 
 class HomePage extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class HomePage extends Component {
         {dataToRender}
         <div id="wrapper">
         <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
         
         <button id="logout" onClick={() => {
           this.props.history.push(
