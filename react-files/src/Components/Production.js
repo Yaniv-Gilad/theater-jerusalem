@@ -21,7 +21,7 @@ class Production extends Component {
                 <h4>{this.state.name}</h4>
                 {this.state.created}
                 <p></p>
-                <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+                <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">העברה לארכיון</span></button>
 
             </div>
         )
