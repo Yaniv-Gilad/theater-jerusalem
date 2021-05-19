@@ -25,7 +25,7 @@ class HomePage extends Component {
     ))
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     let user = auth.currentUser;
 
     // if user didnt logged in
