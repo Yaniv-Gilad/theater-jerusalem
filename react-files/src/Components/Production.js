@@ -1,6 +1,6 @@
 import { Component } from "react"
 import TRASH from "../Photos/trash.png"
-import ARCHIVE from "../Photos/blackarchives.jpg"
+import ARCHIVE from "../Photos/archive.png"
 import '../CSS/Production.css'
 
 class Production extends Component {
