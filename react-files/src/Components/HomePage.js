@@ -12,11 +12,11 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
 
-    // console.log(props.location)
     this.state = {
       data: props.location.data,
       allUsers: [],
-      projects: []
+      projects: [],
+      archive: [] // all the archive projects
     }
   }
   getIMGdiv() {
@@ -26,9 +26,9 @@ class HomePage extends Component {
   }
 
   async componentDidMount() {
-    console.log("********* started did mount **********")
-
     let user = auth.currentUser;
+
+    // if user didnt logged in
     if (user == null) {
       this.props.history.push(
         {
@@ -42,35 +42,26 @@ class HomePage extends Component {
         pathname: '/Home',
         data: user
       })
-
+      
+      let arch = this.getArchive(); // get archived projects
       storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
         .then((res) => {
           let p = []
           res.prefixes.forEach((folderRef) => {
-           
             let name = folderRef.name;
-            if (name == "ARCHIVE")
-              return;
-            // var forestRef = storage.ref().child(name + "/");
-            // forestRef.getMetadata()
-            //   .then((metadata) => {
-            //     console.log(metadata)
-            //   })
-
             let p1 = { "name": name }
             p.push(p1)
           });
 
-          this.setState({ ...this.state, projects: p })
-          console.log(this.state.projects)
+          this.setState({ ...this.state, projects: p, archive: arch });
         }
         );
-      
+
     }
 
   }
 
-  render() {//Called whenever there is a change in state
+  render() {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
@@ -95,8 +86,34 @@ class HomePage extends Component {
   }
 
   getData() {
-    let dataToReturn = this.state.projects.map(production => <Production prod={production} />);
+    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
+    let dataToReturn = notArchived.map(production => <Production prod={production} />);
     return dataToReturn;
+  }
+
+   getProjects() {
+    let p = []
+    storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+      .then((res) => {
+        res.prefixes.forEach((folderRef) => {
+          let name = folderRef.name;
+          let p1 = { "name": name }
+          p.push(p1)
+        });
+      }
+      );
+    return p;
+  }
+
+   getArchive() {
+    let arch = [];
+    db.collection("archive").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        arch.push(doc.data()["name"]);
+      });
+    });
+    return arch;
   }
 
 }
