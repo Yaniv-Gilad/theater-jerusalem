@@ -22,9 +22,6 @@
 }
 #welcome{
     color: #74031b;
-    position: absolute;
-    left: 42%;
-    top: 10%;
     font-size: 50px;
     font-family:serif
   }
