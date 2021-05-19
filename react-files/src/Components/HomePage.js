@@ -42,7 +42,7 @@ class HomePage extends Component {
         pathname: '/Home',
         data: user
       })
-      
+
       let arch = this.getArchive(); // get archived projects
       storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
         .then((res) => {
@@ -68,16 +68,16 @@ class HomePage extends Component {
         <h1><u>Productions</u></h1>
         {dataToRender}
         <div id="wrapper">
-        <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
-        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
-        
-        <button id="logout" onClick={() => {
-          this.props.history.push(
-            {
-              pathname: "/"
-            })
+          <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+          <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
+
+          <button id="logout" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/"
+              })
           }}>Logout</button>
-        
+
         </div>
 
       </div>
@@ -91,7 +91,7 @@ class HomePage extends Component {
     return dataToReturn;
   }
 
-   getProjects() {
+  getProjects() {
     let p = []
     storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
       .then((res) => {
@@ -105,7 +105,7 @@ class HomePage extends Component {
     return p;
   }
 
-   getArchive() {
+  getArchive() {
     let arch = [];
     db.collection("archive").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
