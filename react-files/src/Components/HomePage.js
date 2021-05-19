@@ -4,7 +4,6 @@ import '../CSS/HomePage.css'
 import Production from "./Production.js"
 import prodData from "../productionsData.js"
 import LOGO from '../Photos/logo.png'
-import { NavLink } from 'react-router-dom'
 
 class HomePage extends Component {
   constructor(props) {
@@ -17,11 +16,11 @@ class HomePage extends Component {
       projects: []
     }
   }
-  getIMGdiv() {
-    return this.state.images.map((image, index) => (
-      <img key={index} width="100" height="100" src={image} />
-    ))
-  }
+  // getIMGdiv() {
+  //   return this.state.images.map((image, index) => (
+  //     <img key={index} width="100" height="100" src={image} />
+  //   ))
+  // }
 
   async componentDidMount() {
     console.log("********* started did mount **********")
@@ -59,7 +58,7 @@ class HomePage extends Component {
             p.push(p1)
           });
 
-          this.setState({ ...this.state, projects: p })
+          this.setState({ ...this.state, projects: p})
           console.log(this.state.projects)
         }
         );
@@ -72,7 +71,7 @@ class HomePage extends Component {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <h1><u>Productions</u></h1>
+        <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
         <button id="logout" onClick={() => {
@@ -80,7 +79,7 @@ class HomePage extends Component {
             {
               pathname: "/"
             })
-          }}>Logout</button>
+          }}>התנתק</button>
         </div>
 
       </div>
