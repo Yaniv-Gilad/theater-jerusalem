@@ -8,21 +8,21 @@ class Production extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.prod.name,
-            created: props.prod.created,
-            href: props.prod.href
+            name: props.prod.name
         }
     }
-
 
     render() {//Called whenever there is a change in state
         return (
             <div className="Production">
-                <h4>{this.state.name}</h4>
-                {this.state.created}
+                <button id={this.state.name} onClick={() => {
+          this.props.history.push(
+            {
+              pathname: "/"
+            })
+                }}>{this.state.name}</button>
                 <p></p>
                 <button><img src={ARCHIVE}></img></button>
-
             </div>
         )
     }
