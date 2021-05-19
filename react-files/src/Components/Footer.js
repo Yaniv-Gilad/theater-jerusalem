@@ -23,7 +23,7 @@ class Footer extends Component {
                                 <a href="#"><i class="fa fa-google"></i></a>
                             </div>
                         </div>
-                        <p class="copyright"> © 2021</p>
+                        {/* <p class="copyright"> © 2021</p> */}
                     </div>
                 </footer>
             </div>

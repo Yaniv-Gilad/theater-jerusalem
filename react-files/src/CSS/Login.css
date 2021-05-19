@@ -1,12 +1,15 @@
+
 .login {
-  background: #eceeee;
-  border: 1px solid #42464b;
-  border-radius: 6px;
+  background: #efe9d2;
+  /* background-color: mix(in srgb, beige 50%, #74031b 50%); */
+  /* border: 1px solid #42464b; */
+  /* border-radius: 6px; */
   height: 257px;
   margin: 20px auto 0;
   width: 298px;
 }
-.login h1 {
+
+/* .login h1 {
   background-image: linear-gradient(top, #f1f3f3, #d4dae0);
   border-bottom: 1px solid #a6abaf;
   border-radius: 6px 6px 0 0;
@@ -19,11 +22,12 @@
   margin: 0;
   text-align: center;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.2), 0 1px 0 #fff;
-}
+} */
 #welcome{
     color: #74031b;
     font-size: 50px;
-    font-family:serif
+    font-family: 'Assistant', sans-serif;
+    /* font-family:serif */
   }
 input[type="password"], input[type="text"] {
   background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);
@@ -112,8 +116,10 @@ input[type="submit"]:active {
 }
 #curtain{
   position: absolute;
+  /* padding-bottom: 100px; */
+  /* margin-bottom: 20px; */
   width: 20%;
-  height: 100%;
+  height: 89%;
   left: 0%;
   top: 0%;
 }

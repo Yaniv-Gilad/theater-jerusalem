@@ -10,7 +10,6 @@
   text-align: center;
 } */
 
-
 .HomePage .Production{
   display: inline-block;
   width: 10%;
@@ -30,6 +29,43 @@
   height: 20px;
 }
 
+.HomePage button{
+  background-color: transparent;
+  border: none;
+}
+.HomePage button img{
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.HomePage #archive:hover .tooltiptext{
+  /* background-color: #424649dc; */
+  visibility: visible;
+}
+
+.HomePage #add:hover .tooltiptext{
+  /* background-color: #424649dc; */
+  visibility: visible;
+}
+
+.HomePage .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+
+
 .HomePage #wrapper {
   margin: 5%;
   display: flex;
@@ -42,6 +78,11 @@
   padding: 1%;
   background-color: rgb(145, 0, 0);
   color: white;
+  height:36px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+
   font-size: xx-large;
 }
 
