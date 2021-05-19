@@ -88,7 +88,8 @@ class HomePage extends Component {
   }
 
   getData() {
-    let dataToReturn = this.state.projects.map(production => <Production prod={production} />);
+    
+    let dataToReturn = this.state.projects.map(production => <Production prod={production}/>);
     return dataToReturn;
   }
 
