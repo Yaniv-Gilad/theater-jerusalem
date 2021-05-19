@@ -38,8 +38,6 @@
 }
 
 .HomePage #logout {
-  /* width: 5%;
-  height: 2%; */
   border-radius: 50%;
   padding: 1%;
   background-color: rgb(145, 0, 0);
@@ -47,8 +45,12 @@
   font-size: xx-large;
 }
 
-.HomePage #logout :hover {
+.HomePage #logout:hover {
   background-color: rgb(87, 0, 0);
-  color: rgb(71, 0, 0);
 }
+
+.HomePage button:hover {
+  cursor:pointer;
+}
+
 
