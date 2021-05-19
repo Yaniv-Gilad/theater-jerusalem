@@ -1,5 +1,6 @@
 import { Component } from "react"
 import TRASH from "../Photos/trash.png"
+import '../CSS/Production.css'
 
 class Production extends Component {
 
@@ -19,23 +20,11 @@ class Production extends Component {
                 <h4>{this.state.name}</h4>
                 {this.state.created}
                 <p></p>
-                <img src={TRASH}></img>
+                <button><img src={TRASH}></img></button>
 
             </div>
-
         )
     }
-
-    // render() {
-    //     return (
-    //         <a href={this.state.href}>
-    //             <div className="Production">
-    //                 <p>{this.state.name}</p>
-    //                 <p>{this.state.created}</p>
-    //             </div>
-    //         </a>
-    //     );
-    // }
 }
 
 export default Production
