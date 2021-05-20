@@ -11,19 +11,19 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className="footer-dark">
+            <div class="footer-dark">
                 <footer>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col item social">
-                                <a href="#"><i className="fa fa-facebook"></i></a>
-                                <a href="#"><i className="fa fa-twitter"></i></a>
-                                <a href="#"><i className="fa fa-youtube"></i></a>
-                                <a href="#"><i className="fa fa-instagram"></i></a>
-                                <a href="#"><i className="fa fa-google"></i></a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col item social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google"></i></a>
                             </div>
                         </div>
-                        {/* <p className="copyright"> © 2021</p> */}
+                        {/* <p class="copyright"> © 2021</p> */}
                     </div>
                 </footer>
             </div>
