@@ -1,4 +1,5 @@
 import { Component } from "react"
+import { db, storage } from "../Firebase/firebase"
 import ARCHIVE from "../Photos/archive.png"
 import '../CSS/Production.css'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -14,9 +15,8 @@ class Production extends Component {
         this.moveToArchive = this.moveToArchive.bind(this);
     }
 
-    render() {//Called whenever there is a change in state
+    render() {
         let _name = this.state.name;
-        console.log(_name)
         return (
             <div className="Production">
                 <Link to={{ pathname: "/file", name: { _name } }}>{_name}</Link>
@@ -26,9 +26,13 @@ class Production extends Component {
         )
     }
 
+    // need to fix !!!!!!!!!!!!!!! //
     moveToArchive() {
-        console.log("clicked");
-        this.state.getArchive();
+        let _name = this.state.name.toString();
+        db.collection("archive").doc(_name).set({ name: _name }).then(() => {
+            console.log("Document '" + _name + "' added to archive!");
+            this.state.getArchive();
+        });
     }
 }
 
