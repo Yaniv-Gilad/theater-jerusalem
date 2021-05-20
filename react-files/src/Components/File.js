@@ -47,6 +47,7 @@ class File extends Component {
                 })
             }}>למסך הבית</button>
             </div>
+        </div>
 
         )
     }
