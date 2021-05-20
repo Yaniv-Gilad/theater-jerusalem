@@ -10,25 +10,24 @@ class Footer extends Component {
 
 
     render() {
-        return null
-        // return (
-            // <div class="footer-dark">
-            //     <footer>
-            //         <div class="container">
-            //             <div class="row">
-            //                 <div class="col item social">
-            //                     <a href="#"><i class="fa fa-facebook"></i></a>
-            //                     <a href="#"><i class="fa fa-twitter"></i></a>
-            //                     <a href="#"><i class="fa fa-youtube"></i></a>
-            //                     <a href="#"><i class="fa fa-instagram"></i></a>
-            //                     <a href="#"><i class="fa fa-google"></i></a>
-            //                 </div>
-            //             </div>
-            //             <p class="copyright"> © 2021</p>
-            //         </div>
-            //     </footer>
-            // </div>
-        // );
+        return (
+            <div class="footer-dark">
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col item social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        {/* <p class="copyright"> © 2021</p> */}
+                    </div>
+                </footer>
+            </div>
+        );
     }
 }
 

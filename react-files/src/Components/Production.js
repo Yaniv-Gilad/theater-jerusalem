@@ -20,7 +20,7 @@ class Production extends Component {
             <div className="Production">
                 <Link to={{pathname:"/file", name:{_name}}}>{_name}</Link>
                 <p></p>
-                <button><img src={ARCHIVE}></img></button>
+                <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
             </div>
         )
     }

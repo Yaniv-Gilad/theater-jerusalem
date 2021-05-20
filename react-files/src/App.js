@@ -4,7 +4,8 @@ import Login from "./Components/Login";
 import HomePage from "./Components/HomePage";
 import File from "./Components/File";
 import Production from "./Components/Production";
-import React from 'react'
+import React from 'react';
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -19,8 +20,8 @@ function App() {
             <Route exact path="" component={Production} />
           </Switch>
         </Router>
+        <Footer className='footer'/>
       </header>
-      <Footer/>
     </div>
   );
 }

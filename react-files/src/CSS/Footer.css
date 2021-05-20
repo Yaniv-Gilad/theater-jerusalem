@@ -1,7 +1,11 @@
 .footer-dark {
-    padding: 2% 0;
+    padding: 7px 0;
     color: #f0f9ff;
-    background-color: #282d32
+    background-color: #282d32;
+    width: 100vw;
+    position: absolute;
+    height: 8%; 
+    bottom: 0%;
 }
 
 .footer-dark h3 {
@@ -36,9 +40,9 @@
     }
 }
 
-.footer-dark .item.text {
+/* .footer-dark .item.text {
     margin-bottom: 36px
-}
+} */
 
 @media (max-width:767px) {
     .footer-dark .item.text {
@@ -58,11 +62,12 @@
 @media (max-width:991px) {
     .footer-dark .item.social {
         text-align: center;
-        margin-top: 20px
+        margin-top: 20px;
     }
 }
 
 .footer-dark .item.social>a {
+    /* עיגולים */
     font-size: 20px;
     width: 36px;
     height: 36px;
@@ -72,6 +77,8 @@
     border-radius: 50%;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
     margin: 0 8px;
+    /* margin-top: 2px; */
+    /* margin-bottom: 2px; */
     color: #fff;
     opacity: 0.75
 }

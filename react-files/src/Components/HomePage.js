@@ -4,28 +4,26 @@ import '../CSS/HomePage.css'
 import Production from "./Production.js"
 import prodData from "../productionsData.js"
 import LOGO from '../Photos/logo.png'
+import { NavLink } from 'react-router-dom'
+import ARCHIVE from "../Photos/archive.png"
+import ADD from "../Photos/add_black_24dp.png"
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
 
-    // console.log(props.location)
     this.state = {
       data: props.location.data,
       allUsers: [],
-      projects: []
+      projects: [],
+      archive: [] // all the archive projects
     }
   }
-  // getIMGdiv() {
-  //   return this.state.images.map((image, index) => (
-  //     <img key={index} width="100" height="100" src={image} />
-  //   ))
-  // }
 
-  async componentDidMount() {
-    console.log("********* started did mount **********")
-
+  componentDidMount() {
     let user = auth.currentUser;
+
+    // if user didnt logged in
     if (user == null) {
       this.props.history.push(
         {
@@ -39,41 +37,35 @@ class HomePage extends Component {
         pathname: '/Home',
         data: user
       })
-
+      
+      let arch = this.getArchive(); // get archived projects
       storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
         .then((res) => {
           let p = []
           res.prefixes.forEach((folderRef) => {
-           
             let name = folderRef.name;
-            if (name == "ARCHIVE")
-              return;
-            // var forestRef = storage.ref().child(name + "/");
-            // forestRef.getMetadata()
-            //   .then((metadata) => {
-            //     console.log(metadata)
-            //   })
-
             let p1 = { "name": name }
             p.push(p1)
           });
 
-          this.setState({ ...this.state, projects: p})
-          console.log(this.state.projects)
+          this.setState({ ...this.state, projects: p, archive: arch });
         }
         );
-      
+
     }
 
   }
 
-  render() {//Called whenever there is a change in state
+  render() {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
         <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
+        <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
+        
         <button id="logout" onClick={() => {
           this.props.history.push(
             {
@@ -88,9 +80,34 @@ class HomePage extends Component {
   }
 
   getData() {
-    
-    let dataToReturn = this.state.projects.map(production => <Production prod={production}/>);
+    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
+    let dataToReturn = notArchived.map(production => <Production prod={production} />);
     return dataToReturn;
+  }
+
+   getProjects() {
+    let p = []
+    storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+      .then((res) => {
+        res.prefixes.forEach((folderRef) => {
+          let name = folderRef.name;
+          let p1 = { "name": name }
+          p.push(p1)
+        });
+      }
+      );
+    return p;
+  }
+
+   getArchive() {
+    let arch = [];
+    db.collection("archive").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        arch.push(doc.data()["name"]);
+      });
+    });
+    return arch;
   }
 
 }
