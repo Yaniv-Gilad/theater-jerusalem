@@ -29,7 +29,8 @@ class Production extends Component {
         }
         return (
             <div className="Production">
-                <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}</Link>
+                <Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}<span class="tooltiptextname">{_name}</span></Link>
+
                 <p></p>
                 <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">העברה לארכיון</span></button>
             </div>
