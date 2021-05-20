@@ -12,69 +12,45 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
 
-    // console.log(props.location)
     this.state = {
       data: props.location.data,
       allUsers: [],
-      projects: []
+      projects: [],
+      archive: [] // all the archive projects
     }
-  }
-  getIMGdiv() {
-    return this.state.images.map((image, index) => (
-      <img key={index} width="100" height="100" src={image} />
-    ))
+
+    this.getProjects = this.getProjects.bind(this);
+    this.getArchive = this.getArchive.bind(this);
   }
 
-  async componentDidMount() {
-    console.log("********* started did mount **********")
-
+  componentDidMount() {
     let user = auth.currentUser;
+
+    // if user didnt logged in
     if (user == null) {
       this.props.history.push(
         {
           pathname: "/"
-        })
+        });
+      return;
     }
 
-    else {
-      this.setState({ user: user })
-      this.props.history.push({
-        pathname: '/Home',
-        data: user
-      })
+    // else -> user logged in
+    this.setState({ user: user })
+    this.props.history.push({
+      pathname: '/Home',
+      data: user
+    })
 
-      storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
-        .then((res) => {
-          let p = []
-          res.prefixes.forEach((folderRef) => {
-           
-            let name = folderRef.name;
-            if (name == "ARCHIVE")
-              return;
-            // var forestRef = storage.ref().child(name + "/");
-            // forestRef.getMetadata()
-            //   .then((metadata) => {
-            //     console.log(metadata)
-            //   })
-
-            let p1 = { "name": name }
-            p.push(p1)
-          });
-
-          this.setState({ ...this.state, projects: p })
-          console.log(this.state.projects)
-        }
-        );
-      
-    }
-
+    this.getProjects();
+    this.getArchive();
   }
 
-  render() {//Called whenever there is a change in state
+  render() {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <h1><u>Productions</u></h1>
+        <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
         <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
@@ -85,18 +61,42 @@ class HomePage extends Component {
             {
               pathname: "/"
             })
-          }}>Logout</button>
-        
+          }}>התנתק</button>
         </div>
-
       </div>
 
     )
   }
 
   getData() {
-    let dataToReturn = this.state.projects.map(production => <Production prod={production} />);
+    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
+    let dataToReturn = notArchived.map(production => <Production prod={production} />);
     return dataToReturn;
+  }
+
+  getProjects() {
+    storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+      .then((res) => {
+        let p = []
+        res.prefixes.forEach((folderRef) => {
+          let name = folderRef.name;
+          let p1 = { "name": name }
+          p.push(p1)
+        });
+
+        this.setState({ ...this.state, projects: p });
+      }
+      );
+  }
+
+  getArchive() {
+    let arch = [];
+    db.collection("archive").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        arch.push(doc.data()["name"]);
+      });
+    });
+    this.setState({ ...this.state, archive: arch });
   }
 
 }
