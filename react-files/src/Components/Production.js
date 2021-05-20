@@ -15,10 +15,21 @@ class Production extends Component {
 
     render() {//Called whenever there is a change in state
         let _name = this.state.name;
-        console.log(_name)
+        let sub = _name;
+        let type = null;
+        let type_ind = _name.indexOf(".");
+        let fixed_name = null;
+        if(type_ind != -1){
+            sub = _name.substring(0, type_ind);
+            type = _name.substring(type_ind, _name.length);
+            sub = sub.substring(0, 20-type.length);
+            fixed_name = sub + type;
+        }else{
+            fixed_name = _name.substring(0, 20);
+        }
         return (
             <div className="Production">
-                <Link  style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{_name}</Link>
+                <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}</Link>
                 <p></p>
                 <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">העברה לארכיון</span></button>
             </div>
