@@ -10,7 +10,7 @@
   text-align: center;
 } */
 
-.HomePage .Production{
+/* .HomePage .Production{
   display: inline-block;
   width: 10%;
   height: 10%;
@@ -27,7 +27,7 @@
 .HomePage .Production img{
   width: 20px;
   height: 20px;
-}
+} */
 
 .HomePage button{
   background-color: transparent;
