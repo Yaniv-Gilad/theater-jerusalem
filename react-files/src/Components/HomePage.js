@@ -19,13 +19,8 @@ class HomePage extends Component {
       archive: [] // all the archive projects
     }
   }
-  getIMGdiv() {
-    return this.state.images.map((image, index) => (
-      <img key={index} width="100" height="100" src={image} />
-    ))
-  }
 
-  async componentDidMount() {
+  componentDidMount() {
     let user = auth.currentUser;
 
     // if user didnt logged in
@@ -65,7 +60,7 @@ class HomePage extends Component {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <h1><u>Productions</u></h1>
+        <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
         <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
@@ -76,8 +71,7 @@ class HomePage extends Component {
             {
               pathname: "/"
             })
-          }}>Logout</button>
-        
+          }}>התנתק</button>
         </div>
 
       </div>
