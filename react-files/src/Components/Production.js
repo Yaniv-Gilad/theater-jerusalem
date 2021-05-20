@@ -18,7 +18,7 @@ class Production extends Component {
         console.log(_name)
         return (
             <div className="Production">
-                <Link to={{pathname:"/file", name:{_name}}}>{_name}</Link>
+                <Link to={{ pathname: "/file", name: { _name } }}>{_name}</Link>
                 <p></p>
                 <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">העברה לארכיון</span></button>
             </div>

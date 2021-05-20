@@ -53,14 +53,14 @@ class HomePage extends Component {
         <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
-        <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
-        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
-        
-        <button id="logout" onClick={() => {
-          this.props.history.push(
-            {
-              pathname: "/"
-            })
+          <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+          <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
+
+          <button id="logout" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/"
+              })
           }}>התנתק</button>
         </div>
       </div>
