@@ -18,7 +18,11 @@ class HomePage extends Component {
       projects: [],
       archive: [] // all the archive projects
     }
+    
+    this.getProjects = this.getProjects.bind(this);
+    this.getArchive = this.getArchive.bind(this)
   }
+  
   getIMGdiv() {
     return this.state.images.map((image, index) => (
       <img key={index} width="100" height="100" src={image} />
