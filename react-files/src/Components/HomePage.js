@@ -18,6 +18,9 @@ class HomePage extends Component {
       projects: [],
       archive: [] // all the archive projects
     }
+
+    this.getProjects = this.getProjects.bind(this);
+    this.getArchive = this.getArchive.bind(this);
   }
 
   componentDidMount() {
@@ -28,32 +31,19 @@ class HomePage extends Component {
       this.props.history.push(
         {
           pathname: "/"
-        })
+        });
+      return;
     }
 
-    else {
-      this.setState({ user: user })
-      this.props.history.push({
-        pathname: '/Home',
-        data: user
-      })
-      
-      let arch = this.getArchive(); // get archived projects
-      storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
-        .then((res) => {
-          let p = []
-          res.prefixes.forEach((folderRef) => {
-            let name = folderRef.name;
-            let p1 = { "name": name }
-            p.push(p1)
-          });
+    // else -> user logged in
+    this.setState({ user: user })
+    this.props.history.push({
+      pathname: '/Home',
+      data: user
+    })
 
-          this.setState({ ...this.state, projects: p, archive: arch });
-        }
-        );
-
-    }
-
+    this.getProjects();
+    this.getArchive();
   }
 
   render() {
@@ -63,17 +53,16 @@ class HomePage extends Component {
         <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
-        <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
-        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
-        
-        <button id="logout" onClick={() => {
-          this.props.history.push(
-            {
-              pathname: "/"
-            })
+          <button id="archive"><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
+          <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
+
+          <button id="logout" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/"
+              })
           }}>התנתק</button>
         </div>
-
       </div>
 
     )
@@ -81,33 +70,33 @@ class HomePage extends Component {
 
   getData() {
     let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
-    let dataToReturn = notArchived.map(production => <Production prod={production} />);
+    let dataToReturn = notArchived.map((production, index) => <Production key={index} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }
 
-   getProjects() {
-    let p = []
+  getProjects() {
     storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
       .then((res) => {
+        let p = []
         res.prefixes.forEach((folderRef) => {
           let name = folderRef.name;
           let p1 = { "name": name }
           p.push(p1)
         });
+
+        this.setState({ ...this.state, projects: p });
       }
       );
-    return p;
   }
 
-   getArchive() {
+  getArchive() {
     let arch = [];
     db.collection("archive").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         arch.push(doc.data()["name"]);
       });
+      this.setState({ ...this.state, archive: arch });
     });
-    return arch;
   }
 
 }

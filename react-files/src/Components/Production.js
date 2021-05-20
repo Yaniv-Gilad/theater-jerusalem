@@ -1,7 +1,6 @@
 import { Component } from "react"
 import ARCHIVE from "../Photos/archive.png"
 import '../CSS/Production.css'
-import App from "../App"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class Production extends Component {
@@ -10,7 +9,9 @@ class Production extends Component {
         super(props);
         this.state = {
             name: props.prod.name,
+            getArchive: props.getArchive
         }
+        this.moveToArchive = this.moveToArchive.bind(this);
     }
 
     render() {//Called whenever there is a change in state
@@ -18,11 +19,16 @@ class Production extends Component {
         console.log(_name)
         return (
             <div className="Production">
-                <Link to={{pathname:"/file", name:{_name}}}>{_name}</Link>
+                <Link to={{ pathname: "/file", name: { _name } }}>{_name}</Link>
                 <p></p>
-                <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+                <button id="archive"><img src={ARCHIVE} onClick={this.moveToArchive}></img><span className="tooltiptext">העברה לארכיון</span></button>
             </div>
         )
+    }
+
+    moveToArchive() {
+        console.log("clicked");
+        this.state.getArchive();
     }
 }
 
