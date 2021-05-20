@@ -53,7 +53,7 @@ class File extends Component {
     }
 
     getData() {
-        let dataToReturn = this.state.files.map(file => <FileObj prod={file}/>);
+        let dataToReturn = this.state.files.map(file => <FileObj prod={file} />);
         return dataToReturn;
     }
 }

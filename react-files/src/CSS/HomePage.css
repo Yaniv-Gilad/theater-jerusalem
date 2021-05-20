@@ -2,7 +2,8 @@
   min-width: 100vw;
   min-height: 100vh;
   color: black;
-  background-color: beige;
+  /* background-color: beige; */
+  background-image: url("../Photos/background4.jpg") ;
 }
 
 /* .HomePage h5{
@@ -103,10 +104,12 @@
   margin: 2%;
   padding: 3%;
   /* border-radius: 50%; */
-  background-color:rgb(167, 167, 167); 
-  border: #424649dc;
+  background-color:rgb(167, 167, 167);
+  /* קישור לקובץ עצמו */
+  /* background-image: url('../Photos/background3.jpg');  */
+  /* border: #424649dc;
   border-width: 5px;
-  border-style: solid;
+  border-style: solid; */
   color:#424649dc;
   font-size: 70%;
 }
