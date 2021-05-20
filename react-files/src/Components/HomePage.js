@@ -18,9 +18,9 @@ class HomePage extends Component {
       projects: [],
       archive: [] // all the archive projects
     }
-    
+
     this.getProjects = this.getProjects.bind(this);
-    this.getArchive = this.getArchive.bind(this)
+    this.getArchive = this.getArchive.bind(this);
   }
   
   getIMGdiv() {
