@@ -10,7 +10,7 @@
 
   .Production .tooltiptext {
     visibility: hidden;
-    width: 100px;
+    /* width: 100px; */
     background-color: black;
     color: #fff;
     text-align: center;
@@ -27,7 +27,7 @@
   }
   .Production .tooltiptextname {
     visibility: hidden;
-    width: 100px;
+    /* width: 100px; */
     background-color: black;
     color: #fff;
     text-align: center;
