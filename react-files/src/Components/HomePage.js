@@ -57,6 +57,7 @@ class HomePage extends Component {
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
 
           <button id="logout" onClick={() => {
+            auth.signOut();
             this.props.history.push(
               {
                 pathname: "/"
