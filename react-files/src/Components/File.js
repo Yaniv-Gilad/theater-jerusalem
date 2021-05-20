@@ -32,10 +32,11 @@ class File extends Component{
     }
 
     render(){
+        let _name = this.props.location.name._name;
         let dataToRender = this.getData();
     return (
         <div className="HomePage">
-            <h1><u>קבצים</u></h1>
+            <h1><u>{_name}</u></h1>
             {dataToRender}
             <div id="wrapper">
             <button id="logout" onClick={() => {
