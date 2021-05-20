@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import { Component } from "react"
 import Production from "./Production.js"
+import FileObj from "./FileObj.js"
 import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/File.css'
 
@@ -51,7 +52,7 @@ class File extends Component {
     }
 
     getData() {
-        let dataToReturn = this.state.files.map(file => <Production prod={file} />);
+        let dataToReturn = this.state.files.map(file => <FileObj prod={file}/>);
         return dataToReturn;
     }
 }

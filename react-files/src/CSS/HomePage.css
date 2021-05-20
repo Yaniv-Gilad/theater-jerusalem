@@ -45,14 +45,16 @@
   visibility: visible;
 }
 
-.HomePage #add:hover .tooltiptext{
+.HomePage #add:hover .tooltiptext,
+.HomePage .File:hover .tooltiptextname{
   /* background-color: #424649dc; */
   visibility: visible;
 }
 
-.HomePage .tooltiptext {
+.HomePage .tooltiptext,
+.HomePage .tooltiptextname{
   visibility: hidden;
-  width: 100px;
+  /* width: 100px; */
   background-color: black;
   color: #fff;
   text-align: center;
@@ -92,6 +94,21 @@
 
 .HomePage button:hover {
   cursor:pointer;
+}
+
+.HomePage .File{
+  display: inline-block;
+  width: 10%;
+  height: 10%;
+  margin: 2%;
+  padding: 3%;
+  /* border-radius: 50%; */
+  background-color:rgb(167, 167, 167); 
+  border: #424649dc;
+  border-width: 5px;
+  border-style: solid;
+  color:#424649dc;
+  font-size: 70%;
 }
 
 
