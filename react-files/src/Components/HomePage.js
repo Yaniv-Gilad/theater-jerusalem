@@ -22,12 +22,6 @@ class HomePage extends Component {
     this.getProjects = this.getProjects.bind(this);
     this.getArchive = this.getArchive.bind(this);
   }
-  
-  getIMGdiv() {
-    return this.state.images.map((image, index) => (
-      <img key={index} width="100" height="100" src={image} />
-    ))
-  }
 
   componentDidMount() {
     let user = auth.currentUser;
@@ -56,21 +50,19 @@ class HomePage extends Component {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <h1><u>Productions</u></h1>
+        <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
-          <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
-          <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
-
-          <button id="logout" onClick={() => {
-            this.props.history.push(
-              {
-                pathname: "/"
-              })
-          }}>Logout</button>
-
+        <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
+        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
+        
+        <button id="logout" onClick={() => {
+          this.props.history.push(
+            {
+              pathname: "/"
+            })
+          }}>התנתק</button>
         </div>
-
       </div>
 
     )
@@ -105,7 +97,6 @@ class HomePage extends Component {
       });
     });
     this.setState({ ...this.state, archive: arch });
-    // return arch;
   }
 
 }
