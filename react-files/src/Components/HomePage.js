@@ -53,14 +53,14 @@ class HomePage extends Component {
         <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
-        <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">מעבר לארכיון</span></button>
-        <button id="add"><img src={ADD}></img><span class="tooltiptext">הוספת הצגה</span></button>
-        
-        <button id="logout" onClick={() => {
-          this.props.history.push(
-            {
-              pathname: "/"
-            })
+          <button id="archive"><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
+          <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
+
+          <button id="logout" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/"
+              })
           }}>התנתק</button>
         </div>
       </div>
@@ -70,7 +70,7 @@ class HomePage extends Component {
 
   getData() {
     let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
-    let dataToReturn = notArchived.map(production => <Production prod={production} />);
+    let dataToReturn = notArchived.map((production, index) => <Production key={index} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }
 
@@ -95,8 +95,8 @@ class HomePage extends Component {
       querySnapshot.forEach((doc) => {
         arch.push(doc.data()["name"]);
       });
+      this.setState({ ...this.state, archive: arch });
     });
-    this.setState({ ...this.state, archive: arch });
   }
 
 }
