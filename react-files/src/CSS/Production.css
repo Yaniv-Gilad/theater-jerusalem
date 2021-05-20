@@ -8,11 +8,6 @@
     visibility: visible;
   }
   
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: -1;
-  }
   
   .Production #linkName:hover .tooltiptextname{
     visibility: visible;
