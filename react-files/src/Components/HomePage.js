@@ -33,32 +33,19 @@ class HomePage extends Component {
       this.props.history.push(
         {
           pathname: "/"
-        })
+        });
+      return;
     }
 
-    else {
-      this.setState({ user: user })
-      this.props.history.push({
-        pathname: '/Home',
-        data: user
-      })
+    // else -> user logged in
+    this.setState({ user: user })
+    this.props.history.push({
+      pathname: '/Home',
+      data: user
+    })
 
-      let arch = this.getArchive(); // get archived projects
-      storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
-        .then((res) => {
-          let p = []
-          res.prefixes.forEach((folderRef) => {
-            let name = folderRef.name;
-            let p1 = { "name": name }
-            p.push(p1)
-          });
-
-          this.setState({ ...this.state, projects: p, archive: arch });
-        }
-        );
-
-    }
-
+    this.getProjects();
+    this.getArchive();
   }
 
   render() {
@@ -92,28 +79,29 @@ class HomePage extends Component {
   }
 
   getProjects() {
-    let p = []
     storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
       .then((res) => {
+        let p = []
         res.prefixes.forEach((folderRef) => {
           let name = folderRef.name;
           let p1 = { "name": name }
           p.push(p1)
         });
+
+        this.setState({ ...this.state, projects: p });
       }
       );
-    return p;
   }
 
   getArchive() {
     let arch = [];
     db.collection("archive").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         arch.push(doc.data()["name"]);
       });
     });
-    return arch;
+    this.setState({ ...this.state, archive: arch });
+    // return arch;
   }
 
 }
