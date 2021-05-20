@@ -8,7 +8,12 @@
     visibility: visible;
   }
   
-  .Production .tooltiptext {
+  
+  .Production #linkName:hover .tooltiptextname{
+    visibility: visible;
+  }
+
+  .Production .tooltiptextname {
     visibility: hidden;
     width: 100px;
     background-color: black;

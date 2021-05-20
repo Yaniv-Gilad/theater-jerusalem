@@ -1,21 +1,19 @@
 import { Component } from "react"
-import { db, storage } from "../Firebase/firebase"
 import ARCHIVE from "../Photos/archive.png"
 import '../CSS/Production.css'
+import App from "../App"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-class Production extends Component {
+class FileObj extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             name: props.prod.name,
-            getArchive: props.getArchive
         }
-        this.moveToArchive = this.moveToArchive.bind(this);
     }
 
-    render() {
+    render() {//Called whenever there is a change in state
         let _name = this.state.name;
         let sub = _name;
         let type = null;
@@ -30,23 +28,12 @@ class Production extends Component {
             fixed_name = _name.substring(0, 20);
         }
         return (
-            <div className="Production">
+            <div className="File">
                 <Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
-
                 <p></p>
-                <button id="archive"><img src={ARCHIVE} onClick={this.moveToArchive}></img><span className="tooltiptext">העברה לארכיון</span></button>
             </div>
         )
     }
-
-    // need to fix !!!!!!!!!!!!!!! //
-    moveToArchive() {
-        let _name = this.state.name.toString();
-        db.collection("archive").doc(_name).set({ name: _name }).then(() => {
-            console.log("Document '" + _name + "' added to archive!");
-            this.state.getArchive();
-        });
-    }
 }
 
-export default Production;
+export default FileObj;
