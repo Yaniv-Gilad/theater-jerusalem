@@ -14,6 +14,17 @@ class Login extends Component {
     }
   }
 
+  componentDidMount() {
+    auth.onAuthStateChanged(async user => {
+      if (user) {
+        this.props.history.push(
+          {
+            pathname: "/Home",
+            data: user.user
+          })
+      }
+    })
+  }
 
   render() {
 
@@ -22,7 +33,7 @@ class Login extends Component {
       <div className="Login">
         <div id="welcome">ברוכים הבאים</div>
         <img src={LOGO} id="logo" alt="logo pic"></img>
-        <div class="login">
+        <div className="login">
           <img src={curtain} id="curtain" alt="curtain"></img>
           <input type="text" placeholder="userName@email.com" id="username"
             onChange={(event) => {
@@ -42,7 +53,7 @@ class Login extends Component {
             }}
           />
 
-          <a href="/" class="forgot">forgot password?</a>
+          <a href="/" className="forgot">forgot password?</a>
 
           <input type="submit" value="כניסה למערכת"
             onClick={() => {
@@ -51,7 +62,7 @@ class Login extends Component {
             }} />
 
         </div>
-        <div class="shadow"></div>
+        <div className="shadow"></div>
       </div>
     )
   }
