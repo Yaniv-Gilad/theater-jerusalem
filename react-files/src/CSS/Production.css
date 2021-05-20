@@ -19,12 +19,13 @@
   
     /* Position the tooltip */
     position: absolute;
-    z-index: 1;
+    z-index: -1;
   }
   
   .Production #linkName:hover .tooltiptextname{
     visibility: visible;
   }
+
   .Production .tooltiptextname {
     visibility: hidden;
     /* width: 100px; */

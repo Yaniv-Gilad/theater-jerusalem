@@ -4,7 +4,7 @@ import '../CSS/Production.css'
 import App from "../App"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-class Production extends Component {
+class FileObj extends Component {
 
     constructor(props) {
         super(props);
@@ -28,14 +28,12 @@ class Production extends Component {
             fixed_name = _name.substring(0, 20);
         }
         return (
-            <div className="Production">
+            <div className="File">
                 <Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
-
                 <p></p>
-                <button id="archive"><img src={ARCHIVE}></img><span class="tooltiptext">העברה לארכיון</span></button>
             </div>
         )
     }
 }
 
-export default Production;
+export default FileObj;
