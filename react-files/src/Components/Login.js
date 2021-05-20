@@ -14,18 +14,6 @@ class Login extends Component {
     }
   }
 
-  componentDidMount() {
-    auth.onAuthStateChanged(async user => {
-      if (user) {
-        this.props.history.push(
-          {
-            pathname: "/Home",
-            data: user.user
-          })
-      }
-    })
-  }
-
   render() {
 
     return (
