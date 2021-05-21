@@ -14,3 +14,21 @@
     color:#424649dc;
     font-size: 70%;
   }
+  
+#but_span{
+  visibility: hidden;
+  /* width: 100px; */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#but:hover #but_span{
+  visibility: visible;
+}
