@@ -53,7 +53,12 @@ class HomePage extends Component {
         <h1><u>הפקות</u></h1>
         {dataToRender}
         <div id="wrapper">
-          <button id="archive"><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
+          <button id="archive" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/Archive"
+              })
+          }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
 
           <button id="logout" onClick={() => {
             auth.signOut();
@@ -62,6 +67,7 @@ class HomePage extends Component {
                 pathname: "/"
               })
           }}>התנתק</button>
+
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
         </div>
       </div>
