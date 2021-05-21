@@ -30,7 +30,7 @@ class FileObj extends Component {
         return (
             <div className="File">
                 <Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
-                <p></p>
+                <p ></p>
             </div>
         )
     }
