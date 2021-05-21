@@ -5,30 +5,6 @@
   background-image: url("../Photos/background4.jpg") ;
 }
 
-/* .HomePage h5{
-  color:white;
-  text-align: center;
-} */
-
-/* .HomePage .Production{
-  display: inline-block;
-  width: 10%;
-  height: 10%;
-  margin: 2%;
-  padding: 3%;
-  border-radius: 50%;
-  background-color:rgb(167, 167, 167); 
-  border: #424649dc;
-  border-width: 5px;
-  border-style: solid;
-  color:#424649dc;
-  font-size: 70%;
-}
-.HomePage .Production img{
-  width: 20px;
-  height: 20px;
-} */
-
 .HomePage button{
   background-color: transparent;
   border: none;
