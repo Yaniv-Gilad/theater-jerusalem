@@ -33,9 +33,11 @@ class FileObj extends Component {
         return (
             <div className="File">
                 <div  dangerouslySetInnerHTML={{__html: html}}>
+
                 </div>
                 <br></br>
             </div>
+            
         )
     }
 }
