@@ -31,9 +31,10 @@ class FileObj extends Component {
         if(type)
             html = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
         return (
-            <div className="File" dangerouslySetInnerHTML={{__html: html}}>
-                <br></br>
-            </div>
+            <div className="File">
+                <Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
+                {/* <Link  </Link> */}
+            <br></br></div>
         )
     }
 }
