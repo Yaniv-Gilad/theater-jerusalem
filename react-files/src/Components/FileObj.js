@@ -32,6 +32,7 @@ class FileObj extends Component {
             html = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
         return (
             <div className="File" dangerouslySetInnerHTML={{__html: html}}>
+                <br></br>
             </div>
         )
     }
