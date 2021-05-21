@@ -54,7 +54,6 @@ class HomePage extends Component {
         {dataToRender}
         <div id="wrapper">
           <button id="archive" onClick={() => {
-            console.log("clicked fuck")
             this.props.history.push(
               {
                 pathname: "/Archive"
