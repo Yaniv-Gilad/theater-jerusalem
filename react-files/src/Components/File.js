@@ -45,12 +45,17 @@ class File extends Component {
                 {
                 pathname: "/home"
                 })
+                
             }}>למסך הבית</button>
+            {<input type="file" ></input>}
             </div>
         </div>
 
+
         )
+
     }
+   
 
     getData() {
         let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file}/>);
