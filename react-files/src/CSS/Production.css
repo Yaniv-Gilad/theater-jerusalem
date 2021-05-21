@@ -1,9 +1,9 @@
 .Production{
   display: inline-block;
   width: 10%;
-  height: 10%;
+  height: 1%;
   margin: 2%;
-  padding: 3%;
+  padding: 1%;
   border-radius: 5%;
   background-color:#efe9d2; 
   /* border: #424649dc;
@@ -14,8 +14,8 @@
 }
 .Production #linkName{
   align-self: center;
-  max-width: 5%;
-  max-height: 5%;
+  width: 1%;
+  height: 1%;
   font-size: 70%;
   
 }
