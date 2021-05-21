@@ -1,0 +1,16 @@
+ .File{
+    display: inline-block;
+    width: 10%;
+    height: 10%;
+    margin: 2%;
+    padding: 3%;
+    /* border-radius: 50%; */
+    background-color:rgb(167, 167, 167);
+    /* קישור לקובץ עצמו */
+    /* background-image: url('../Photos/background3.jpg');  */
+    /* border: #424649dc;
+    border-width: 5px;
+    border-style: solid; */
+    color:#424649dc;
+    font-size: 70%;
+  }
