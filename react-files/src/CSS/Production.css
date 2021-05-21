@@ -1,25 +1,30 @@
 .Production{
   display: inline-block;
-  width: 10%;
-  height: 10%;
+  width: 11%;
+  height: 1%;
   margin: 2%;
-  padding: 3%;
+  padding: 1%;
   border-radius: 5%;
   background-color:#efe9d2; 
   /* border: #424649dc;
   border-width: 5px;
   border-style: solid; */
   color:#424649dc;
-  /* font-size: 70%; */
+  font-size: 70%;
 }
 .Production #linkName{
   align-self: center;
-  max-width: 5%;
-  max-height: 5%;
+  width: 1%;
+  height: 1%;
   font-size: 70%;
   
 }
 .Production #archive img{
+  width: 20px;
+  height: 20px;  
+}
+
+.Production .smallButton img{
   width: 20px;
   height: 20px;  
 }
@@ -33,7 +38,11 @@
     /* background-color: #424649dc; */
     visibility: visible;
   }
-  
+
+.Production .smallButton:hover .tooltiptext{
+    /* background-color: #424649dc; */
+    visibility: visible;
+  }
   
   .Production #linkName:hover .tooltiptextname{
     visibility: visible;

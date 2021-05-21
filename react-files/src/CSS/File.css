@@ -1,11 +1,11 @@
  .File{
     display: inline-block;
-    width: 10%;
+    width: 11%;
     height: 10%;
     margin: 2%;
-    padding: 3%;
+    padding: 1%;
     /* border-radius: 50%; */
-    background-color:rgb(167, 167, 167);
+    background-color:#efe9d2;
     /* קישור לקובץ עצמו */
     /* background-image: url('../Photos/background3.jpg');  */
     /* border: #424649dc;
@@ -14,3 +14,21 @@
     color:#424649dc;
     font-size: 70%;
   }
+  
+#but_span{
+  visibility: hidden;
+  /* width: 100px; */
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#but:hover #but_span{
+  visibility: visible;
+}
