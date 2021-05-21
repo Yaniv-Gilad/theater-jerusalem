@@ -39,7 +39,7 @@ class ArchiveObj extends Component {
                     <span className="tooltiptextname">{_name}</span>
                 </Link>
 
-                <p></p>
+                <br></br>
                 <button className="smallButton">
                     <img src={RECYCLE} onClick={this.moveToHome}></img>
                     <span className="tooltiptext">החזרה להפקות</span>
