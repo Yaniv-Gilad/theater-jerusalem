@@ -5,16 +5,23 @@
   margin: 2%;
   padding: 3%;
   border-radius: 5%;
-  background-color:beige; 
+  background-color:#efe9d2; 
   /* border: #424649dc;
   border-width: 5px;
   border-style: solid; */
   color:#424649dc;
+  /* font-size: 70%; */
+}
+.Production #linkName{
+  align-self: center;
+  max-width: 5%;
+  max-height: 5%;
   font-size: 70%;
+  
 }
 .Production #archive img{
   width: 20px;
-  height: 20px;
+  height: 20px;  
 }
 
 .Production button{
