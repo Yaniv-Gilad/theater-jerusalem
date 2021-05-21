@@ -1,6 +1,6 @@
 .Production{
   display: inline-block;
-  width: 10%;
+  width: 11%;
   height: 1%;
   margin: 2%;
   padding: 1%;
@@ -10,7 +10,7 @@
   border-width: 5px;
   border-style: solid; */
   color:#424649dc;
-  /* font-size: 70%; */
+  font-size: 70%;
 }
 .Production #linkName{
   align-self: center;
@@ -24,6 +24,11 @@
   height: 20px;  
 }
 
+.Production .smallButton img{
+  width: 20px;
+  height: 20px;  
+}
+
 .Production button{
     background-color: transparent;
     border: none;
@@ -33,7 +38,11 @@
     /* background-color: #424649dc; */
     visibility: visible;
   }
-  
+
+.Production .smallButton:hover .tooltiptext{
+    /* background-color: #424649dc; */
+    visibility: visible;
+  }
   
   .Production #linkName:hover .tooltiptextname{
     visibility: visible;
