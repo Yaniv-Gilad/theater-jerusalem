@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import { Component } from "react"
 import Production from "./Production.js"
+import FileObj from "./FileObj.js"
 import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/File.css'
 
@@ -31,28 +32,28 @@ class File extends Component {
             );
     }
 
-    render() {
+    render(){
+        let _name = this.props.location.name._name;
         let dataToRender = this.getData();
-        return (
-            <div className="HomePage">
-                <h1><u>קבצים</u></h1>
-                {dataToRender}
-                <div id="wrapper">
-                    <button id="logout" onClick={() => {
-                        this.props.history.push(
-                            {
-                                pathname: "/home"
-                            })
-                    }}>למסך הבית</button>
-                </div>
-
+    return (
+        <div className="HomePage">
+            <h1><u>{_name}</u></h1>
+            {dataToRender}
+            <div id="wrapper">
+            <button id="logout" onClick={() => {
+            this.props.history.push(
+                {
+                pathname: "/home"
+                })
+            }}>למסך הבית</button>
             </div>
+        </div>
 
         )
     }
 
     getData() {
-        let dataToReturn = this.state.files.map(file => <Production prod={file} />);
+        let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file}/>);
         return dataToReturn;
     }
 }

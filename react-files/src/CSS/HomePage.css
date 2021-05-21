@@ -2,7 +2,7 @@
   min-width: 100vw;
   min-height: 100vh;
   color: black;
-  background-color: beige;
+  background-image: url("../Photos/background4.jpg") ;
 }
 
 /* .HomePage h5{
@@ -10,7 +10,7 @@
   text-align: center;
 } */
 
-.HomePage .Production{
+/* .HomePage .Production{
   display: inline-block;
   width: 10%;
   height: 10%;
@@ -27,7 +27,7 @@
 .HomePage .Production img{
   width: 20px;
   height: 20px;
-}
+} */
 
 .HomePage button{
   background-color: transparent;
@@ -45,14 +45,16 @@
   visibility: visible;
 }
 
-.HomePage #add:hover .tooltiptext{
+.HomePage #add:hover .tooltiptext,
+.HomePage .File:hover .tooltiptextname{
   /* background-color: #424649dc; */
   visibility: visible;
 }
 
-.HomePage .tooltiptext {
+.HomePage .tooltiptext,
+.HomePage .tooltiptextname{
   visibility: hidden;
-  width: 100px;
+  /* width: 100px; */
   background-color: black;
   color: #fff;
   text-align: center;
@@ -93,5 +95,7 @@
 .HomePage button:hover {
   cursor:pointer;
 }
+
+
 
 
