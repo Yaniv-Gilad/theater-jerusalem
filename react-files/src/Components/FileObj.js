@@ -1,6 +1,6 @@
 import { Component } from "react"
 import ARCHIVE from "../Photos/archive.png"
-import '../CSS/Production.css'
+import '../CSS/File.css'
 import App from "../App"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -27,9 +27,11 @@ class FileObj extends Component {
         }else{
             fixed_name = _name.substring(0, 20);
         }
+        let html = `<Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:${_name}}}>${fixed_name}<span className="tooltiptextname">${_name}</span></Link>`;
+        if(type)
+            html = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
         return (
-            <div className="File">
-                <Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:{_name}}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
+            <div className="File" dangerouslySetInnerHTML={{__html: html}}>
                 <br></br>
             </div>
         )
