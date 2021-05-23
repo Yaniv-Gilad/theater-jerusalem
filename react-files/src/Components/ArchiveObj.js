@@ -18,19 +18,26 @@ class ArchiveObj extends Component {
     }
 
     render() {
+
+        // substring the name to fixed length
         let _name = this.state.name;
         let sub = _name;
         let type = null;
         let type_ind = _name.indexOf(".");
         let fixed_name = null;
+
+        // check for file or folder
         if (type_ind != -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
             sub = sub.substring(0, 20 - type.length);
             fixed_name = sub + type;
-        } else {
+        }
+
+        else {
             fixed_name = _name.substring(0, 20);
         }
+
         return (
             <div className="Production">
                 <Link
@@ -54,6 +61,7 @@ class ArchiveObj extends Component {
         )
     }
 
+    // remove project from archive to home
     moveToHome() {
         let _name = this.state.name.toString();
         db.collection("archive").doc(_name).delete().then(() => {
@@ -62,6 +70,7 @@ class ArchiveObj extends Component {
         });
     }
 
+    // delete project content
     delete() {
         let _name = this.state.name.toString();
         this.deleteFolderContents(_name);
@@ -69,6 +78,7 @@ class ArchiveObj extends Component {
         this.state.getArchive();
     }
 
+    // delete using BFS
     deleteFolderContents(path) {
         const ref = storage.ref(path);
         ref.listAll()

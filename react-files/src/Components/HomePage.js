@@ -75,12 +75,14 @@ class HomePage extends Component {
     )
   }
 
+  // get the relevent projects to show on screen
   getData() {
     let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
     let dataToReturn = notArchived.map((production, index) => <Production key={index} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }
 
+  // get all projects on firebase
   getProjects() {
     storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
       .then((res) => {
@@ -96,6 +98,7 @@ class HomePage extends Component {
       );
   }
 
+  // get archive projects from firestore json
   getArchive() {
     let arch = [];
     db.collection("archive").get().then((querySnapshot) => {
