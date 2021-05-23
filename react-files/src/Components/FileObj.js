@@ -1,4 +1,5 @@
 import { Component } from "react"
+import { storage } from "../Firebase/firebase"
 import ARCHIVE from "../Photos/archive.png"
 import '../CSS/File.css'
 import App from "../App"
@@ -10,7 +11,15 @@ class FileObj extends Component {
         super(props);
         this.state = {
             name: props.prod.name,
+            path: props.path,
+            download:""
         }
+    }
+
+    componentDidMount() {
+        let path = this.state.path + "/";
+        path = path + this.state.name;
+        storage.ref(path).getDownloadURL().then((url)=>{this.setState({...this.state, download:url})});
     }
 
     render() {
@@ -38,8 +47,8 @@ class FileObj extends Component {
         return (
             <div className="File">
                 <div dangerouslySetInnerHTML={{ __html: html }}>
-
                 </div>
+                <a href={this.state.download}>open</a>
                 <br></br>
             </div>
 
