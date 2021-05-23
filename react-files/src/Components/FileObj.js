@@ -13,31 +13,36 @@ class FileObj extends Component {
         }
     }
 
-    render() {//Called whenever there is a change in state
+    render() {
+        // substring the name to fixed length
         let _name = this.state.name;
         let sub = _name;
         let type = null;
         let type_ind = _name.indexOf(".");
         let fixed_name = null;
-        if(type_ind != -1){
+
+        // check for file or folder
+        if (type_ind != -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
-            sub = sub.substring(0, 20-type.length);
+            sub = sub.substring(0, 20 - type.length);
             fixed_name = sub + type;
-        }else{
+        }
+        else {
             fixed_name = _name.substring(0, 20);
         }
+
         let html = `<Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:${_name}}}>${fixed_name}<span className="tooltiptextname">${_name}</span></Link>`;
-        if(type)
+        if (type)
             html = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
         return (
             <div className="File">
-                <div  dangerouslySetInnerHTML={{__html: html}}>
+                <div dangerouslySetInnerHTML={{ __html: html }}>
 
                 </div>
                 <br></br>
             </div>
-            
+
         )
     }
 }
