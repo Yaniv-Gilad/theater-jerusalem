@@ -1,12 +1,10 @@
 import { render } from "@testing-library/react";
 import { Component } from "react"
-import Production from "./Production.js"
 import FileObj from "./FileObj.js"
 import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/File.css'
 import React from 'react';
-// import '../App.css';
-import {App} from './base'
+import '../App.css';
 
 class File extends Component {
     constructor(props) {
@@ -34,22 +32,23 @@ class File extends Component {
             }
             );
     }
-    // Upload(e){
-    //         const file = e.targrt.files[0];
-    //         const storageRef= storage.ref();
-    //         const fileRef=storageRef.child(file.name);
-    //         fileRef.put(file).then(() => {
-    //             console.log("העלה קובץ")
-    //         });
-    //  }
+    Upload(e){
+            const file = e.targrt.files[0];
+            const storageRef= storage.ref();
+            const fileRef=storageRef.child(file.name);
+            fileRef.put(file).then(() => {
+                console.log("העלה קובץ")
+            });
+     }
     
 
     render(){
         let _name = this.props.location.name._name;
         let dataToRender = this.getData();
+
         return (
         <div className="HomePage">
-            <h1><u>{_name}</u></h1>
+            <h1>{_name}</h1>
             {dataToRender}
             <div id="wrapper">
             <button id="logout" onClick={() => {
@@ -69,7 +68,6 @@ class File extends Component {
     }
    
 
-    // get all files and folders to show on screen
     getData() {
         let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file}/>);
         return dataToReturn;
