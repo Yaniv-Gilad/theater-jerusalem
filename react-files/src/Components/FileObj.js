@@ -48,7 +48,7 @@ class FileObj extends Component {
             <div className="File">
                 <div dangerouslySetInnerHTML={{ __html: html }}>
                 </div>
-                <a href={this.state.download}>open</a>
+                <a href={this.state.download} target="_blank">open</a>
                 <br></br>
             </div>
 
