@@ -5,7 +5,7 @@
   margin: 2%;
   padding: 1%;
   border-radius: 5%;
-  background-color:#efe9d2; 
+  background-color:#b15550; 
   /* border: #424649dc;
   border-width: 5px;
   border-style: solid; */
@@ -21,7 +21,8 @@
 }
 .Production #archive img{
   width: 20px;
-  height: 20px;  
+  height: 20px;
+  align-self: left;  
 }
 
 .Production .smallButton img{
@@ -39,6 +40,11 @@
     visibility: visible;
   }
 
+button #archive{
+  position:relative;
+  left: 0%;
+  padding-left: 0%;
+}
 .Production .smallButton:hover .tooltiptext{
     /* background-color: #424649dc; */
     visibility: visible;
@@ -61,3 +67,4 @@
     position: absolute;
     z-index: 1;
   }
+

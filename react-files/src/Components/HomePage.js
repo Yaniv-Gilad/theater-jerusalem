@@ -50,7 +50,7 @@ class HomePage extends Component {
     let dataToRender = this.getData();
     return (
       <div className="HomePage">
-        <h1><u>הפקות</u></h1>
+        <h1>הפקות</h1>
         {dataToRender}
         <div id="wrapper">
           <button id="archive" onClick={() => {
