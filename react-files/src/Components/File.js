@@ -47,7 +47,6 @@ class File extends Component {
     render(){
         let _name = this.props.location.name._name;
         let dataToRender = this.getData();
-
         return (
         <div className="HomePage">
             <h1><u>{_name}</u></h1>
@@ -70,6 +69,7 @@ class File extends Component {
     }
    
 
+    // get all files and folders to show on screen
     getData() {
         let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file}/>);
         return dataToReturn;
