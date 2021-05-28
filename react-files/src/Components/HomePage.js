@@ -97,8 +97,6 @@ else{
 
   async getProjects() {
    let res =await storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
-
-
   // get all projects on firebase
         let p = []
         res.prefixes.forEach((folderRef) => {
@@ -112,7 +110,6 @@ else{
 
 
   async getArchive() {
-
   // get archive projects from firestore json
 
     let arch = [];

@@ -6,7 +6,7 @@ import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/File.css'
 import React from 'react';
 // import '../App.css';
-import {App} from './base'
+// import {App} from './base'
 
 class File extends Component {
     constructor(props) {
