@@ -17,7 +17,6 @@ class Login extends Component {
   render() {
 
     return (
-
       <div className="Login">
         <div id="welcome">ברוכים הבאים</div>
         <img src={LOGO} id="logo" alt="logo pic"></img>
@@ -46,7 +45,6 @@ class Login extends Component {
           <input type="submit" value="כניסה למערכת"
             onClick={() => {
               this.login()
-              // console.log(this.state)
             }} />
 
         </div>
@@ -56,11 +54,10 @@ class Login extends Component {
   }
 
 
+  // login verification using firebase auth
   login() {
     auth.signInWithEmailAndPassword(this.state.email, this.state.password)
       .then((res) => {
-        // console.log("can login")
-        // console.log(res)
         this.props.history.push(
           {
             pathname: "/Home",
@@ -68,8 +65,8 @@ class Login extends Component {
           })
 
       }).catch((e) => {
+        // if invalid user
         alert("Wrong Email or password")
-        //console.log("not found user")
       })
   }
 }

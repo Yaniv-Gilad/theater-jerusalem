@@ -4,6 +4,9 @@ import Production from "./Production.js"
 import FileObj from "./FileObj.js"
 import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/File.css'
+import React from 'react';
+// import '../App.css';
+import {App} from './base'
 
 class File extends Component {
     constructor(props) {
@@ -32,11 +35,20 @@ class File extends Component {
             }
             );
     }
+    // Upload(e){
+    //         const file = e.targrt.files[0];
+    //         const storageRef= storage.ref();
+    //         const fileRef=storageRef.child(file.name);
+    //         fileRef.put(file).then(() => {
+    //             console.log("העלה קובץ")
+    //         });
+    //  }
+    
 
     render(){
         let _name = this.props.location.name._name;
         let dataToRender = this.getData();
-    return (
+        return (
         <div className="HomePage">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
          {!this.state.loader?<div class="spinner-border" ></div>:
@@ -49,14 +61,20 @@ class File extends Component {
                 {
                 pathname: "/home"
                 })
+                
             }}>למסך הבית</button>
+            {<input type="file" onChange={console.log("hi")}></input> }
             </div>
             </div>}
         </div>
 
-        )
-    }
 
+        )
+
+    }
+   
+
+    // get all files and folders to show on screen
     getData() {
         let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file}/>);
         return dataToReturn;
