@@ -70,6 +70,23 @@
   cursor:pointer;
 }
 
+.HomePage .spinner-border{
+  position: absolute; 
+  top: 40%;
+  height: 4rem;
+  width: 4rem;
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 50%; */
+  display: flex;
+  align-items:center;
+  text-align: center;
+  justify-content: center;
+
+
+}
+
 
 
 
