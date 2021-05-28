@@ -9,6 +9,7 @@ class File extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loader:false,
             files: []
         }
     }
@@ -27,7 +28,7 @@ class File extends Component {
                     let p1 = { "name": name };
                     p.push(p1)
                 });
-                this.setState({ ...this.state, files: p })
+                this.setState({ ...this.state, files: p, loader:true })
             }
             );
     }
@@ -37,7 +38,10 @@ class File extends Component {
         let dataToRender = this.getData();
     return (
         <div className="HomePage">
-            <h1><u>{_name}</u></h1>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
+         {!this.state.loader?<div class="spinner-border" ></div>:
+         <div>
+            <h1>{_name}</h1>
             {dataToRender}
             <div id="wrapper">
             <button id="logout" onClick={() => {
@@ -47,6 +51,7 @@ class File extends Component {
                 })
             }}>למסך הבית</button>
             </div>
+            </div>}
         </div>
 
         )
