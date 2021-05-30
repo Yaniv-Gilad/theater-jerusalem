@@ -7,6 +7,7 @@ import LOGO from '../Photos/logo.png'
 import { NavLink } from 'react-router-dom'
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
+import CALENDAR from "./Calendar"
 // import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
@@ -54,6 +55,9 @@ else{
 }
 
   render() {
+   let id="dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20";
+   let str="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src="+id+"&amp;color=%23039BE5&amp;showTitle=0"
+   
     let dataToRender = this.getData();
     return (
     
@@ -79,7 +83,9 @@ else{
               })
           }}>התנתק</button>
           {/* <Calendar  /> */}
+         
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
+          {/* <CALENDAR/> */}
         </div>
         </div>}
       </div>
