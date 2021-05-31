@@ -7,7 +7,7 @@ import LOGO from '../Photos/logo.png'
 import { NavLink } from 'react-router-dom'
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
-import CALENDAR from "./Calendar"
+import Calendar from "./Calendar"
 // import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
@@ -82,10 +82,9 @@ else{
                 pathname: "/"
               })
           }}>התנתק</button>
-          {/* <Calendar  /> */}
          
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-          {/* <CALENDAR/> */}
+        <Calendar  />
         </div>
         </div>}
       </div>
