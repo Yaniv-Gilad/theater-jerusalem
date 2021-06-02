@@ -12,12 +12,14 @@ class File extends Component {
         this.state = {
             loader:false,
             files: [],
-            folders: []
+            folders: [],
+            path:  this.props.location.name._name
         }
+        this.Upload = this.Upload.bind(this);
     }
 
     componentDidMount() {
-        storage.refFromURL("gs://theater-841bd.appspot.com/" + this.props.location.name._name).listAll()
+        storage.refFromURL("gs://theater-841bd.appspot.com/" + this.state.path).listAll()
             .then((res) => {
                 let p = []
                 res.items.forEach((file) => {
@@ -36,9 +38,9 @@ class File extends Component {
             );
     }
     Upload(e){
-            const file = e.targrt.files[0];
+            const file = e.target.files[0];
             const storageRef= storage.ref();
-            const fileRef=storageRef.child(file.name);
+            const fileRef=storageRef.child(this.state.path + "/"+file.name);
             fileRef.put(file).then(() => {
                 console.log("העלה קובץ",file.name)
             });
@@ -67,8 +69,7 @@ class File extends Component {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
-                </div>
-                {<input type="file" onChange={console.log("hi")}></input> }
+                   <input type="file" id="upload_but" onChange={this.Upload}></input> 
             </div>}
             </div>
         )
