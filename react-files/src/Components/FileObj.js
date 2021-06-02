@@ -2,7 +2,6 @@ import { Component } from "react"
 import { storage } from "../Firebase/firebase"
 import ARCHIVE from "../Photos/archive.png"
 import '../CSS/File.css'
-import App from "../App"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class FileObj extends Component {
@@ -10,16 +9,16 @@ class FileObj extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.prod.name,
-            path: props.path,
-            download:""
+            name: this.props.file.name,
+            path: this.props.file.path,
+            download: ""
         }
     }
 
     componentDidMount() {
-        let path = this.state.path + "/";
-        path = path + this.state.name;
-        storage.ref(path).getDownloadURL().then((url)=>{this.setState({...this.state, download:url})});
+        let _path = this.state.path + "/";
+        _path = _path + this.state.name;
+        storage.refFromURL(_path).getDownloadURL().then((url) => { this.setState({ ...this.state, download: url, path: _path }) });
     }
 
     render() {
@@ -41,12 +40,13 @@ class FileObj extends Component {
             fixed_name = _name.substring(0, 20);
         }
 
-        // let html = `<Link id="linkName" style="{ color: 'inherit', textDecoration: 'inherit'}" to="{pathname:'/file', name:'${_name}'}">${fixed_name}<span className="tooltiptextname">${_name}</span></Link>`;
-        // let html_but = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
-        //<Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }} to={{ pathname: "/file", name: _name}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
         return (
-            <div className="File">   
-                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span><br></br><a href={this.state.download} target="_blank">open</a></button>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
+            <div className="File">
+                <button id="but">
+                    {fixed_name}<span id="but_span">{_name}</span>
+                    <br></br>
+                    <a href={this.state.download} target="_blank">open</a>
+                </button>
                 <br></br>
             </div>
 
