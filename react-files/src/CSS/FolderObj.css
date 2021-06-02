@@ -1,0 +1,72 @@
+.Folder{
+    display: inline-block;
+    width: 11%;
+    height: 1%;
+    margin: 2%;
+    padding: 1%;
+    border-radius: 5%;
+    background-color:#b15550; 
+    /* border: #424649dc;
+    border-width: 5px;
+    border-style: solid; */
+    color:#424649dc;
+    font-size: 70%;
+  }
+  .Folder #linkName{
+    
+    align-self: center;
+    width: 1%;
+    height: 1%;
+    font-size: 70%;
+    
+  }
+  .Folder #archive img{
+    width: 20px;
+    height: 20px;
+    align-self: left;  
+  }
+  
+  .Folder .smallButton img{
+    width: 20px;
+    height: 20px;  
+  }
+  
+  .Folder button{
+      background-color: transparent;
+      border: none;
+  }
+  
+  .Folder #archive:hover .tooltiptext{
+      background-color: #424649dc; 
+      visibility: visible;
+    }
+  
+  button #archive{
+    position:relative;
+    left: 0%;
+    padding-left: 0%;
+  }
+  .Folder .smallButton:hover .tooltiptext{
+      /* background-color: #424649dc; */
+      visibility: visible;
+    }
+    
+    .Folder #linkName:hover .tooltiptextname{
+      visibility: visible;
+    }
+  
+    .Folder .tooltiptextname {
+      visibility: hidden;
+      width: 100px;
+      background-color: rgb(15, 1, 1);
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+    }
+  
+  
