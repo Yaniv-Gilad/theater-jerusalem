@@ -85,7 +85,8 @@ input[type="submit"] {
   text-transform:uppercase;
   text-shadow:1px 1px 0px #37a69b;
   padding-top:6px;
-  margin: 29px 0 0 29px;
+  margin-top: 29px;
+  margin-right: 29px;
   position:relative;
   cursor:pointer;
   border: none;  
