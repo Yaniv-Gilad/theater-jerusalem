@@ -55,13 +55,13 @@ class Archive extends Component {
                             })
                     }}>למסך הבית</button>
 
-                    <button id="logout" onClick={() => {
+                    {/* <button id="logout" onClick={() => {
                         auth.signOut();
                         this.props.history.push(
                             {
                                 pathname: "/"
                             })
-                    }}>התנתק</button>
+                    }}>התנתק</button> */}
                 </div>
             </div>
 

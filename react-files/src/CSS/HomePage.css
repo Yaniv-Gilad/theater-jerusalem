@@ -71,11 +71,10 @@
   justify-content: center;
 }
 
-.HomePage #logout {
+#logout {
   border-radius: 50%;
-  background-color: rgb(145, 0, 0);
   font-family:"verdana";
-  color: white;
+  color: black;
   height:36px;
   text-align: center;
   border-radius: 6px;
@@ -94,13 +93,10 @@
   border-radius: 6px;
   margin: 2%;
   position: absolute;
-  left:5%;
+  left:0%;
   bottom:7%;
 }
 
-.HomePage #logout:hover {
-  background-color: rgb(87, 0, 0);
-}
 
 .HomePage button:hover {
   cursor:pointer;
