@@ -10,6 +10,7 @@ class File extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            loader:false,
             files: [],
             folders: []
         }
@@ -30,7 +31,7 @@ class File extends Component {
                     let p1 = { "name": name };
                     fol.push(p1);
                 });
-                this.setState({ ...this.state, files: p, folders: fol });
+                this.setState({ ...this.state, files: p, folders: fol , loader:true});
             }
             );
     }
@@ -51,6 +52,8 @@ class File extends Component {
         
       return (
             <div className="HomePage">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
+            {!this.state.loader?<div className="spinner-border" ></div>:
                 <h1><u>{_name}</u></h1>
                 {foldersToRender}
                 {filesToRender}
