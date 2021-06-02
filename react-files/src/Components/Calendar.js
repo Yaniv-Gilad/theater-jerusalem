@@ -4,6 +4,10 @@ import React from "react";
 
 var gapi = window.gapi
 
+
+// var CLIENT_ID = "25532945063-7d85q8c7socv0ic5l8h5lhdupqkc0k3n.apps.googleusercontent.com"
+// var API_KEY = "AIzaSyDLfXSRbdMnZCiQLpOPQ0SdgzEMigMqFwE"
+
 var CLIENT_ID = "269970060271-itlf5cfr93fnu85pue6jfmjchdvt9l32.apps.googleusercontent.com"
 var API_KEY = "AIzaSyC7J7k45TnTkY8j6hGmoR7iBnYr5ovyPvc"
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
@@ -102,7 +106,7 @@ class Calendar extends Component{
                   ]
               }
           }
-
+    console.log(event);
 
     this.setEvent(event)
 
@@ -130,6 +134,7 @@ class Calendar extends Component{
                 }
             });
         });
+        console.log(event);
 }
 
     async getEvents() {
