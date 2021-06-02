@@ -72,7 +72,7 @@
     display: inline-block;
     text-align: center;
     border-radius: 50%;
-    box-shadow: 0 0 0 1px rgba(26, 12, 155, 0.623);
+    box-shadow: 0 0 0 1px #ffff;
     margin: 0 8px;
     /* margin-top: 2px; */
     /* margin-bottom: 2px; */

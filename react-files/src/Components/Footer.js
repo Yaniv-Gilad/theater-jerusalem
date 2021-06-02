@@ -18,7 +18,7 @@ class Footer extends Component {
                         <div className="row">
                             <div className="col item social">
                                 <a href="https://he-il.facebook.com/www.tcj.org.il" target="_blank"><i className="fa fa-facebook"></i></a>
-                                <a href="https://twitter.com/tcjorg" target="_blank"><i className="fa fa-twitter"></i></a>
+                                <a href="https://www.tcj.org.il/" target="_blank"><i className="fa fa-globe"></i></a>
                                 <a href="https://www.youtube.com/channel/UCDbj0RbkfmwfiyRsVhO6mIg" target="_blank"><i className="fa fa-youtube"></i></a>
                                 <a href="https://www.instagram.com/tcj.insta/" target="_blank"><i className="fa fa-instagram"></i></a>
                                 <a href="https://www.google.com/maps/place/%D7%A7%D7%91%D7%95%D7%A6%D7%AA+%D7%94%D7%AA%D7%99%D7%90%D7%98%D7%A8%D7%95%D7%9F+%D7%94%D7%99%D7%A8%D7%95%D7%A9%D7%9C%D7%9E%D7%99%E2%80%AD/@31.7821676,35.2151213,15z/data=!4m5!3m4!1s0x0:0x51d0489ba8c581f2!8m2!3d31.7821758!4d35.2150967

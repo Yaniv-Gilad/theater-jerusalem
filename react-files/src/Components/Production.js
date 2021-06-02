@@ -36,14 +36,14 @@ class Production extends Component {
 
         return (
             <div className="Production">
-                <Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }} to={{ pathname: "/file", name: { _name } }}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
+                <Link id="linkName" style={{ color: "white", textDecoration: 'inherit' }} to={{ pathname: "/file", name: { _name } }}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
                 <br></br>
                 <button id="archive"><img src={ARCHIVE} onClick={this.moveToArchive}></img><span className="tooltiptext">העברה לארכיון</span></button>
             </div>
         )
     }
 
-    // move project to archive
+    // move project to archive 
     moveToArchive() {
         let _name = this.state.name.toString();
         db.collection("archive").doc(_name).set({ name: _name }).then(() => {

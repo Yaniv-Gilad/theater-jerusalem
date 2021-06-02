@@ -4,8 +4,8 @@
     height: 10%;
     margin: 2%;
     padding: 1%;
-    /* border-radius: 50%; */
-    background-color:#efe9d2;
+    border-radius: 5%; 
+    background-color:#b15550;
     /* קישור לקובץ עצמו */
     /* background-image: url('../Photos/background3.jpg');  */
     /* border: #424649dc;
@@ -31,4 +31,7 @@
 
 #but:hover #but_span{
   visibility: visible;
+}
+.File #but{
+  color: white;
 }
