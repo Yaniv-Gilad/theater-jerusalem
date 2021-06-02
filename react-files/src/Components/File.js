@@ -53,7 +53,7 @@ class File extends Component {
       return (
             <div className="HomePage">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
-            {!this.state.loader?<div className="spinner-border" ></div>:}
+            {!this.state.loader?<div className="spinner-border" ></div>:<div>
                 <h1><u>{_name}</u></h1>
                 {foldersToRender}
                 {filesToRender}
@@ -66,6 +66,7 @@ class File extends Component {
                     }}>למסך הבית</button>
                    {<input type="file" onChange={console.log("hi")}></input> }
                 </div>
+            </div>}
             </div>
         )
     }
