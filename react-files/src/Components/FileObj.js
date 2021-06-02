@@ -41,14 +41,12 @@ class FileObj extends Component {
             fixed_name = _name.substring(0, 20);
         }
 
-        let html = `<Link  id="linkName" style={{ color: 'inherit', textDecoration: 'inherit'}} to={{pathname:"/file", name:${_name}}}>${fixed_name}<span className="tooltiptextname">${_name}</span></Link>`;
-        if (type)
-            html = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
+        // let html = `<Link id="linkName" style="{ color: 'inherit', textDecoration: 'inherit'}" to="{pathname:'/file', name:'${_name}'}">${fixed_name}<span className="tooltiptextname">${_name}</span></Link>`;
+        // let html_but = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
+        //<Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }} to={{ pathname: "/file", name: _name}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
         return (
-            <div className="File">
-                <div dangerouslySetInnerHTML={{ __html: html }}>
-                </div>
-                <a href={this.state.download} target="_blank">open</a>
+            <div className="File">   
+                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span></button><a href={this.state.download} target="_blank">open</a>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
                 <br></br>
             </div>
 
