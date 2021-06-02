@@ -14,6 +14,30 @@ class Login extends Component {
     }
   }
 
+  async componentDidMount() {
+  
+    let user=null;
+      auth.onAuthStateChanged(_user=>{
+        if(_user)
+       {// if  user logged in
+        this.setState({ user: user })
+        this.props.history.push({
+          pathname: '/Home',
+          data: user
+        })
+       }
+  else{
+    //  else -> user didnt logged in
+      if (user == null) {
+        this.props.history.push(
+          {
+            pathname: "/"
+          });
+        return;
+      }
+    }
+  })
+  }
   render() {
 
     return (

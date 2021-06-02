@@ -1,4 +1,5 @@
 import { Component } from "react"
+import { storage } from "../Firebase/firebase"
 import ARCHIVE from "../Photos/archive.png"
 import '../CSS/File.css'
 import App from "../App"
@@ -10,7 +11,15 @@ class FileObj extends Component {
         super(props);
         this.state = {
             name: props.prod.name,
+            path: props.path,
+            download:""
         }
+    }
+
+    componentDidMount() {
+        let path = this.state.path + "/";
+        path = path + this.state.name;
+        storage.ref(path).getDownloadURL().then((url)=>{this.setState({...this.state, download:url})});
     }
 
     render() {
@@ -36,8 +45,8 @@ class FileObj extends Component {
         // let html_but = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
         //<Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }} to={{ pathname: "/file", name: _name}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
         return (
-            <div className="File">
-                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span></button>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
+            <div className="File">   
+                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span><br></br><a href={this.state.download} target="_blank">open</a></button>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
                 <br></br>
             </div>
 

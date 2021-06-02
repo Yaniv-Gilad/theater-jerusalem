@@ -7,12 +7,15 @@ import LOGO from '../Photos/logo.png'
 import { NavLink } from 'react-router-dom'
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
+import Calendar from "./Calendar"
+// import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      loader:false,
       data: props.location.data,
       allUsers: [],
       projects: [],
@@ -23,10 +26,23 @@ class HomePage extends Component {
     this.getArchive = this.getArchive.bind(this);
   }
 
-  componentDidMount() {
-    let user = auth.currentUser;
+ async componentDidMount() {
+  
+  let user=null;
+    auth.onAuthStateChanged(_user=>{
+      if(_user)
+     {// if  user logged in
+      this.setState({ user: user })
+      this.props.history.push({
+        pathname: '/Home',
+        data: user
+      })
 
-    // if user didnt logged in
+      this.getProjects();
+     this.getArchive();
+     }
+else{
+  //  else -> user didnt logged in
     if (user == null) {
       this.props.history.push(
         {
@@ -34,22 +50,21 @@ class HomePage extends Component {
         });
       return;
     }
-
-    // else -> user logged in
-    this.setState({ user: user })
-    this.props.history.push({
-      pathname: '/Home',
-      data: user
-    })
-
-    this.getProjects();
-    this.getArchive();
   }
+})
+}
 
   render() {
+   let id="dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20";
+   let str="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src="+id+"&amp;color=%23039BE5&amp;showTitle=0"
+   
     let dataToRender = this.getData();
     return (
+    
       <div className="HomePage">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
+         {!this.state.loader?<div className="spinner-border" role="status"></div>:
+         <div>
         <h1>הפקות</h1>
         {dataToRender}
         <div id="wrapper">
@@ -67,9 +82,11 @@ class HomePage extends Component {
                 pathname: "/"
               })
           }}>התנתק</button>
-
+         
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
+        {/* <Calendar/> */}
         </div>
+        </div>}
       </div>
 
     )
@@ -82,10 +99,10 @@ class HomePage extends Component {
     return dataToReturn;
   }
 
+
+  async getProjects() {
+   let res =await storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
   // get all projects on firebase
-  getProjects() {
-    storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
-      .then((res) => {
         let p = []
         res.prefixes.forEach((folderRef) => {
           let name = folderRef.name;
@@ -94,19 +111,19 @@ class HomePage extends Component {
         });
 
         this.setState({ ...this.state, projects: p });
-      }
-      );
   }
 
+
+  async getArchive() {
   // get archive projects from firestore json
-  getArchive() {
+
     let arch = [];
-    db.collection("archive").get().then((querySnapshot) => {
+    let querySnapshot=await db.collection("archive").get()
       querySnapshot.forEach((doc) => {
         arch.push(doc.data()["name"]);
       });
-      this.setState({ ...this.state, archive: arch });
-    });
+      this.setState({ ...this.state, archive: arch ,loader:true});
+  
   }
 
 }
