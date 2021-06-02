@@ -27,8 +27,7 @@
 #welcome{
     color: #74031b;
     font-size: 50px;
-    font-family: 'Assistant', sans-serif;
-    /* font-family:serif */
+    font-family:"verdana";
   }
 input[type="password"], input[type="text"] {
   background: url('http://i.minus.com/ibhqW9Buanohx2.png') center left no-repeat, linear-gradient(top, #d6d7d7, #dee0e0);

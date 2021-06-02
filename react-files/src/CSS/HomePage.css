@@ -54,11 +54,15 @@
 .HomePage #logout {
   border-radius: 50%;
   background-color: rgb(145, 0, 0);
+  font-family:"verdana";
   color: white;
   height:36px;
   text-align: center;
   border-radius: 6px;
   margin: 2%;
+  position: absolute;
+  left:0%;
+  bottom:7%;
 }
 
 .HomePage #logout:hover {
@@ -69,6 +73,7 @@
   cursor:pointer;
 }
 .HomePage h1{
+font-size: 50px;
 font-family:"verdana"
 }
 

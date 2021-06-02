@@ -58,7 +58,7 @@ class File extends Component {
                 {foldersToRender}
                 {filesToRender}
                 <div id="wrapper">
-                    <button id="logout" onClick={() => {
+                    <button id="go_home" onClick={() => {
                         this.props.history.push(
                             {
                                 pathname: "/home"
