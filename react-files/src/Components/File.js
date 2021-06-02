@@ -40,7 +40,7 @@ class File extends Component {
             const storageRef= storage.ref();
             const fileRef=storageRef.child(file.name);
             fileRef.put(file).then(() => {
-                console.log("העלה קובץ")
+                console.log("העלה קובץ",file.name)
             });
      }
     
@@ -54,7 +54,10 @@ class File extends Component {
             <div className="HomePage">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
             {!this.state.loader?<div className="spinner-border" ></div>:<div>
+                <p></p>
                 <h1>{_name}</h1>
+                <p></p>
+                <p></p>
                 {foldersToRender}
                 {filesToRender}
                 <div id="wrapper">
@@ -64,8 +67,8 @@ class File extends Component {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
-                   {<input type="file" onChange={console.log("hi")}></input> }
                 </div>
+                {<input type="file" onChange={console.log("hi")}></input> }
             </div>}
             </div>
         )

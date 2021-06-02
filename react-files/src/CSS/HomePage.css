@@ -9,22 +9,41 @@
   background-color: transparent;
   border: none;
 }
+.HomePage #add{
+  position: absolute;
+  right:5%;
+  bottom:10%;
+}
+.HomePage #archive{
+  position: absolute;
+  right:10%;
+  bottom:10%;
+}
+
 .HomePage button img{
   background-color: transparent;
   border: none;
   width: 40px;
   height: 40px;
+ 
 }
 
 .HomePage #archive:hover .tooltiptext{
   /* background-color: #424649dc; */
   visibility: visible;
+  position: absolute;
+  right:10%;
+  bottom:100%;
+
 }
 
 .HomePage #add:hover .tooltiptext,
 .HomePage .File:hover .tooltiptextname{
   /* background-color: #424649dc; */
   visibility: visible;
+  position: absolute;
+  right:5%;
+  bottom:100%;
 }
 
 

@@ -20,10 +20,14 @@
   font-size: 70%;
   
 }
-.Production #archive img{
+.Production #add_archive img{
   width: 20px;
   height: 20px;
-  align-self: left;  
+}
+.HomePage #add_archive:hover .tooltiptext{
+  /* background-color: #424649dc; */
+  visibility: visible;
+
 }
 
 .Production .smallButton img{
@@ -36,15 +40,13 @@
     border: none;
 }
 
-.Production #archive:hover .tooltiptext{
+.Production #add_archive:hover .tooltiptext{
     background-color: #424649dc; 
     visibility: visible;
   }
 
-button #archive{
-  position:relative;
-  left: 0%;
-  padding-left: 0%;
+#add_archive{
+float: left;
 }
 .Production .smallButton:hover .tooltiptext{
     /* background-color: #424649dc; */

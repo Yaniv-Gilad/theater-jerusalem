@@ -1,7 +1,9 @@
 import { Component } from "react"
 import { auth, db, storage } from "../Firebase/firebase"
+import '../CSS/archive.css'
 import '../CSS/HomePage.css'
 import ArchiveObj from "./ArchiveObj.js"
+
 
 class Archive extends Component {
     constructor(props) {
@@ -44,11 +46,11 @@ class Archive extends Component {
     render() {
         let dataToRender = this.getData();
         return (
-            <div className="HomePage">
-                <h1><u>ארכיון</u></h1>
+            <div className="archive">
+                <h1>ארכיון</h1>
                 {dataToRender}
                 <div id="wrapper">
-                    <button id="logout" onClick={() => {
+                    <button id="go_home" onClick={() => {
                         this.props.history.push(
                             {
                                 pathname: "/home"
