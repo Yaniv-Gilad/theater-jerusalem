@@ -3,6 +3,7 @@ import { auth, db, storage } from "../Firebase/firebase"
 import '../CSS/HomePage.css'
 import ArchiveObj from "./ArchiveObj.js"
 
+
 class Archive extends Component {
     constructor(props) {
         super(props);
@@ -45,23 +46,23 @@ class Archive extends Component {
         let dataToRender = this.getData();
         return (
             <div className="HomePage">
-                <h1><u>ארכיון</u></h1>
+                <h1>ארכיון</h1>
                 {dataToRender}
                 <div id="wrapper">
-                    <button id="logout" onClick={() => {
+                    <button id="go_home" onClick={() => {
                         this.props.history.push(
                             {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
 
-                    <button id="logout" onClick={() => {
+                    {/* <button id="logout" onClick={() => {
                         auth.signOut();
                         this.props.history.push(
                             {
                                 pathname: "/"
                             })
-                    }}>התנתק</button>
+                    }}>התנתק</button> */}
                 </div>
             </div>
 

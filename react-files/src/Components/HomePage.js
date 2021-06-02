@@ -65,7 +65,10 @@ else{
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
          {!this.state.loader?<div className="spinner-border" role="status"></div>:
          <div>
-        <h1>הפקות</h1>
+           <p></p>
+        <h1><b>הפקות</b></h1>
+        <p></p>
+        <p></p>
         {dataToRender}
         <div id="wrapper">
           <button id="archive" onClick={() => {
@@ -74,6 +77,12 @@ else{
                 pathname: "/Archive"
               })
           }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
+          {/* <button id="calendar" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/Calendar"
+              })
+          }}></button> */}
 
           <button id="logout" onClick={() => {
             auth.signOut();

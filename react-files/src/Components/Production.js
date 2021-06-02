@@ -38,7 +38,7 @@ class Production extends Component {
             <div className="Production">
                 <Link id="linkName" style={{ color: "white", textDecoration: 'inherit' }} to={{ pathname: "/file", name: { _name }, path:{_name} }}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
                 <br></br>
-                <button id="archive"><img src={ARCHIVE} onClick={this.moveToArchive}></img><span className="tooltiptext">העברה לארכיון</span></button>
+                <button id="add_archive"><img src={ARCHIVE} onClick={this.moveToArchive}></img><span className="tooltiptext">העברה לארכיון</span></button>
             </div>
         )
     }
@@ -49,6 +49,7 @@ class Production extends Component {
         db.collection("archive").doc(_name).set({ name: _name }).then(() => {
             console.log("Document '" + _name + "' added to archive!");
             this.state.getArchive();
+            window.location.reload();
         });
     }
 }

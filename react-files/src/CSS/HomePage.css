@@ -9,22 +9,41 @@
   background-color: transparent;
   border: none;
 }
+.HomePage #add{
+  position: absolute;
+  right:5%;
+  bottom:10%;
+}
+.HomePage #archive{
+  position: absolute;
+  right:10%;
+  bottom:10%;
+}
+
 .HomePage button img{
   background-color: transparent;
   border: none;
   width: 40px;
   height: 40px;
+ 
 }
 
 .HomePage #archive:hover .tooltiptext{
   /* background-color: #424649dc; */
   visibility: visible;
+  position: absolute;
+  right:10%;
+  bottom:100%;
+
 }
 
 .HomePage #add:hover .tooltiptext,
 .HomePage .File:hover .tooltiptextname{
   /* background-color: #424649dc; */
   visibility: visible;
+  position: absolute;
+  right:5%;
+  bottom:100%;
 }
 
 
@@ -52,7 +71,19 @@
   justify-content: center;
 }
 
-.HomePage #logout {
+#logout {
+  border-radius: 50%;
+  font-family:"verdana";
+  color: black;
+  height:36px;
+  text-align: center;
+  border-radius: 6px;
+  margin: 2%;
+  position: absolute;
+  left:0%;
+  bottom:7%;
+}
+#go_home{
   border-radius: 50%;
   background-color: rgb(145, 0, 0);
   font-family:"verdana";
@@ -66,9 +97,6 @@
   bottom:7%;
 }
 
-.HomePage #logout:hover {
-  background-color: rgb(87, 0, 0);
-}
 
 .HomePage button:hover {
   cursor:pointer;
@@ -84,14 +112,16 @@ font-family:"verdana";
   top: 40%;
   height: 4rem;
   width: 4rem;
-  /* display: block; */
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* width: 50%; */
-  display: flex !important;
+  left: 47%;
+  /* text-align: center; */
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto;  */
+  /* width: 50%;
+  /* display: flex !important;
   align-items:center !important;
   text-align: center !important;
-  justify-content: center !important;
+  justify-content: center !important; */
 }
 
 .HomePage iframe{
