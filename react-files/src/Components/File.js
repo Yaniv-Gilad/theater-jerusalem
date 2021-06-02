@@ -54,7 +54,7 @@ class File extends Component {
             <div className="HomePage">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
             {!this.state.loader?<div className="spinner-border" ></div>:<div>
-                <h1><u>{_name}</u></h1>
+                <h1>{_name}</h1>
                 {foldersToRender}
                 {filesToRender}
                 <div id="wrapper">
