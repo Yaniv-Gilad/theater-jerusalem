@@ -9,11 +9,12 @@ class File extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            files: []
+            files: [],
+            folders: []
         }
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         storage.refFromURL("gs://theater-841bd.appspot.com/" + this.props.location.name._name).listAll()
             .then((res) => {
                 let p = []
@@ -22,40 +23,49 @@ class File extends Component {
                     let p1 = { "name": name };
                     p.push(p1);
                 });
+                let fol = [];
                 res.prefixes.forEach((folderRef) => {
                     let name = folderRef.name;
                     let p1 = { "name": name };
-                    p.push(p1)
+                    fol.push(p1);
                 });
-                this.setState({ ...this.state, files: p })
+                this.setState({ ...this.state, files: p, folders: fol });
             }
             );
     }
 
-    render(){
+    render() {
         let _name = this.props.location.name._name;
-        let dataToRender = this.getData();
-    return (
-        <div className="HomePage">
-            <h1><u>{_name}</u></h1>
-            {dataToRender}
-            <div id="wrapper">
-            <button id="logout" onClick={() => {
-            this.props.history.push(
-                {
-                pathname: "/home"
-                })
-            }}>למסך הבית</button>
+        let foldersToRender = this.getFolders();
+        let filesToRender = this.getFiles();
+        return (
+            <div className="HomePage">
+                <h1><u>{_name}</u></h1>
+                {foldersToRender}
+                {filesToRender}
+                <div id="wrapper">
+                    <button id="logout" onClick={() => {
+                        this.props.history.push(
+                            {
+                                pathname: "/home"
+                            })
+                    }}>למסך הבית</button>
+                </div>
             </div>
-        </div>
 
         )
     }
 
     // get all files and folders to show on screen
-    getData() {
+    getFiles() {
         let _path = this.props.location.name._name;
-        let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file} path={_path}/>);
+        let dataToReturn = this.state.files.map((file, index) => <FileObj key={index} prod={file} path={_path} />);
+        return dataToReturn;
+    }
+
+    getFolders() {
+        let _path = this.props.location.name._name;
+        let dataToReturn = this.state.folders.map((folder, index) => <FileObj key={index} prod={folder} path={_path} />);
         return dataToReturn;
     }
 }
