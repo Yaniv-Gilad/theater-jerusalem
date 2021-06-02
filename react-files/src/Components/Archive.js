@@ -1,6 +1,5 @@
 import { Component } from "react"
 import { auth, db, storage } from "../Firebase/firebase"
-import '../CSS/archive.css'
 import '../CSS/HomePage.css'
 import ArchiveObj from "./ArchiveObj.js"
 
@@ -45,7 +44,7 @@ class Archive extends Component {
     render() {
         let dataToRender = this.getData();
         return (
-            <div className="archive">
+            <div className="HomePage">
                 <h1>ארכיון</h1>
                 {dataToRender}
                 <div id="wrapper">
