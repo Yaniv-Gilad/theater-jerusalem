@@ -24,6 +24,10 @@
   width: 20px;
   height: 20px;
 }
+.HomePage #add_archive:hover .tooltiptext{
+  /* background-color: #424649dc; */
+  visibility: visible;
+}
 
 .Production .smallButton img{
   width: 20px;
@@ -41,7 +45,7 @@
   }
 
 #add_archive{
-  float:left;
+  float: left;
 }
 .Production .smallButton:hover .tooltiptext{
     /* background-color: #424649dc; */

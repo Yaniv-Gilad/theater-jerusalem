@@ -65,7 +65,10 @@ else{
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
          {!this.state.loader?<div className="spinner-border" role="status"></div>:
          <div>
+           <p></p>
         <h1>הפקות</h1>
+        <p></p>
+        <p></p>
         {dataToRender}
         <div id="wrapper">
           <button id="archive" onClick={() => {
