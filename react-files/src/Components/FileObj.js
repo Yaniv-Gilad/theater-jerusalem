@@ -46,7 +46,7 @@ class FileObj extends Component {
         //<Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }} to={{ pathname: "/file", name: _name}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
         return (
             <div className="File">   
-                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span></button><a href={this.state.download} target="_blank">open</a>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
+                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span><br></br><a href={this.state.download} target="_blank">open</a></button>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
                 <br></br>
             </div>
 
