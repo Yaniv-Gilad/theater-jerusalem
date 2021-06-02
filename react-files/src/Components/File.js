@@ -69,6 +69,7 @@ class File extends Component {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
+                    </div>
                    <input type="file" id="upload_but" onChange={this.Upload}></input> 
             </div>}
             </div>
