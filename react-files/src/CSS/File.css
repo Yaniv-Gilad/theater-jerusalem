@@ -36,6 +36,12 @@
   color: white;
   font-size: 70%;
 }
+
+#upload_but{
+  width: 40%;
+  height: 10%;
+  
+}
 .HomePage #go_home{
   border-radius: 50%;
   background-color: rgb(145, 0, 0);
