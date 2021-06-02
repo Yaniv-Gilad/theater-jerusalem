@@ -22,14 +22,14 @@ class File extends Component {
         this.getData();
     }
 
-    // Upload(e){
-    //         const file = e.targrt.files[0];
-    //         const storageRef= storage.ref();
-    //         const fileRef=storageRef.child(file.name);
-    //         fileRef.put(file).then(() => {
-    //             console.log("העלה קובץ")
-    //         });
-    //  }
+    Upload(e){
+            const file = e.targrt.files[0];
+            const storageRef= storage.ref();
+            const fileRef=storageRef.child(file.name);
+            fileRef.put(file).then(() => {
+                console.log("העלה קובץ")
+            });
+     }
 
 
     render() {
