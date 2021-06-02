@@ -34,6 +34,7 @@
 }
 .File #but{
   color: white;
+  font-size: 70%;
 }
 .HomePage #go_home{
   border-radius: 50%;
@@ -44,7 +45,6 @@
   text-align: center;
   border-radius: 6px;
   margin: 2%;
-  font-size: xx-large;
   position: absolute;
   left:0%;
   bottom:7%;
