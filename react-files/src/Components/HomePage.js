@@ -84,7 +84,7 @@ else{
           }}>התנתק</button>
          
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-        <Calendar/>
+        {/* <Calendar/> */}
         </div>
         </div>}
       </div>
