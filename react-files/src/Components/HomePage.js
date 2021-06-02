@@ -63,7 +63,7 @@ else{
     
       <div className="HomePage">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
-         {!this.state.loader?<div class="spinner-border" role="status"></div>:
+         {!this.state.loader?<div className="spinner-border" role="status"></div>:
          <div>
         <h1>הפקות</h1>
         {dataToRender}
@@ -84,7 +84,7 @@ else{
           }}>התנתק</button>
          
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-        <Calendar  />
+        <Calendar/>
         </div>
         </div>}
       </div>

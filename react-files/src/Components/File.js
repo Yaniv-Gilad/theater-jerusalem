@@ -51,7 +51,7 @@ class File extends Component {
         return (
         <div className="HomePage">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
-         {!this.state.loader?<div class="spinner-border" ></div>:
+         {!this.state.loader?<div className="spinner-border" ></div>:
          <div>
             <h1>{_name}</h1>
             {dataToRender}
