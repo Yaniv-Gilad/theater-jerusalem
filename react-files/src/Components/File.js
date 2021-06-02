@@ -69,12 +69,12 @@ class File extends Component {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
+                </div>
                    <input type="file" id="upload_but" onChange={this.Upload}></input> 
             </div>}
             </div>
         )
-    }
-   
+                }
     // get all files and folders to show on screen
     getFiles() {
         let _path = this.props.location.name._name;
