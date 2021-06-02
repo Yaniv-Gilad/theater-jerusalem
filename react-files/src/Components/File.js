@@ -17,6 +17,7 @@ class File extends Component {
             folders: []
         }
         this.getData = this.getData.bind(this);
+        this.Upload = this.Upload.bind(this);
     }
 
     componentDidMount() {
@@ -41,14 +42,17 @@ class File extends Component {
     }
 
     Upload(e) {
-        const file = e.targrt.files[0];
+        let i = this.state.path.indexOf(".com/");
+        i = i+5;
+        let p = this.state.path.substring(i);
+        const file = e.target.files[0];
         const storageRef = storage.ref();
-        const fileRef = storageRef.child(file.name);
+        const fileRef = storageRef.child(p + "/" + file.name);
         fileRef.put(file).then(() => {
-            console.log("העלה קובץ")
+            console.log("העלה קובץ", file.name);
+            this.getData(this.state.path);
         });
     }
-
 
     render() {
         let _name = this.props.location.name._name;
@@ -69,7 +73,7 @@ class File extends Component {
                                     pathname: "/home"
                                 })
                         }}>למסך הבית</button>
-                        {<input type="file"></input>}
+                        <input type="file" id="upload_but" onChange={this.Upload}></input>
                     </div>
                 </div>}
             </div>
