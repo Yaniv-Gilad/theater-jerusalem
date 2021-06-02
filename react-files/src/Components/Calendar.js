@@ -5,8 +5,8 @@ import React from "react";
 var gapi = window.gapi
 
 
-// var CLIENT_ID = "25532945063-7d85q8c7socv0ic5l8h5lhdupqkc0k3n.apps.googleusercontent.com"
-// var API_KEY = "AIzaSyDLfXSRbdMnZCiQLpOPQ0SdgzEMigMqFwE"
+// var CLIENT_ID = "565170161100-craavtfl33foajmvcd14490qt9gc7htt.apps.googleusercontent.com"
+// var API_KEY = "AIzaSyDmT8UQR6QeI3VCHW5_lb5LucEDQcYYp78"
 
 var CLIENT_ID = "269970060271-itlf5cfr93fnu85pue6jfmjchdvt9l32.apps.googleusercontent.com"
 var API_KEY = "AIzaSyC7J7k45TnTkY8j6hGmoR7iBnYr5ovyPvc"
@@ -37,12 +37,12 @@ class Calendar extends Component{
         this.state={
             event:{},
             user:{},
-         summery:'Awesome Event!',
+         summery:'is Doron',
          location:'800 Howard St., San Francisco, CA 94103',
          description: 'Really great refreshments',
          timeZone:'America/Los_Angeles',
-         dateTimeStart:'2021-05-29T09:00:00-07:00',
-         dateTimeEnd:'2021-05-30T17:00:00-07:00',
+         dateTimeStart:'2021-06-11T09:00:00-07:00',
+         dateTimeEnd:'2021-06-12T17:00:00-07:00',
          emails:[
             // {'email': 'lpage@example.com'},
             // {'email': 'sbrin@example.com'}
@@ -164,7 +164,8 @@ class Calendar extends Component{
                 <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>Add Event</button>
                 </div>
             <div>
-                <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe>
+                {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
             </div>
             </div>
         )

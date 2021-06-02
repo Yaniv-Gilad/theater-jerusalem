@@ -20,7 +20,6 @@ class Archive extends Component {
 
     componentDidMount() {
         auth.onAuthStateChanged(_user=>{
-        console.log(_user);
         // if user didnt logged in
         if (_user == null) {
             this.props.history.push(
