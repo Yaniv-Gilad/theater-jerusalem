@@ -1,0 +1,19 @@
+.Calendar{
+  min-width: 100vw;
+  min-height: 100vh;
+  color: black;
+  background-image: url("../Photos/background4.jpg") ;
+}
+
+.Calendar iframe{
+    padding:0px;
+    margin:0px;
+    border: 0px;
+    width: 600px;
+    height: 400px;
+  }
+
+  .Calendar button{
+  background-color: transparent;
+  border: none;
+}

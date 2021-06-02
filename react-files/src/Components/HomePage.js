@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
 import Calendar from "./Calendar"
+import CALENDAR from "../Photos/calendar.png"
 // import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
@@ -77,12 +78,12 @@ else{
                 pathname: "/Archive"
               })
           }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
-          {/* <button id="calendar" onClick={() => {
+          <button id="calendar" onClick={() => {
             this.props.history.push(
               {
                 pathname: "/Calendar"
               })
-          }}></button> */}
+          }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
 
           <button id="logout" onClick={() => {
             auth.signOut();
@@ -93,7 +94,6 @@ else{
           }}>התנתק</button>
          
           <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-        {/* <Calendar/> */}
         </div>
         </div>}
       </div>
