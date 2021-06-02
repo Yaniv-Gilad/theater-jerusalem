@@ -77,6 +77,12 @@ else{
                 pathname: "/Archive"
               })
           }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
+          {/* <button id="calendar" onClick={() => {
+            this.props.history.push(
+              {
+                pathname: "/Calendar"
+              })
+          }}></button> */}
 
           <button id="logout" onClick={() => {
             auth.signOut();

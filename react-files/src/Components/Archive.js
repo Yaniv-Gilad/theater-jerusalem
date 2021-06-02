@@ -21,10 +21,9 @@ class Archive extends Component {
     }
 
     componentDidMount() {
-        let user = auth.currentUser;
-
+        auth.onAuthStateChanged(_user=>{
         // if user didnt logged in
-        if (user == null) {
+        if (_user == null) {
             this.props.history.push(
                 {
                     pathname: "/"
@@ -33,15 +32,15 @@ class Archive extends Component {
         }
 
         //else -> user logged in
-        this.setState({ user: user })
+        this.setState({ user: _user })
         this.props.history.push({
             pathname: '/Archive',
-            data: user
+            data: _user
         })
 
         this.getProjects();
         this.getArchive();
-    }
+    })}
 
     render() {
         let dataToRender = this.getData();
