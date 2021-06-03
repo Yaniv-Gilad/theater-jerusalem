@@ -1,17 +1,19 @@
 import {Component} from 'react'
 import React from "react";
 import '../CSS/Calendar.css'
-
+import Calendar_new1 from "../Photos/AddGoogleCal1.png"
+import Calendar_new2 from "../Photos/AddGoogleCal2.png"
 
 
 var gapi = window.gapi
 
+var URLcalendar = "https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20"
 
-// var CLIENT_ID = "25532945063-7d85q8c7socv0ic5l8h5lhdupqkc0k3n.apps.googleusercontent.com"
-// var API_KEY = "AIzaSyDLfXSRbdMnZCiQLpOPQ0SdgzEMigMqFwE"
+var CLIENT_ID = "565170161100-craavtfl33foajmvcd14490qt9gc7htt.apps.googleusercontent.com"
+var API_KEY = "AIzaSyDmT8UQR6QeI3VCHW5_lb5LucEDQcYYp78"
 
-var CLIENT_ID = "269970060271-itlf5cfr93fnu85pue6jfmjchdvt9l32.apps.googleusercontent.com"
-var API_KEY = "AIzaSyC7J7k45TnTkY8j6hGmoR7iBnYr5ovyPvc"
+// var CLIENT_ID = "269970060271-itlf5cfr93fnu85pue6jfmjchdvt9l32.apps.googleusercontent.com"
+// var API_KEY = "AIzaSyC7J7k45TnTkY8j6hGmoR7iBnYr5ovyPvc"
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
 var SCOPES = [
     "https://www.googleapis.com/auth/calendar",
@@ -43,8 +45,8 @@ class Calendar extends Component{
          location:'800 Howard St., San Francisco, CA 94103',
          description: 'Really great refreshments',
          timeZone:'America/Los_Angeles',
-         dateTimeStart:'2021-06-24T09:00:00-07:00',
-         dateTimeEnd:'2021-06-25T17:00:00-07:00',
+         dateTimeStart:'2021-06-03T09:00:00-07:00',
+         dateTimeEnd:'2021-06-04T17:00:00-07:00',
          emails:[
             // {'email': 'lpage@example.com'},
             // {'email': 'sbrin@example.com'}
@@ -156,16 +158,33 @@ class Calendar extends Component{
           console.log('EVENTS: ', events)
         })
     }
-
-
+    //copy the url
+    copyToClipboard = (URLcalendar="https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20") => {
+        const el = document.createElement('textarea');
+        el.value = URLcalendar;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        console.log("copy");
+      };
 
     render() {
         return(
             <div className ="Calendar">
                 <div>
-                <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>Add Event</button>
                 <h2 className="line"><span className = "fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
+                <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{URLcalendar}<br></br>
+                <button onClick={()=>this.copyToClipboard()}>העתק</button>
+                <h3>שלב ב'</h3> הכנס ליומן של גוגל בכתובת<br></br>
+                <a href="https://calendar.google.com/" target="_blank">https://calendar.google.com</a>
+                <h3>שלב ג'</h3><br></br> Add a Friend's Calendar -&gt; ושם לבחור From URL <br></br>
+                <img src={Calendar_new1} class="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
+                <h3>שלב ד'</h3>הדבק את הכתובת משלב א' והוסף יומן <br></br>
+                <img src={Calendar_new2} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
+                <br></br>
                 </div>
+            <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button>    
             <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
             {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
