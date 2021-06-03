@@ -66,9 +66,10 @@ else{
          {!this.state.loader?<div className="spinner-border" role="status"></div>:
          <div>
            <p></p>
-        <h1>הפקות</h1>
+        <h1><b>הפקות</b></h1>
         <p></p>
         <p></p>
+        <div id="box"></div>
         {dataToRender}
         <div id="wrapper">
           <button id="archive" onClick={() => {
