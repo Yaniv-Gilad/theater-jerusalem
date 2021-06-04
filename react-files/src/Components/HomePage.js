@@ -28,14 +28,13 @@ class HomePage extends Component {
 
  async componentDidMount() {
   
-  let user=null;
     auth.onAuthStateChanged(_user=>{
       if(_user)
      {// if  user logged in
-      this.setState({ user: user })
+      this.setState({ user: _user })
       this.props.history.push({
         pathname: '/Home',
-        data: user
+        data: _user
       })
 
       this.getProjects();
@@ -43,7 +42,7 @@ class HomePage extends Component {
      }
 else{
   //  else -> user didnt logged in
-    if (user == null) {
+    if (_user == null) {
       this.props.history.push(
         {
           pathname: "/"
@@ -110,7 +109,7 @@ else{
 
 
   async getProjects() {
-   let res =await storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+   let res =await storage.refFromURL("gs://theater2-d72bc.appspot.com").listAll()
   // get all projects on firebase
         let p = []
         res.prefixes.forEach((folderRef) => {
