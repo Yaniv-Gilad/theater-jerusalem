@@ -15,8 +15,6 @@ class Login extends Component {
   }
 
   async componentDidMount() {
-  
-    let user=null;
     auth.onAuthStateChanged(_user=>{
         console.log(_user)
         if(_user)
