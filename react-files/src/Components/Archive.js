@@ -78,7 +78,7 @@ class Archive extends Component {
 
     // get all projects on firebase
     getProjects() {
-        storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+        storage.refFromURL("gs://theater2-d72bc.appspot.com").listAll()
             .then((res) => {
                 let p = []
                 res.prefixes.forEach((folderRef) => {

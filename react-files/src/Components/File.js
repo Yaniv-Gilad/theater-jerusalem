@@ -21,7 +21,7 @@ class File extends Component {
     }
 
     componentDidMount() {
-        let _path = "gs://theater-841bd.appspot.com/" + this.props.location.path._name;
+        let _path = "gs://theater2-d72bc.appspot.com/" + this.props.location.path._name;
 
         storage.refFromURL(_path).listAll().then((res) => {
             let p = []
