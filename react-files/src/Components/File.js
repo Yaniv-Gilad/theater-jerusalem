@@ -1,8 +1,7 @@
-import { render } from "@testing-library/react";
 import { Component } from "react"
 import FileObj from "./FileObj.js"
 import FolderObj from "./FolderObj.js"
-import { auth, db, storage } from "../Firebase/firebase"
+import { storage } from "../Firebase/firebase"
 import '../CSS/File.css'
 import React from 'react';
 import '../App.css';
@@ -43,7 +42,7 @@ class File extends Component {
 
     Upload(e) {
         let i = this.state.path.indexOf(".com/");
-        i = i+5;
+        i = i + 5;
         let p = this.state.path.substring(i);
         const file = e.target.files[0];
         const storageRef = storage.ref();

@@ -15,27 +15,26 @@ class Login extends Component {
   }
 
   async componentDidMount() {
-  
-      auth.onAuthStateChanged(_user=>{
-        if(_user)
-       {// if  user logged in
+
+    auth.onAuthStateChanged(_user => {
+      if (_user) {// if  user logged in
         this.setState({ user: _user })
         this.props.history.push({
           pathname: '/Home',
           data: _user
         })
-       }
-  else{
-    //  else -> user didnt logged in
-      if (_user == null) {
-        this.props.history.push(
-          {
-            pathname: "/"
-          });
-        return;
       }
-    }
-  })
+      else {
+        //  else -> user didnt logged in
+        if (_user == null) {
+          this.props.history.push(
+            {
+              pathname: "/"
+            });
+          return;
+        }
+      }
+    })
   }
   render() {
 
