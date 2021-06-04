@@ -1,8 +1,6 @@
 import { Component } from "react"
 import { storage } from "../Firebase/firebase"
-import ARCHIVE from "../Photos/archive.png"
 import '../CSS/File.css'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class FileObj extends Component {
 

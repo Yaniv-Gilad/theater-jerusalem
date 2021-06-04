@@ -67,7 +67,6 @@ class ArchiveObj extends Component {
         db.collection("archive").doc(_name).delete().then(() => {
             console.log("Document '" + _name + "' added to home!");
             this.state.getArchive();
-            window.location.reload();
         });
     }
 
