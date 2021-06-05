@@ -63,7 +63,7 @@ class FileObj extends Component {
         let name = this.state.name;
         let path = this.state.path;
 
-        if (window.confirm("Delete file " + name + "?") == false)
+        if (window.confirm("למחוק את הקובץ \"" + name + "\" ?") == false)
             return;
 
         storage.refFromURL(path).delete().then(() => {
