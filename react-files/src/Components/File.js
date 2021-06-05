@@ -79,7 +79,7 @@ class File extends Component {
         )
     }
 
-    getData(new_path) {
+    getData(new_path = this.state.path) {
         this.setState({ ...this.state, path: new_path, files: [], folders: [], loader: false });
         storage.refFromURL(new_path).listAll()
             .then((res) => {
@@ -102,7 +102,7 @@ class File extends Component {
 
     // get all files and folders to show on screen
     getFiles() {
-        let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} />);
+        let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} updateFiles={this.getData} />);
         return dataToReturn;
     }
 
