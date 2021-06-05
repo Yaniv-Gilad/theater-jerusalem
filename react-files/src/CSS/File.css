@@ -45,3 +45,17 @@
 .HomePage #go_home:hover {
   background-color: rgb(87, 0, 0);
 }
+
+#delete_file{
+  float: left;
+}
+
+#delete_file img{
+  width: 20px;
+  height: 20px;  
+}
+
+.File #delete_file:hover .tooltiptext{
+  background-color: #424649dc; 
+  visibility: visible;
+}
