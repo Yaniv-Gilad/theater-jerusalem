@@ -172,7 +172,13 @@ class Calendar extends Component{
     render() {
         return(
             <div className ="Calendar">
-                <div>
+                <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
+                    <div className="form-group">
+                        <label for="">הכנס שם אירוע</label>
+                        <input type="text" class="form control" name="title" placeholder="הכנס שם אירוע"></input>
+                    </div>
+                </form>
+                {/* <div>
                 <h2 className="line"><span className = "fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
                 <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{window.URLcalendar}<br></br>
                 <button onClick={()=>this.copyToClipboard(window.URLcalendar)}>העתק</button>
@@ -183,9 +189,10 @@ class Calendar extends Component{
                 <h3>שלב ד'</h3>הדבק את הכתובת משלב א' והוסף יומן <br></br>
                 <img src={Calendar_new2} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
                 <br></br>
-                </div>
-            <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button>    
+                </div> */}
+            {/* <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button>     */}
             <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
+            <button type="button" class="add_event" data-toggle="modal" data-target="#addEvent">הוספת אירוע</button>
             {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
             </div>
