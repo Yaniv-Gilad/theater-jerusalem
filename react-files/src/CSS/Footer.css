@@ -6,7 +6,7 @@
     position: absolute;
     max-height: 8%; 
     bottom: 0%;
-    /* position: sticky; */
+    position: sticky;
 }
 
 .footer-dark h3 {
