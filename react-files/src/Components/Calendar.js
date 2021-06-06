@@ -7,7 +7,7 @@ import Calendar_new2 from "../Photos/AddGoogleCal2.png"
 
 var gapi = window.gapi
 
-var URLcalendar = "https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20"
+window.URLcalendar = "https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20"
 
 var CLIENT_ID = "565170161100-craavtfl33foajmvcd14490qt9gc7htt.apps.googleusercontent.com"
 var API_KEY = "AIzaSyDmT8UQR6QeI3VCHW5_lb5LucEDQcYYp78"
@@ -159,7 +159,7 @@ class Calendar extends Component{
         })
     }
     //copy the url
-    copyToClipboard = (URLcalendar="https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20") => {
+    copyToClipboard = (URLcalendar) => {
         const el = document.createElement('textarea');
         el.value = URLcalendar;
         document.body.appendChild(el);
@@ -174,8 +174,8 @@ class Calendar extends Component{
             <div className ="Calendar">
                 <div>
                 <h2 className="line"><span className = "fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
-                <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{URLcalendar}<br></br>
-                <button onClick={()=>this.copyToClipboard()}>העתק</button>
+                <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{window.URLcalendar}<br></br>
+                <button onClick={()=>this.copyToClipboard(window.URLcalendar)}>העתק</button>
                 <h3>שלב ב'</h3> הכנס ליומן של גוגל בכתובת<br></br>
                 <a href="https://calendar.google.com/" target="_blank">https://calendar.google.com</a>
                 <h3>שלב ג'</h3><br></br> Add a Friend's Calendar -&gt; ושם לבחור From URL <br></br>
