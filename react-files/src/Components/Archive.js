@@ -12,7 +12,8 @@ class Archive extends Component {
             data: props.location.data,
             allUsers: [],
             projects: [],
-            archive: [] // all the archive projects
+            archive: [], // all the archive projects
+            searchVal: ""
         }
 
         this.getProjects = this.getProjects.bind(this);
@@ -43,10 +44,18 @@ class Archive extends Component {
     }
 
     render() {
-        let dataToRender = this.getData();
+        let dataToRender = [];
+        dataToRender = this.getData();
+
         return (
             <div className="HomePage">
                 <h1>ארכיון</h1>
+                <input className="searchBox" type="text" placeholder="חיפוש.."
+                    onChange={(event) => {
+                        this.setState({ ...this.state, searchVal: event.target.value })
+                    }}>
+                </input>
+                <br></br>
                 {dataToRender}
                 <div id="wrapper">
                     <button id="go_home" onClick={() => {
@@ -55,24 +64,19 @@ class Archive extends Component {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
-
-                    {/* <button id="logout" onClick={() => {
-                        auth.signOut();
-                        this.props.history.push(
-                            {
-                                pathname: "/"
-                            })
-                    }}>התנתק</button> */}
                 </div>
             </div>
-
         )
     }
 
     // get the relevent archive projects to show on screen
     getData() {
-        let archived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) >= 0);
-        let dataToReturn = archived.map((production, index) => <ArchiveObj key={index} getArchive={this.getArchive} prod={production} />);
+        let searchVal = this.state.searchVal;
+        let archived = [];
+        archived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) >= 0 && prod["name"].includes(searchVal));
+        console.log(archived);
+
+        let dataToReturn = archived.map((production, index) => <ArchiveObj key={production["name"]} getArchive={this.getArchive} prod={production} />);
         return dataToReturn;
     }
 
