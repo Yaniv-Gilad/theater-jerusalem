@@ -78,7 +78,8 @@ class Archive extends Component {
 
     // get all projects on firebase
     getProjects() {
-        storage.refFromURL("gs://theater-841bd.appspot.com").listAll()
+        this.setState({ ...this.state, projects: [] });
+        storage.refFromURL("gs://theater2-d72bc.appspot.com").listAll()
             .then((res) => {
                 let p = []
                 res.prefixes.forEach((folderRef) => {
@@ -94,6 +95,7 @@ class Archive extends Component {
 
     // get archive projects from firestore json
     getArchive() {
+        this.setState({ ...this.state, archive: [] });
         let arch = [];
         db.collection("archive").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {

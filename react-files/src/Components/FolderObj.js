@@ -1,9 +1,5 @@
 import { Component } from "react"
-import { db, storage } from "../Firebase/firebase"
-import FileObj from "./FileObj.js"
 import '../CSS/FolderObj.css'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 
 class FolderObj extends Component {
 

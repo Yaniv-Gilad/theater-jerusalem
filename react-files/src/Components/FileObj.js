@@ -1,18 +1,19 @@
 import { Component } from "react"
 import { storage } from "../Firebase/firebase"
-import ARCHIVE from "../Photos/archive.png"
 import '../CSS/File.css'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import TRASH from "../Photos/trash.png"
 
 class FileObj extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            name: this.props.file.name,
-            path: this.props.file.path,
-            download: ""
+            name: props.file.name,
+            path: props.file.path,
+            download: "",
+            updateFiles: props.updateFiles
         }
+        this.delete = this.delete.bind(this);
     }
 
     componentDidMount() {
@@ -42,15 +43,35 @@ class FileObj extends Component {
 
         return (
             <div className="File">
-                <button id="but">
-                    {fixed_name}<span id="but_span">{_name}</span>
-                    <br></br>
-                    <a href={this.state.download} target="_blank">open</a>
-                </button>
+                <a href={this.state.download} target="_blank">
+                    <button id="but">
+                        {fixed_name}<span id="but_span">{_name}</span>
+                        <br></br>
+                    </button>
+                </a>
                 <br></br>
+                <button id="delete_file">
+                    <img src={TRASH} onClick={this.delete}></img>
+                    <span className="tooltiptext">מחיקה</span>
+                </button>
             </div>
 
         )
+    }
+
+    delete() {
+        let name = this.state.name;
+        let path = this.state.path;
+
+        if (window.confirm("למחוק את הקובץ \"" + name + "\" ?") == false)
+            return;
+
+        storage.refFromURL(path).delete().then(() => {
+            console.log("file " + name + " deleted !");
+            this.state.updateFiles();
+        }).catch(() => {
+            console.log("file " + name + " did NOT delete");
+        });
     }
 }
 

@@ -67,13 +67,15 @@ class ArchiveObj extends Component {
         db.collection("archive").doc(_name).delete().then(() => {
             console.log("Document '" + _name + "' added to home!");
             this.state.getArchive();
-            window.location.reload();
         });
     }
 
     // delete project content
     delete() {
         let _name = this.state.name.toString();
+        if (window.confirm("למחוק את הקבצים של פרויקט \"" + _name + "\" ?") == false)
+            return;
+
         this.deleteFolderContents(_name);
         console.log("Document '" + _name + "' files deleted!");
         this.state.getArchive();
