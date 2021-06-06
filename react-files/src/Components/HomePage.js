@@ -48,6 +48,9 @@ else{
       return;
     }
   }
+})
+ }
+
 
   render() {
     let id = "dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20";
