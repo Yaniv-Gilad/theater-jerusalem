@@ -179,7 +179,7 @@ class Calendar extends Component{
                 <h3>שלב ב'</h3> הכנס ליומן של גוגל בכתובת<br></br>
                 <a href="https://calendar.google.com/" target="_blank">https://calendar.google.com</a>
                 <h3>שלב ג'</h3><br></br> Add a Friend's Calendar -&gt; ושם לבחור From URL <br></br>
-                <img src={Calendar_new1} class="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
+                <img src={Calendar_new1} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
                 <h3>שלב ד'</h3>הדבק את הכתובת משלב א' והוסף יומן <br></br>
                 <img src={Calendar_new2} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
                 <br></br>
