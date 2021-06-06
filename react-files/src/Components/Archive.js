@@ -74,7 +74,6 @@ class Archive extends Component {
         let searchVal = this.state.searchVal;
         let archived = [];
         archived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) >= 0 && prod["name"].includes(searchVal));
-        console.log(archived);
 
         let dataToReturn = archived.map((production, index) => <ArchiveObj key={production["name"]} getArchive={this.getArchive} prod={production} />);
         return dataToReturn;
