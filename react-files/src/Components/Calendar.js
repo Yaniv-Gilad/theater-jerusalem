@@ -110,19 +110,20 @@ class Calendar extends Component {
                         'calendarId': 'primary',
                         'resource': event
                     }).then((res) => {
-
+                        console.log(event);
                         if (res) {
                             console.log(res)
                             this.setState({ newEvent: res })
                             window.location.reload();
                         }
                     }).catch((e) => {
-                        alert("קלט לא תקין להוספת אירוע הכנס שוב")
+                        alert("קלט לא תקין להוספת אירוע הכנס שוב");
                     });
 
 
                 })
             })
+            console.log(event);
 
     }
 
