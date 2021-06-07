@@ -41,7 +41,7 @@ class Calendar extends Component{
         this.state={
             event:{},
             user:{},
-         summery:'is Doron',
+         summery:'TEST',
          location:'800 Howard St., San Francisco, CA 94103',
          description: 'Really great refreshments',
          timeZone:'America/Los_Angeles',
@@ -59,22 +59,6 @@ class Calendar extends Component{
 
 
     async createEvent() {
-        /*get data from function*/
-        // async createEvent(summery,location,description,timeZone,dateTimeStart,dateTimeEnd,emails) {
-
-
-        /*manual init*/
-        // let summery='Awesome Event!'
-        // let location='800 Howard St., San Francisco, CA 94103'
-        // let description= 'Really great refreshments'
-        // let timeZone='America/Los_Angeles'
-        // let dateTimeStart='2021-05-29T09:00:00-07:00'
-        // let dateTimeEnd='2021-05-30T17:00:00-07:00'
-        // let emails=[
-        //     // {'email': 'lpage@example.com'},
-        //     // {'email': 'sbrin@example.com'}
-        // ]
-
 
         /*get data from state*/
         let summery=this.state.summery
@@ -168,16 +152,25 @@ class Calendar extends Component{
         document.body.removeChild(el);
         console.log("copy");
       };
+    
+    changeHandler = (e) =>{
+        console.log(e.target.value);
+        this.setState({summery:e.target.value});
+    }
 
+    onCreateEvent = () =>{
+        console.log(this.state);
+    }
     render() {
         return(
             <div className ="Calendar">
                 <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
                     <div className="form-group">
-                        <label for="">הכנס שם אירוע</label>
-                        <input type="text" class="form control" name="title" placeholder="הכנס שם אירוע"></input>
+                        <label>הכנס שם אירוע</label>
+                        <input type="text" name="name" onChange={this.changeHandler} placeholder="הכנס שם אירוע"></input>
                     </div>
                 </form>
+                <button onClick = {this.onCreateEvent}>click</button>
                 {/* <div>
                 <h2 className="line"><span className = "fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
                 <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{window.URLcalendar}<br></br>
@@ -190,9 +183,8 @@ class Calendar extends Component{
                 <img src={Calendar_new2} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
                 <br></br>
                 </div> */}
-            {/* <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button>     */}
+            <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button>    
             <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
-            <button type="button" class="add_event" data-toggle="modal" data-target="#addEvent">הוספת אירוע</button>
             {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
             </div>
