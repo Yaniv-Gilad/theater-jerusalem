@@ -203,7 +203,6 @@ class Calendar extends Component {
                                 <label>הכנס זמן התחלת האירוע</label>
                                 <input type="Time" name="dateTimeEnd"  
                                     onChange={(e) => {
-                                        console.log(e.target.value)
                                         this.setState({ timeStart: e.target.value })
                                     }}></input>
                             </p>
@@ -220,7 +219,6 @@ class Calendar extends Component {
                                 <label>הכנס זמן סיום האירוע</label>
                                 <input type="Time" name="dateTimeEnd"  
                                     onChange={(e) => {
-                                        console.log(e.target.value)
                                         this.setState({ timeEnd: e.target.value })
                                     }}></input>
                             </p>
