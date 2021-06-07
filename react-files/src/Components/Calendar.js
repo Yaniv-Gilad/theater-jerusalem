@@ -9,8 +9,9 @@ var gapi = window.gapi
 
 window.URLcalendar = "https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20"
 
-var CLIENT_ID = "565170161100-craavtfl33foajmvcd14490qt9gc7htt.apps.googleusercontent.com"
-var API_KEY = "AIzaSyDmT8UQR6QeI3VCHW5_lb5LucEDQcYYp78"
+var CLIENT_ID = "25532945063-7d85q8c7socv0ic5l8h5lhdupqkc0k3n.apps.googleusercontent.com"
+var API_KEY = "AIzaSyDLfXSRbdMnZCiQLpOPQ0SdgzEMigMqFwE"
+
 
 // var CLIENT_ID = "269970060271-itlf5cfr93fnu85pue6jfmjchdvt9l32.apps.googleusercontent.com"
 // var API_KEY = "AIzaSyC7J7k45TnTkY8j6hGmoR7iBnYr5ovyPvc"
@@ -41,11 +42,12 @@ class Calendar extends Component{
         this.state={
             event:{},
             user:{},
-         summery:'TEST',
-         location:'800 Howard St., San Francisco, CA 94103',
-         description: 'Really great refreshments',
-         timeZone:'America/Los_Angeles',
-         dateTimeStart:'2021-06-03T09:00:00-07:00',
+         summery:'',
+         location:'',
+         description: '',
+         timeZone:'Asia/Jerusalem',
+       
+         dateTimeStart:'2021-06-03T03:00:00-07:00',
          dateTimeEnd:'2021-06-04T17:00:00-07:00',
          emails:[
             // {'email': 'lpage@example.com'},
@@ -61,12 +63,15 @@ class Calendar extends Component{
     async createEvent() {
 
         /*get data from state*/
+        console.log(this.state.summery)
         let summery=this.state.summery
         let location=this.state.location
         let description= this.state.description
         let timeZone=this.state.timeZone
         let dateTimeStart=this.state.dateTimeStart
         let dateTimeEnd=this.state.dateTimeEnd
+        let timeStart=this.state.timeStart
+        let timeEnd=this.state.timeEnd
         let emails=this.state.emails
 
 
@@ -75,11 +80,11 @@ class Calendar extends Component{
               'location': location,
               'description': description,
               'start': {
-                  'dateTime': dateTimeStart,
+                  'dateTime': dateTimeStart+'-'+timeStart,
                   'timeZone': timeZone
               },
               'end': {
-                  'dateTime': dateTimeEnd,
+                  'dateTime': dateTimeEnd+'-'+timeEnd,
                   'timeZone': timeZone
               },
               'recurrence': [
@@ -109,20 +114,26 @@ class Calendar extends Component{
             'scope': SCOPES.join(' '),
             'immediate': true
         },(authResult)=>{
-            gapi.client.load('calendar', 'v3', async ()=>{
-                var res =await gapi.client.calendar.events.insert({
+            gapi.client.load('calendar', 'v3', ()=>{
+                gapi.client.calendar.events.insert({
                     'calendarId': 'primary',
                     'resource': event
+                }).then((res)=>{
+
+                    if(res)
+                    {
+                        console.log(res)
+                        this.setState({newEvent:res})
+                        window.location.reload();
+                    }
+                }).catch((e)=>{
+                    console.log("in")
                 });
-                if(res)
-                {
-                    console.log(res)
-                    this.setState({newEvent:res})
-                    window.location.reload();
-                }
-            });
-        });
-        console.log(event);
+            
+               
+            })
+        })
+        
 }
 
     async getEvents() {
@@ -155,20 +166,68 @@ class Calendar extends Component{
     
     changeHandler = (e) =>{
         console.log(e.target.value);
-        this.setState({summery:e.target.value});
-    }
+        if(e.target.value)
+            this.setState({summery:e.target.value});
+        else{
+            console.log(e.target)
+        }
+        }
 
     onCreateEvent = () =>{
         console.log(this.state);
     }
+
+    createTime(e)
+    {
+        var t=e.target.value.split('-')
+        var d =new Date(t[0],t[1]-1,t[2],0,0,0)
+        d=d.toISOString();
+        d=d.substring(0,d.length-5)
+        return d;
+
+    }
+
     render() {
         return(
             <div className ="Calendar">
                 <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
-                    <div className="form-group">
+                    <p>
                         <label>הכנס שם אירוע</label>
-                        <input type="text" name="name" onChange={this.changeHandler} placeholder="הכנס שם אירוע"></input>
-                    </div>
+                        <input type="text" name="name"  onBlur={(e)=>{ 
+                             this.setState({summery:e.target.value})}} placeholder="הכנס שם אירוע"></input>
+                    </p>
+                    <p>
+                        <label>הכנס תאריך התחלת אירוע</label>
+                        <input type="date" name="dateTimeStart" /*value={this.state.dateTimeStart}*/ 
+                        onChange={
+                            (e)=>{
+                            var d = this.createTime(e)
+                                this.setState({dateTimeStart: d})}
+                              } placeholder="הכנס שם אירוע"></input>
+                    </p>
+                    <p>
+                        <label>הכנס תאריך סיום האירוע</label>
+                        <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
+                       onChange={
+                        (e)=>{
+                        var d = this.createTime(e)
+                            this.setState({dateTimeEnd: d})}}
+                        placeholder="הכנס שם אירוע"></input>
+                    </p>
+                    <p>
+                        <label>הכנס זמן סיום האירוע</label>
+                        <input type="Time" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/ onChange={(e)=>{  
+                           
+                           console.log(e.target.value)
+                            this.setState({timeEnd:e.target.value})}} placeholder="הכנס שם אירוע"></input>
+                    </p>
+                    <p>
+                        <label>הכנס זמן התחלת האירוע</label>
+                        <input type="Time" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/ onChange={(e)=>{  
+                           
+                           console.log(e.target.value)
+                            this.setState({timeStart:e.target.value})}} placeholder="הכנס שם אירוע"></input>
+                    </p>
                 </form>
                 <button onClick = {this.onCreateEvent}>click</button>
                 {/* <div>
