@@ -40,7 +40,8 @@ class Calendar extends Component{
     constructor(props) {
         super(props);
         this.state={
-            help:true,
+            help:false,
+            addEvent:false,
             event:{},
             user:{},
          summery:'',
@@ -64,7 +65,7 @@ class Calendar extends Component{
     async createEvent() {
 
         /*get data from state*/
-        console.log(this.state.summery)
+        // console.log(this.state.summery)
         let summery=this.state.summery
         let location=this.state.location
         let description= this.state.description
@@ -128,7 +129,7 @@ class Calendar extends Component{
                         window.location.reload();
                     }
                 }).catch((e)=>{
-                    console.log("in")
+                    alert("קלט לא תקין להוספת אירוע הכנס שוב")
                 });
             
                
@@ -191,6 +192,11 @@ class Calendar extends Component{
     render() {
         return(
             <div className ="Calendar">
+                <button className= "addEvent" onClick={()=>{
+                    this.setState({addEvent:!this.state.addEvent})
+                }}>add Event</button>
+               {!this.state.addEvent?<div></div>:
+               <div>
                 <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
                     <p>
                         <label>הכנס שם אירוע</label>
@@ -204,23 +210,7 @@ class Calendar extends Component{
                             (e)=>{
                             var d = this.createTime(e)
                                 this.setState({dateTimeStart: d})}
-                              } placeholder="הכנס שם אירוע"></input>
-                    </p>
-                    <p>
-                        <label>הכנס תאריך סיום האירוע</label>
-                        <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
-                       onChange={
-                        (e)=>{
-                        var d = this.createTime(e)
-                            this.setState({dateTimeEnd: d})}}
-                        placeholder="הכנס שם אירוע"></input>
-                    </p>
-                    <p>
-                        <label>הכנס זמן סיום האירוע</label>
-                        <input type="Time" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/ onChange={(e)=>{  
-                           
-                           console.log(e.target.value)
-                            this.setState({timeEnd:e.target.value})}} placeholder="הכנס שם אירוע"></input>
+                              } placeholder="הכנס תאריך התחלת אירוע"></input>
                     </p>
                     <p>
                         <label>הכנס זמן התחלת האירוע</label>
@@ -229,13 +219,30 @@ class Calendar extends Component{
                            console.log(e.target.value)
                             this.setState({timeStart:e.target.value})}} placeholder="הכנס שם אירוע"></input>
                     </p>
+                    <p>
+                        <label>הכנס תאריך סיום האירוע</label>
+                        <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
+                       onChange={
+                        (e)=>{
+                        var d = this.createTime(e)
+                            this.setState({dateTimeEnd: d})}}
+                        placeholder="הכנס תאריך סיום האירוע"></input>
+                    </p>
+                    <p>
+                        <label>הכנס זמן סיום האירוע</label>
+                        <input type="Time" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/ onChange={(e)=>{  
+                           
+                           console.log(e.target.value)
+                            this.setState({timeEnd:e.target.value})}} placeholder="הכנס שם אירוע"></input>
+                    </p>
                 </form>
-                <button onClick = {this.onCreateEvent}>click</button>
+                <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button> 
+                </div>}
                
                 <button onClick={()=>{
                     this.setState({help:!this.state.help})
                 }}>help</button>
-               {this.state.help?<div></div>:
+               {!this.state.help?<div></div>:
                 <div>
                 <h2 className="line"><span className = "fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
                 <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{window.URLcalendar}<br></br>
@@ -247,9 +254,7 @@ class Calendar extends Component{
                 <h3>שלב ד'</h3>הדבק את הכתובת משלב א' והוסף יומן <br></br>
                 <img src={Calendar_new2} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
                 <br></br>
-                </div>
-    }
-            <button style={{width: 100, height: 50}} onClick={()=>this.createEvent()}>הוספת אירוע</button>    
+                </div>}   
             <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
             {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
