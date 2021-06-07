@@ -65,6 +65,8 @@ else{
           <div>
             <p></p>
             <h1><b>הפקות</b></h1>
+            <h2 className="line"></h2>
+            <h2 className="line"></h2>
             <p></p>
             <p></p>
             {dataToRender}

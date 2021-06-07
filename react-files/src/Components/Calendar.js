@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import React from "react";
 import '../CSS/Calendar.css'
+import { auth, db, storage } from "../Firebase/firebase"
 import Calendar_new1 from "../Photos/AddGoogleCal1.png"
 import Calendar_new2 from "../Photos/AddGoogleCal2.png"
 
@@ -175,10 +176,6 @@ class Calendar extends Component{
         }
         }
 
-    onCreateEvent = () =>{
-        console.log(this.state);
-    }
-
     createTime(e)
     {
         var t=e.target.value.split('-')
@@ -192,6 +189,9 @@ class Calendar extends Component{
     render() {
         return(
             <div className ="Calendar">
+                <h1><b>יומן</b></h1>
+                <h2 className="line"></h2>
+                <h2 className="line"></h2>
                 <button className= "addEvent" onClick={()=>{
                     this.setState({addEvent:!this.state.addEvent})
                 }}>add Event</button>
@@ -258,6 +258,14 @@ class Calendar extends Component{
             <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
             {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
+            
+            <button id="logout" onClick={() => {
+            auth.signOut();
+            this.props.history.push(
+              {
+                pathname: "/"
+              })
+          }}>התנתק</button>
             </div>
             
         )
