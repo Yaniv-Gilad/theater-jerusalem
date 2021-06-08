@@ -119,8 +119,6 @@ class Calendar extends Component {
                     }).catch((e) => {
                         alert("קלט לא תקין להוספת אירוע הכנס שוב");
                     });
-
-
                 })
             })
             console.log(event);
