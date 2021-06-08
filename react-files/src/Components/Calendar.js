@@ -117,7 +117,7 @@ class Calendar extends Component {
                             window.location.reload();
                         }
                     }).catch((e) => {
-                        alert("קלט לא תקין להוספת אירוע הכנס שוב");
+                        alert("קלט חסר או לא תקין להוספת אירוע הכנס שוב");
                     });
                 })
             })
