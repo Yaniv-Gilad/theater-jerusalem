@@ -234,9 +234,9 @@ class Calendar extends Component {
                 <h1><b>יומן</b></h1>
                 <h2 className="line"></h2>
                 <h2 className="line"></h2>
-                <button onClick={() => this.openWinEvents()}>delete Event</button>
+                {/* <button onClick={() => this.openWinEvents()}>delete Event</button>
                 <button onClick={() => this.getEvents()}>getEvent</button>
-                <button onClick={() => this.deleteEvent("notqbcjfuv0be19kvhkdkp1ifc_20210609T092600Z")}>deleteEvent</button>
+                <button onClick={() => this.deleteEvent("notqbcjfuv0be19kvhkdkp1ifc_20210609T092600Z")}>deleteEvent</button> */}
                 <button className="addEvent" onClick={() => {
                     this.setState({ addEvent: !this.state.addEvent })
                 }}>add Event</button>
