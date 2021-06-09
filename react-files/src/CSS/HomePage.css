@@ -93,4 +93,8 @@
   background-color: rgb(128, 44, 44);
 }
 
+.HomePage .searchBox{
+  width:10%;
+  font-size: 60%;
+}
 
