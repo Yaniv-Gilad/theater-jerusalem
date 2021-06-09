@@ -101,7 +101,7 @@ class File extends Component {
             );
     }
 
-    // get all files and folders to show on screen
+       // get all files and folders to show on screen
     getFiles() {
         let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} updateFiles={this.getData} />);
         return dataToReturn;
