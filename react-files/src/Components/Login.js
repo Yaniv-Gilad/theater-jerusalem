@@ -15,7 +15,6 @@ class Login extends Component {
   }
 
   async componentDidMount() {
-
     auth.onAuthStateChanged(_user => {
       if (_user) {// if  user logged in
         this.setState({ user: _user })
@@ -87,6 +86,7 @@ class Login extends Component {
           })
 
       }).catch((e) => {
+
         // if invalid user
         alert("Wrong Email or password")
       })

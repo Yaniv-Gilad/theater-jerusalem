@@ -20,8 +20,8 @@ function App() {
             <Route exact path="/Home" component={HomePage} />
             <Route exact path="/File" component={File} />
             <Route exact path="/Archive" component={Archive} />
+            <Route exact path="/Calendar" component={Calendar} />
             <Route exact path="" component={Production} />
-            {/* <Route exact path="/Calendar" component={Calendar} /> */}
           </Switch>
         </Router>
 

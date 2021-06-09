@@ -63,8 +63,9 @@ class File extends Component {
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
                 {!this.state.loader ? <div className="spinner-border" ></div> : <div>
                     <h1>{_name}</h1>
-                    {filesToRender}
                     {foldersToRender}
+                    <br></br>
+                    {filesToRender}
                     <div id="wrapper">
                         <button id="go_home" onClick={() => {
                             this.props.history.push(
@@ -100,7 +101,35 @@ class File extends Component {
             );
     }
 
-    // get all files and folders to show on screen
+    render() {
+        let _name = this.props.location.name._name;
+        let foldersToRender = this.getFolders();
+        let filesToRender = this.getFiles();
+        
+      return (
+            <div className="HomePage">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
+            {!this.state.loader?<div className="spinner-border" ></div>:<div>
+                <p></p>
+                <h1>{_name}</h1>
+                <p></p>
+                <p></p>
+                {foldersToRender}
+                {filesToRender}
+                <div id="wrapper">
+                    <button id="go_home" onClick={() => {
+                        this.props.history.push(
+                            {
+                                pathname: "/home"
+                            })
+                    }}>למסך הבית</button>
+                    </div>
+                   <input type="file" id="upload_but" onChange={this.Upload}></input> 
+            </div>}
+            </div>
+        )
+    }
+       // get all files and folders to show on screen
     getFiles() {
         let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} updateFiles={this.getData} />);
         return dataToReturn;

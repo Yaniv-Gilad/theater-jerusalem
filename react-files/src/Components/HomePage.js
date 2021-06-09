@@ -5,6 +5,7 @@ import Production from "./Production.js"
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
 import Calendar from "./Calendar"
+import CALENDAR from "../Photos/calendar.png"
 // import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
@@ -23,8 +24,8 @@ class HomePage extends Component {
     this.getArchive = this.getArchive.bind(this);
   }
 
-  async componentDidMount() {
 
+  async componentDidMount() {
     auth.onAuthStateChanged(_user => {
       if (_user) {// if  user logged in
         this.setState({ user: _user })
@@ -46,8 +47,11 @@ class HomePage extends Component {
           return;
         }
       }
-    })
+    }
+    )
   }
+
+
 
   render() {
     let id = "dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20";
@@ -62,6 +66,8 @@ class HomePage extends Component {
           <div>
             <p></p>
             <h1><b>הפקות</b></h1>
+            <h2 className="line"></h2>
+            <h2 className="line"></h2>
             <p></p>
             <p></p>
             {dataToRender}
@@ -72,12 +78,12 @@ class HomePage extends Component {
                     pathname: "/Archive"
                   })
               }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
-              {/* <button id="calendar" onClick={() => {
-            this.props.history.push(
-              {
-                pathname: "/Calendar"
-              })
-          }}></button> */}
+              <button id="calendar" onClick={() => {
+                this.props.history.push(
+                  {
+                    pathname: "/Calendar"
+                  })
+              }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
 
               <button id="logout" onClick={() => {
                 auth.signOut();
@@ -88,7 +94,6 @@ class HomePage extends Component {
               }}>התנתק</button>
 
               <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-              {/* <Calendar/> */}
             </div>
           </div>}
       </div>
