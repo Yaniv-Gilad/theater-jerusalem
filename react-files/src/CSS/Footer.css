@@ -3,7 +3,7 @@
     color: #f0f9ff;
     background-color: #282d32;
     width: 100vw;
-    position: absolute;
+    position: fixed;
     max-height: 8%; 
     bottom: 0%;
 }
