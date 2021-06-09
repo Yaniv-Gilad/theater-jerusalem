@@ -25,5 +25,14 @@
   margin:2px;
   width: 100%;
   /* height: 20px; */
+}
 
+.Calendar #addCalendar{
+  position: absolute;
+  padding: 2px;
+  margin: 2px;
+  width: 20%;
+  height: 89%;
+  right: 0%;
+  top: 0%;
 }
