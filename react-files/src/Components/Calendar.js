@@ -52,7 +52,19 @@ class Calendar extends Component {
 
     }
 
-
+    // async componentDidMount() {
+    //     gapi = await window.gapi;
+    //     gapi.client.setApiKey(API_KEY);
+    //     gapi.auth.authorize(
+    //         {
+    //             'client_id': CLIENT_ID,
+    //             'scope': SCOPES.join(' '),
+    //             'immediate': true
+    //         }, () => {
+    //             gapi.client.load('calendar', 'v3');
+    //             this.getEvents();
+    //         });
+    // }
 
     async createEvent() {
 
@@ -121,27 +133,65 @@ class Calendar extends Component {
                     });
                 })
             })
-            console.log(event);
-
+        console.log(event);
     }
 
-    async getEvents() {
-        // get events
-        // console.log(  gapi.client.calendar)
-        gapi = await window.gapi
-        gapi.client.setApiKey(API_KEY);
-        gapi.client.calendar.events.list({
-            'calendarId': 'primary',
-            'timeMin': (new Date()).toISOString(),
-            'showDeleted': false,
-            'singleEvents': true,
-            'maxResults': 10,
-            'orderBy': 'startTime'
-        }).then(response => {
-            const events = response.result.items
-            console.log('EVENTS: ', events)
-        })
-    }
+    // async getEvents() {
+    //     // get events
+    //     // console.log(  gapi.client.calendar)
+    //     gapi = await window.gapi;
+    //     gapi.client.setApiKey(API_KEY);
+    //     console.log(gapi.client);
+    //     gapi.auth.authorize(
+    //         {
+    //             'client_id': CLIENT_ID,
+    //             'scope': SCOPES.join(' '),
+    //             'immediate': true
+    //         }, (authResult) => {
+    //             gapi.client.load('calendar', 'v3', () => {
+    //                 gapi.client.calendar.events.list({
+    //                     'calendarId': 'primary',
+    //                     'timeMin': (new Date()).toISOString(),
+    //                     'showDeleted': false,
+    //                     'singleEvents': true,
+    //                     'maxResults': 10,
+    //                     'orderBy': 'startTime'
+    //                 }).then(response => {
+    //                     const events = response.result.items;
+    //                     console.log('EVENTS: ', events);
+    //                     this.setState({ ...this, event: events }).then(()=>{return events;});
+    //                     // return events;
+    //                 })
+    //             })
+    //         })
+    // }
+
+    // deleteEvent(eventId) {
+    //     console.log("delete");
+    //     gapi.client.setApiKey(API_KEY);
+    //     gapi.auth.authorize(
+    //         {
+    //             'client_id': CLIENT_ID,
+    //             'scope': SCOPES.join(' '),
+    //             'immediate': true
+    //         }, (authResult) => {
+    //             gapi.client.load('calendar', 'v3', () => {
+    //                 gapi.client.calendar.events.delete({
+    //                     'auth': auth,
+    //                     'calendarId': 'primary',
+    //                     'eventId': eventId
+    //                 }).then((res) => {
+    //                     console.log(res);
+    //                     if (res) {
+    //                         console.log(res);
+    //                         this.setState({ newEvent: res })
+    //                         window.location.reload();
+    //                     }
+    //                 })
+    //             })
+    //         })
+    // }
+
     //copy the url
     copyToClipboard = (URLcalendar) => {
         const el = document.createElement('textarea');
@@ -153,15 +203,6 @@ class Calendar extends Component {
         console.log("copy");
     };
 
-    // changeHandler = (e) => {
-    //     console.log(e.target.value);
-    //     if (e.target.value)
-    //         this.setState({ summery: e.target.value });
-    //     else {
-    //         console.log(e.target)
-    //     }
-    // }
-
     createTime(e) {//Format change
         var t = e.target.value.split('-')
         var d = new Date(t[0], t[1] - 1, t[2], 0, 0, 0)
@@ -170,12 +211,32 @@ class Calendar extends Component {
         return d;
     }
 
+    // openWinEvents() {
+    //     let myWindow = window.open("", "myWindow", "width=200, height=100");
+    //     this.getEvents();
+    //     let events = this.state.event;
+    //     console.log(events);
+    //     let StringEvents = "<table className = \"listEvent\">";
+    //     events.forEach(e => {
+    //         StringEvents += "<tr>";
+    //         StringEvents += "<td> " + e.summary + "</td>";
+    //         StringEvents += "</tr>";
+    //     });
+
+    //     StringEvents += "</table>";
+    //     // let v = <button>yaniv</button>;
+    //     myWindow.document.write(StringEvents);
+    // }
+
     render() {
         return (
             <div className="Calendar">
                 <h1><b>יומן</b></h1>
                 <h2 className="line"></h2>
                 <h2 className="line"></h2>
+                <button onClick={() => this.openWinEvents()}>delete Event</button>
+                <button onClick={() => this.getEvents()}>getEvent</button>
+                <button onClick={() => this.deleteEvent("notqbcjfuv0be19kvhkdkp1ifc_20210609T092600Z")}>deleteEvent</button>
                 <button className="addEvent" onClick={() => {
                     this.setState({ addEvent: !this.state.addEvent })
                 }}>add Event</button>
@@ -190,7 +251,7 @@ class Calendar extends Component {
                             </p>
                             <p>
                                 <label>הכנס תאריך התחלת אירוע</label>
-                                <input type="date" name="dateTimeStart" 
+                                <input type="date" name="dateTimeStart"
                                     onChange={
                                         (e) => {
                                             var d = this.createTime(e)
@@ -200,7 +261,7 @@ class Calendar extends Component {
                             </p>
                             <p>
                                 <label>הכנס זמן התחלת האירוע</label>
-                                <input type="Time" name="dateTimeEnd"  
+                                <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeStart: e.target.value })
                                     }}></input>
@@ -216,7 +277,7 @@ class Calendar extends Component {
                             </p>
                             <p>
                                 <label>הכנס זמן סיום האירוע</label>
-                                <input type="Time" name="dateTimeEnd"  
+                                <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeEnd: e.target.value })
                                     }}></input>
@@ -259,8 +320,5 @@ class Calendar extends Component {
 
 
 }
-
-
-
 
 export default Calendar;
