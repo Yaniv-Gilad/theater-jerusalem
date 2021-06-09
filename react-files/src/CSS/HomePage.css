@@ -85,10 +85,10 @@
 
 .HomePage #box{
   position: absolute;
-  height: 70%;
   width: 100%;
+  /* height: 70%;
   top: 10%;
-  bottom :40%;
+  bottom :40%; */
   z-index:-3;
   background-color: rgb(128, 44, 44);
 }

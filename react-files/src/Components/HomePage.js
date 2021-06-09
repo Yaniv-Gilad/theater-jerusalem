@@ -87,6 +87,7 @@ class HomePage extends Component {
           <div>
             <p></p>
             <h1><b>הפקות</b></h1>
+            <div id="box">
             <input className="searchBox" type="text" placeholder="חיפוש.."
               onChange={(event) => {
                 this.setState({ ...this.state, searchVal: event.target.value })
@@ -95,7 +96,7 @@ class HomePage extends Component {
             <p></p>
             <p></p>
             {dataToRender}
-            <div id="box"></div>
+            </div>
             <table id="menu">
               <tr>
                 <td>
