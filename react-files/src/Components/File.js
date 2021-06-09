@@ -133,7 +133,7 @@ class File extends Component {
         let name = prompt("Please enter folder name");
 
         // if cancel
-        if (name == null) {
+        if (name == null || name==="") {
             this.getData(this.state.path);
             return;
         }
