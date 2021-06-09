@@ -42,7 +42,7 @@
 .HomePage #menu{
   display: flex;
   position: absolute;
-  right: 4%;
+  right: 2%;
   bottom: 10%;
   align-items: center;
   justify-content: center;

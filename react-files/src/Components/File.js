@@ -2,6 +2,9 @@ import { Component } from "react"
 import FileObj from "./FileObj.js"
 import FolderObj from "./FolderObj.js"
 import { storage } from "../Firebase/firebase"
+import folder_upload from "../Photos/upload_folder.png"
+import back from "../Photos/arrow.png"
+import file_upload from "../Photos/file_upload.png"
 import '../CSS/File.css'
 import React from 'react';
 import '../App.css';
@@ -79,17 +82,29 @@ class File extends Component {
                     {foldersToRender}
                     <br></br>
                     {filesToRender}
-                    <div id="wrapper">
-                        <button id="go_home_fromfile" onClick={() => {
-                            this.props.history.push(
-                                {
-                                    pathname: "/home"
-                                })
-                        }}>למסך הבית</button>
-                        <input type="file" id="upload_but" onChange={this.Upload}></input>
-                        <button id="add_folder" onClick={this.addFolder}>הוספת תיקייה</button>
-                        <button id="go_back" onClick={this.backButton}>לתיקייה הקודמת</button>
-                    </div>
+                    {/* <div id="wrapper"> */}
+                    <button id="go_home_fromfile" onClick={() => {
+                        this.props.history.push(
+                            {
+                                pathname: "/home"
+                            })
+                    }}>למסך הבית</button>
+                    <button id="go_back" onClick={this.backButton}><img src={back}></img></button>
+                    <table id="menu">
+                        <tr>
+                            <td>
+                                <div id="file_up">
+                                    <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" onChange={this.Upload}></input> 
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <button id="add_folder" onClick={this.addFolder}><img src={folder_upload}></img></button>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    {/* </div> */}
                 </div>}
             </div>
         )
@@ -134,7 +149,7 @@ class File extends Component {
         let name = prompt("Please enter folder name");
 
         // if cancel
-        if (name == null || name==="") {
+        if (name == null || name === "") {
             this.getData(this.state.path);
             return;
         }

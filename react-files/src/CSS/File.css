@@ -9,7 +9,17 @@
     color:#424649dc;
     font-size: 70%;
   }
-  
+
+#file_up{
+  width: 20%;
+  height: 30%;
+}
+
+#file_img{
+  width: 20%;
+  height: 30%;
+}
+
 #but_span{
   visibility: hidden;
   background-color: black;
@@ -33,14 +43,14 @@
 #upload_but{
   position: absolute;
   /* background-color: black; */
-
-  bottom: 20%;
-  left: 30%;
+  background-image: url("../Photos/file_upload.png");
   width: 30%;
-  height: 10%;
+  height: 40%;
   
 }
-
+td{
+  width: 0%;
+}
 #go_home_fromfile{
   background-color: rgb(145, 0, 0);
   color: white;
@@ -51,6 +61,11 @@
   border-radius: 10%;
 }
 
+#go_back{
+  position: absolute;
+  left: 3%;
+  bottom:20%;
+}
 #delete_file{
   float: left;
 }
@@ -59,6 +74,7 @@
   width: 20px;
   height: 20px;  
 }
+
 
 .File #delete_file:hover .tooltiptext{
   background-color: black; 
