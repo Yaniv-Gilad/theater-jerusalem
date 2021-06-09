@@ -52,16 +52,23 @@ class HomePage extends Component {
     )
   }
 
-  addProd() {
+  async addProd() {
     const prod_name = prompt("אנא הכנס את שם ההפקה:");
     const ignore = "ignore.txt";
-    if (!prod_name || prod_name == "")
+    if (!prod_name || prod_name === "")
       return;
 
-    console.log(prod_name)
+    // if production already exist
+    let productions = this.state.projects.map(prod => prod["name"]);
+    if (productions.includes(prod_name)) {
+      alert("לא ניתן ליצור הפקה. \nקיימת הפקה בשם " + prod_name + ".");
+      return;
+    }
+
+    this.setState({...this, loader: false})
     let def = ["תקציב", "תפאורה", "חזרות", "טקסטים", "סאונד", "מפרטים"];
     for (let i = 0; i < def.length; i++) {
-      storage.ref().child(prod_name).child(def[i]).child(ignore).put();
+      await storage.ref().child(prod_name).child(def[i]).child(ignore).put();
     }
     window.location.reload();
   }
@@ -118,7 +125,7 @@ class HomePage extends Component {
   // get the relevent projects to show on screen
   getData() {
     let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
-    let dataToReturn = notArchived.map((production, index) => <Production key={index} getArchive={this.getArchive} prod={production} />);
+    let dataToReturn = notArchived.map((production, index) => <Production key={production.name} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }
 
