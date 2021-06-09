@@ -52,6 +52,24 @@ class Calendar extends Component {
 
     }
 
+    async componentDidMount() {
+        auth.onAuthStateChanged(_user => {
+          if (_user) {// if  user logged in
+            this.props.history.push({
+              pathname: '/Calendar'
+            })
+          }
+          else {
+            //  else -> user didnt logged in
+              this.props.history.push(
+                {
+                  pathname: "/"
+                });
+              return;
+            }
+        })
+      }
+
     // async componentDidMount() {
     //     gapi = await window.gapi;
     //     gapi.client.setApiKey(API_KEY);
