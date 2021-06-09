@@ -5,13 +5,17 @@
   margin: 2%;
   padding: 1%;
   border-radius: 5%; 
-  background-color:#684af0;
+  background-image: url('../Photos/black_folder.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-color: black; */
   /* קישור לקובץ עצמו */
   /* background-image: url('../Photos/background3.jpg');  */
   /* border: #424649dc;
   border-width: 5px;
   border-style: solid; */
-  color:#424649dc;
+  /* color:#424649dc; */
   font-size: 70%;
 }
 
