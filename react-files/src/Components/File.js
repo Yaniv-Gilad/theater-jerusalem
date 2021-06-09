@@ -42,6 +42,15 @@ class File extends Component {
     }
 
     Upload(e) {
+        let name = e.target.files[0].name;
+        let names = this.state.files.map(file => file["name"]);
+        if (names.includes(name)) {
+            if (window.confirm("קיים קובץ בשם " + name + "\n" + "האם ברצונך לדרוס אותו?") == false) {
+                this.getData(this.state.path);
+                return;
+            }
+        }
+
         let i = this.state.path.indexOf(".com/");
         i = i + 5;
         let p = this.state.path.substring(i);
