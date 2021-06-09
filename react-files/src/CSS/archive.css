@@ -4,10 +4,10 @@
     color: black;
     background-image: url("../Photos/background4.jpg") ;
   }
-  /* .HomePage button{
+  .archive button{
     background-color: transparent;
     border: none;
-  } */
+  }
   .archive h1{
     font-family:"verdana";
     }
