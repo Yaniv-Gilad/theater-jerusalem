@@ -25,28 +25,30 @@ class HomePage extends Component {
   }
 
 
- async componentDidMount() {
-    auth.onAuthStateChanged(_user=>{
-      if(_user)
-     {// if  user logged in
-      this.setState({ user: _user })
-      this.props.history.push({
-        pathname: '/Home',
-        data: _user
-      })
+  async componentDidMount() {
+    auth.onAuthStateChanged(_user => {
+      if (_user) {// if  user logged in
+        this.setState({ user: _user })
+        this.props.history.push({
+          pathname: '/Home',
+          data: _user
+        })
 
-      this.getProjects();
-     this.getArchive();
-     }
-else{
-  //  else -> user didnt logged in
-    if (_user == null) {
-      this.props.history.push(
-        {
-          pathname: "/"
-        });
-      return;
+        this.getProjects();
+        this.getArchive();
+      }
+      else {
+        //  else -> user didnt logged in
+        if (_user == null) {
+          this.props.history.push(
+            {
+              pathname: "/"
+            });
+          return;
+        }
+      }
     }
+    )
   }
 })
  }
@@ -77,24 +79,24 @@ else{
                     pathname: "/Archive"
                   })
               }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
-               <button id="calendar" onClick={() => {
-            this.props.history.push(
-              {
-                pathname: "/Calendar"
-              })
-          }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
+              <button id="calendar" onClick={() => {
+                this.props.history.push(
+                  {
+                    pathname: "/Calendar"
+                  })
+              }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
 
-          <button id="logout" onClick={() => {
-            auth.signOut();
-            this.props.history.push(
-              {
-                pathname: "/"
-              })
-          }}>התנתק</button>
-         
-          <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-        </div>
-        </div>}
+              <button id="logout" onClick={() => {
+                auth.signOut();
+                this.props.history.push(
+                  {
+                    pathname: "/"
+                  })
+              }}>התנתק</button>
+
+              <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
+            </div>
+          </div>}
       </div>
 
     )
