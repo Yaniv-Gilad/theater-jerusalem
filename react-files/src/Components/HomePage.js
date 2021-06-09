@@ -22,6 +22,7 @@ class HomePage extends Component {
 
     this.getProjects = this.getProjects.bind(this);
     this.getArchive = this.getArchive.bind(this);
+    this.addProd = this.addProd.bind(this);
   }
 
 
@@ -51,9 +52,18 @@ class HomePage extends Component {
     )
   }
 
-  addProd(){
+  addProd() {
     const prod_name = prompt("אנא הכנס את שם ההפקה:");
+    const ignore = "ignore.txt";
+    if (!prod_name || prod_name == "")
+      return;
+
     console.log(prod_name)
+    let def = ["תקציב", "תפאורה", "חזרות", "טקסטים", "סאונד", "מפרטים"];
+    for (let i = 0; i < def.length; i++) {
+      storage.ref().child(prod_name).child(def[i]).child(ignore).put();
+    }
+    window.location.reload();
   }
 
 
