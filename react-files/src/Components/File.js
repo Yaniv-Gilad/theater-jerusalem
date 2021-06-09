@@ -80,7 +80,7 @@ class File extends Component {
                     <br></br>
                     {filesToRender}
                     <div id="wrapper">
-                        <button id="go_home" onClick={() => {
+                        <button id="go_home_fromfile" onClick={() => {
                             this.props.history.push(
                                 {
                                     pathname: "/home"
@@ -119,6 +119,7 @@ class File extends Component {
     }
 
     // get all files and folders to show on screen
+
     getFiles() {
         let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} updateFiles={this.getData} />);
         return dataToReturn;
