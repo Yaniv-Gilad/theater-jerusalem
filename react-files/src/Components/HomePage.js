@@ -80,25 +80,37 @@ class HomePage extends Component {
           <div>
             <p></p>
             <h1><b>הפקות</b></h1>
-            <h2 className="line"></h2>
-            <h2 className="line"></h2>
+            {/* <h2 className="line"></h2>
+            <h2 className="line"></h2> */}
             <p></p>
             <p></p>
             {dataToRender}
-            <div id="wrapper">
-              <button id="archive" onClick={() => {
-                this.props.history.push(
-                  {
-                    pathname: "/Archive"
-                  })
-              }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
-              <button id="calendar" onClick={() => {
-                this.props.history.push(
-                  {
-                    pathname: "/Calendar"
-                  })
-              }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
-
+            <div id="box"></div>
+            <table id="menu">
+              <tr>
+                <td>
+                  <button onClick={() => {
+                  this.props.history.push(
+                    {
+                      pathname: "/Archive"
+                    })
+                }}><img src={ARCHIVE}></img></button>
+                </td>
+                <td>
+                  <button onClick={this.addProd}><img src={ADD}></img></button>
+                </td>
+                <td>
+                  <button id="calendar" onClick={() => {
+                  this.props.history.push(
+                    {
+                      pathname: "/Calendar"
+                    })
+                  }}><img src={CALENDAR}></img></button>
+                </td>
+              </tr>
+              </table>
+              
+          
               <button id="logout" onClick={() => {
                 auth.signOut();
                 this.props.history.push(
@@ -107,8 +119,7 @@ class HomePage extends Component {
                   })
               }}>התנתק</button>
 
-              <button id="add" onClick={this.addProd}><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-            </div>
+              
           </div>}
       </div>
 
