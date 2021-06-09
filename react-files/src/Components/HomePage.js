@@ -51,6 +51,10 @@ class HomePage extends Component {
     )
   }
 
+  addProd(){
+    const prod_name = prompt("אנא הכנס את שם ההפקה:");
+    console.log(prod_name)
+  }
 
 
   render() {
@@ -93,7 +97,7 @@ class HomePage extends Component {
                   })
               }}>התנתק</button>
 
-              <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
+              <button id="add" onClick={this.addProd}><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
             </div>
           </div>}
       </div>
