@@ -6,6 +6,8 @@ import '../CSS/File.css'
 import React from 'react';
 import '../App.css';
 
+const ignore = "ignore.txt"; // temp file that will not be shown
+
 class File extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +20,7 @@ class File extends Component {
         this.getData = this.getData.bind(this);
         this.Upload = this.Upload.bind(this);
         this.backButton = this.backButton.bind(this);
+        this.addFolder = this.addFolder.bind(this);
     }
 
     componentDidMount() {
@@ -84,6 +87,7 @@ class File extends Component {
                                 })
                         }}>למסך הבית</button>
                         <input type="file" id="upload_but" onChange={this.Upload}></input>
+                        <button id="add_folder" onClick={this.addFolder}>הוספת תיקייה</button>
                         <button id="go_back" onClick={this.backButton}>לתיקייה הקודמת</button>
                     </div>
                 </div>}
@@ -98,8 +102,10 @@ class File extends Component {
                 let p = []
                 res.items.forEach((file) => {
                     let name = file.name;
-                    let p1 = { "name": name, "path": new_path };
-                    p.push(p1);
+                    if (name !== ignore) {
+                        let p1 = { "name": name, "path": new_path };
+                        p.push(p1);
+                    }
                 });
                 let fol = [];
                 res.prefixes.forEach((folderRef) => {
@@ -121,6 +127,34 @@ class File extends Component {
     getFolders() {
         let dataToReturn = this.state.folders.map((_folder, index) => <FolderObj key={index} folder={_folder} updatePath={this.getData} />);
         return dataToReturn;
+    }
+
+    addFolder() {
+        let name = prompt("Please enter folder name");
+
+        // if cancel
+        if (name == null) {
+            this.getData(this.state.path);
+            return;
+        }
+
+        // if folder already exist
+        let folders = this.state.folders.map(folder => folder["name"]);
+        if (folders.includes(name)) {
+            alert("לא ניתן ליצור תיקייה. \nקיימת תיקייה בשם " + name + ".")
+            this.getData(this.state.path);
+            return;
+        }
+
+        let i = this.state.path.indexOf(".com/");
+        i = i + 5;
+        let p = this.state.path.substring(i);
+
+        const storageRef = storage.ref();
+        const fileRef = storageRef.child(p + "/" + name + "/" + ignore);
+        fileRef.put("test").then(() => {
+            this.getData(this.state.path);
+        });
     }
 
     backButton() {
