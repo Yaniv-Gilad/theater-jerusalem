@@ -1,25 +1,25 @@
 import { Component } from "react"
 import { storage } from "../Firebase/firebase"
-import ARCHIVE from "../Photos/archive.png"
 import '../CSS/File.css'
-import App from "../App"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import TRASH from "../Photos/trash.png"
 
 class FileObj extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            name: props.prod.name,
-            path: props.path,
-            download:""
+            name: props.file.name,
+            path: props.file.path,
+            download: "",
+            updateFiles: props.updateFiles
         }
+        this.delete = this.delete.bind(this);
     }
 
     componentDidMount() {
-        let path = this.state.path + "/";
-        path = path + this.state.name;
-        storage.ref(path).getDownloadURL().then((url)=>{this.setState({...this.state, download:url})});
+        let _path = this.state.path + "/";
+        _path = _path + this.state.name;
+        storage.refFromURL(_path).getDownloadURL().then((url) => { this.setState({ ...this.state, download: url, path: _path }) });
     }
 
     render() {
@@ -41,16 +41,37 @@ class FileObj extends Component {
             fixed_name = _name.substring(0, 20);
         }
 
-        // let html = `<Link id="linkName" style="{ color: 'inherit', textDecoration: 'inherit'}" to="{pathname:'/file', name:'${_name}'}">${fixed_name}<span className="tooltiptextname">${_name}</span></Link>`;
-        // let html_but = `<button id="but">${fixed_name}<span id="but_span">${_name}</span></button>`;
-        //<Link id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }} to={{ pathname: "/file", name: _name}}>{fixed_name}<span className="tooltiptextname">{_name}</span></Link>
         return (
-            <div className="File">   
-                {type ? (<button id="but">{fixed_name}<span id="but_span">{_name}</span><br></br><a href={this.state.download} target="_blank">open</a></button>) : (<Link to={{ pathname: "/file", name: _name}} id="linkName" style={{ color: "white", textDecoration: 'inherit' }} >{fixed_name}<span className="tooltiptextname">{_name}</span></Link>)}
+            <div className="File">
+                <a href={this.state.download} target="_blank">
+                    <button id="but">
+                        {fixed_name}<span id="but_span">{_name}</span>
+                        <br></br>
+                    </button>
+                </a>
                 <br></br>
+                <button id="delete_file">
+                    <img src={TRASH} onClick={this.delete}></img>
+                    <span className="tooltiptext">מחיקה</span>
+                </button>
             </div>
 
         )
+    }
+
+    delete() {
+        let name = this.state.name;
+        let path = this.state.path;
+
+        if (window.confirm("למחוק את הקובץ \"" + name + "\" ?") == false)
+            return;
+
+        storage.refFromURL(path).delete().then(() => {
+            console.log("file " + name + " deleted !");
+            this.state.updateFiles();
+        }).catch(() => {
+            console.log("file " + name + " did NOT delete");
+        });
     }
 }
 
