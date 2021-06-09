@@ -10,20 +10,25 @@
   background-color: transparent;
   border: none;
 }
-.HomePage #add{
+/* .HomePage #add{
   position: absolute;
   right:5%;
-  bottom:10%;
+  bottom:15%;
 }
 .HomePage #archive{
   position: absolute;
   right:10%;
-  bottom:10%;
+  bottom:15%;
 }
 .HomePage #calendar{
   position: absolute;
   right:15%;
-  bottom:10%;
+  bottom:15%;
+} */
+.HomePage #wrapper{
+  position: absolute;
+  right: 10%;
+  bottom: 90px;
 }
 
 .HomePage button img{
@@ -34,24 +39,40 @@
  
 }
 
-.HomePage #archive:hover .tooltiptext{
+.HomePage #archive:hover .tooltiptext1{
   /* background-color: #424649dc; */
   visibility: visible;
-  position: absolute;
-  right:10%;
-  bottom:100%;
+  font-size: 30%;
 
 }
 
-.HomePage #add:hover .tooltiptext,
 .HomePage .File:hover .tooltiptextname{
+  visibility: visible;
+  position: absolute;
+  right:15px;
+  bottom:100%;
+  font-size: 30%;
+}
+
+.HomePage #add:hover .HomePage  td .tooltiptext2{
+/* .HomePage .File:hover .tooltiptextname{ */
   /* background-color: #424649dc; */
   visibility: visible;
   position: absolute;
-  right:5%;
-  bottom:100%;
+  background-color: cyan;
+  /* right:15px;
+  bottom:100%; */
+  font-size: 30%;
 }
+.HomePage #calendar:hover .tooltiptext3{
+  /* background-color: #424649dc; */
+  visibility: visible;
+  /* position: absolute;
+  right:10%;
+  bottom:100%; */
+  font-size: 30%;
 
+}
 
 .HomePage .tooltiptext,
 .HomePage .tooltiptextname{
@@ -59,23 +80,23 @@
   /* width: 100px; */
   background-color: black;
   color: #fff;
-  text-align: center;
+  /* text-align: center; */
   border-radius: 6px;
   padding: 5px 0;
 
   /* Position the tooltip */
-  position: absolute;
+  /* position: absolute; */
   z-index: 1;
 }
 
 
 
-.HomePage #wrapper {
+/* .HomePage #wrapper {
   margin: 5%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 #logout {
   border-radius: 50%;
@@ -87,7 +108,7 @@
   margin: 2%;
   position: absolute;
   left:0%;
-  bottom:7%;
+  bottom:100%;
 }
 #go_home{
   border-radius: 50%;
