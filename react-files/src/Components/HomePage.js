@@ -6,6 +6,7 @@ import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
 import Calendar from "./Calendar"
 import CALENDAR from "../Photos/calendar.png"
+import { Box } from "@material-ui/core"
 // import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
@@ -49,8 +50,6 @@ class HomePage extends Component {
       }
     }
     )
-  }
-})
  }
 
 
@@ -72,6 +71,7 @@ class HomePage extends Component {
             <p></p>
             <p></p>
             {dataToRender}
+            <div id="box"></div>
             <div id="wrapper">
               <button id="archive" onClick={() => {
                 this.props.history.push(
