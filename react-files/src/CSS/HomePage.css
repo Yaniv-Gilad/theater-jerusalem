@@ -20,6 +20,11 @@
   right:10%;
   bottom:10%;
 }
+.HomePage #calendar{
+  position: absolute;
+  right:15%;
+  bottom:10%;
+}
 
 .HomePage button img{
   background-color: transparent;
@@ -145,5 +150,6 @@ font-family:"verdana";
   background-color: rgb(128, 44, 44);
 
 }
+
 
 
