@@ -17,6 +17,7 @@ class File extends Component {
         }
         this.getData = this.getData.bind(this);
         this.Upload = this.Upload.bind(this);
+        this.backButton = this.backButton.bind(this);
     }
 
     componentDidMount() {
@@ -74,6 +75,7 @@ class File extends Component {
                                 })
                         }}>למסך הבית</button>
                         <input type="file" id="upload_but" onChange={this.Upload}></input>
+                        <button id="go_back" onClick={this.backButton}>לתיקייה הקודמת</button>
                     </div>
                 </div>}
             </div>
@@ -101,7 +103,7 @@ class File extends Component {
             );
     }
 
-       // get all files and folders to show on screen
+    // get all files and folders to show on screen
     getFiles() {
         let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} updateFiles={this.getData} />);
         return dataToReturn;
@@ -110,6 +112,26 @@ class File extends Component {
     getFolders() {
         let dataToReturn = this.state.folders.map((_folder, index) => <FolderObj key={index} folder={_folder} updatePath={this.getData} />);
         return dataToReturn;
+    }
+
+    backButton() {
+        let path = this.state.path;
+        let i = 0;
+        let counter = 0;
+        for (i = 0; i < path.length; i++)
+            if (path.charAt(i) === '/')
+                counter++;
+
+        console.log(path);
+        console.log(counter);
+        // go back to home
+        if (counter === 3)
+            this.props.history.push({ pathname: "/home" });
+
+        // go back to last folder
+        let last = path.lastIndexOf("/");
+        let newPath = path.substring(0, last);
+        this.getData(newPath);
     }
 }
 
