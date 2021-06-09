@@ -43,7 +43,7 @@ class Login extends Component {
         <img src={LOGO} id="logo" alt="logo pic"></img>
         <div className="login">
           <img src={curtain} id="curtain" alt="curtain"></img>
-          <input type="text" placeholder="userName@email.com" id="username"
+          <input type="text" placeholder="username@email.com" id="username"
             onChange={(event) => {
               this.setState({ ...this.state, email: event.target.value })
             }}
@@ -60,8 +60,6 @@ class Login extends Component {
               }
             }}
           />
-
-          <a href="/" className="forgot">forgot password?</a>
 
           <input type="submit" value="כניסה למערכת"
             onClick={() => {
