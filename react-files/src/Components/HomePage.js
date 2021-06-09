@@ -17,14 +17,14 @@ class HomePage extends Component {
       data: props.location.data,
       allUsers: [],
       projects: [],
-      archive: [] // all the archive projects
+      archive: [], // all the archive projects
+      searchVal: ""
     }
 
     this.getProjects = this.getProjects.bind(this);
     this.getArchive = this.getArchive.bind(this);
     this.addProd = this.addProd.bind(this);
   }
-
 
   async componentDidMount() {
     auth.onAuthStateChanged(_user => {
@@ -65,7 +65,7 @@ class HomePage extends Component {
       return;
     }
 
-    this.setState({...this, loader: false})
+    this.setState({ ...this, loader: false })
     let def = ["תקציב", "תפאורה", "חזרות", "טקסטים", "סאונד", "מפרטים"];
     for (let i = 0; i < def.length; i++) {
       await storage.ref().child(prod_name).child(def[i]).child(ignore).put();
@@ -89,6 +89,11 @@ class HomePage extends Component {
             <h1><b>הפקות</b></h1>
             <h2 className="line"></h2>
             <h2 className="line"></h2>
+            <input className="searchBox" type="text" placeholder="חיפוש.."
+              onChange={(event) => {
+                this.setState({ ...this.state, searchVal: event.target.value })
+              }}>
+            </input>
             <p></p>
             <p></p>
             {dataToRender}
@@ -124,7 +129,8 @@ class HomePage extends Component {
 
   // get the relevent projects to show on screen
   getData() {
-    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
+    let searchVal = this.state.searchVal;
+    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1 && prod["name"].includes(searchVal));
     let dataToReturn = notArchived.map((production, index) => <Production key={production.name} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }
