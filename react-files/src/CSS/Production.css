@@ -26,10 +26,6 @@
   width: 20px;
   height: 20px;
 }
-.HomePage #add_archive:hover .tooltiptext{
-  /* background-color: #424649dc; */
-  visibility: visible;
-}
 
 .Production .smallButton img{
   width: 20px;
@@ -44,7 +40,8 @@
 .Production #add_archive:hover .tooltiptext{
     background-color: #424649dc; 
     visibility: visible;
-  }
+    width: 30%;
+}
 
 #add_archive{
   float: left;

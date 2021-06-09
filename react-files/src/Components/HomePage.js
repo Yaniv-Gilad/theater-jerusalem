@@ -6,7 +6,6 @@ import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
 import Calendar from "./Calendar"
 import CALENDAR from "../Photos/calendar.png"
-import { Box } from "@material-ui/core"
 // import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
@@ -34,7 +33,7 @@ class HomePage extends Component {
           pathname: '/Home',
           data: _user
         })
-
+        
         this.getProjects();
         this.getArchive();
       }
@@ -50,7 +49,8 @@ class HomePage extends Component {
       }
     }
     )
- }
+  }
+
 
 
   render() {
@@ -72,30 +72,36 @@ class HomePage extends Component {
             <p></p>
             {dataToRender}
             <div id="box"></div>
-            <div id="wrapper">
-              <button id="archive" onClick={() => {
-                this.props.history.push(
-                  {
-                    pathname: "/Archive"
-                  })
-              }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
-              <button id="calendar" onClick={() => {
-                this.props.history.push(
-                  {
-                    pathname: "/Calendar"
-                  })
-              }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
-
-              <button id="logout" onClick={() => {
+            <button id="logout" onClick={() => {
                 auth.signOut();
                 this.props.history.push(
                   {
                     pathname: "/"
                   })
               }}>התנתק</button>
-
-              <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-            </div>
+              <table id="wrapper">
+                <tr>
+                  <td id="archive"><button onClick={() => {
+                this.props.history.push(
+                  {
+                    pathname: "/Archive"
+                  }) 
+              }}> <img src={ARCHIVE}></img></button></td>
+                 
+            <td> <button id="add"><img src={ADD}></img></button>
+              
+              </td>
+              <td>
+              <button id="calendar" onClick={() => {
+                this.props.history.push(
+                  {
+                    pathname: "/Calendar"
+                  })
+              }}><img src={CALENDAR}></img></button>
+              </td>
+              </tr>
+              </table>
+              
           </div>}
       </div>
 
