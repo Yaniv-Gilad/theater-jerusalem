@@ -40,11 +40,10 @@ class ArchiveObj extends Component {
 
         return (
             <div className="Production">
-                <Link
-                    id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }}
-                    to={{ pathname: "/file", name: { _name } }}>{fixed_name}
+                <button id="linkName">{fixed_name}
                     <span className="tooltiptextname">{_name}</span>
-                </Link>
+                </button>
+                    
 
                 <br></br>
                 <button className="smallButton">
