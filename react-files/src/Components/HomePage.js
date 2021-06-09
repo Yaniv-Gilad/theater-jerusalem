@@ -50,8 +50,7 @@ class HomePage extends Component {
     }
     )
   }
-})
- }
+
 
 
   render() {
