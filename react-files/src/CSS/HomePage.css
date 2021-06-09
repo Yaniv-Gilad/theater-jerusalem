@@ -2,7 +2,8 @@
   min-width: 100vw;
   min-height: 100vh;
   color: black;
-  background-image: url("../Photos/background4.jpg") ;
+  background-image:  url("../Photos/background4.jpg") ;
+  z-index: 0;
 }
 
 .HomePage button{
@@ -134,5 +135,15 @@ font-family:"verdana";
 
 }
 
+.HomePage #box{
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  top: 10%;
+  bottom :40%;
+  z-index:-3;
+  background-color: rgb(128, 44, 44);
+
+}
 
 
