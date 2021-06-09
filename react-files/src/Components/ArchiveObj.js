@@ -40,7 +40,7 @@ class ArchiveObj extends Component {
 
         return (
             <div className="Production">
-                <button id="linkName">{fixed_name}
+                <button>{fixed_name}
                     <span className="tooltiptextname">{_name}</span>
                 </button>
                     
