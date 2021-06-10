@@ -1,13 +1,25 @@
  .File{
     display: inline-block;
     width: 11%;
-    height: 60%;
+    height: 100%;
     margin: 2%;
     padding: 1%;
     border-radius: 5%; 
-    background-color:#b15550;
+    /* background-color:#b15550; */
     color:#424649dc;
     font-size: 70%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #imgBg{
+    background-image: url("../Photos/file.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
   }
 
 #file_up{
