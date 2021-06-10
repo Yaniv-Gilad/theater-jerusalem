@@ -85,49 +85,51 @@ class HomePage extends Component {
             <p></p>
             <h1><b>הפקות</b></h1>
             <div id="box">
-            <input className="searchBox" type="text" placeholder="חיפוש.."
-              onChange={(event) => {
-                this.setState({ ...this.state, searchVal: event.target.value })
-              }}>
-            </input>
-            <p></p>
-            <p></p>
-            {dataToRender}
+              <input className="searchBox" type="text" placeholder="חיפוש.."
+                onChange={(event) => {
+                  this.setState({ ...this.state, searchVal: event.target.value })
+                }}>
+              </input>
+              <p></p>
+              <p></p>
+              {dataToRender}
             </div>
             <table id="menu">
-              <tr>
-                <td>
-                  <button onClick={() => {
-                  this.props.history.push(
-                    {
-                      pathname: "/Archive"
-                    })
-                }}><img alt="" src={ARCHIVE}></img></button>
-                </td>
-                <td>
-                  <button onClick={this.addProd}><img alt="" src={ADD}></img></button>
-                </td>
-                <td>
-                  <button id="calendar" onClick={() => {
-                  this.props.history.push(
-                    {
-                      pathname: "/Calendar"
-                    })
-                  }}><img alt="" src={CALENDAR}></img></button>
-                </td>
-              </tr>
-              </table>
-              
-          
-              <button id="logout" onClick={() => {
-                auth.signOut();
-                this.props.history.push(
-                  {
-                    pathname: "/"
-                  })
-              }}>התנתק</button>
+              <tbody>
+                <tr>
+                  <td>
+                    <button onClick={() => {
+                      this.props.history.push(
+                        {
+                          pathname: "/Archive"
+                        })
+                    }}><img alt="" src={ARCHIVE}></img></button>
+                  </td>
+                  <td>
+                    <button onClick={this.addProd}><img alt="" src={ADD}></img></button>
+                  </td>
+                  <td>
+                    <button id="calendar" onClick={() => {
+                      this.props.history.push(
+                        {
+                          pathname: "/Calendar"
+                        })
+                    }}><img alt="" src={CALENDAR}></img></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-              
+
+            <button id="logout" onClick={() => {
+              auth.signOut();
+              this.props.history.push(
+                {
+                  pathname: "/"
+                })
+            }}>התנתק</button>
+
+
           </div>}
       </div>
 

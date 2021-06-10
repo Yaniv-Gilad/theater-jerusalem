@@ -28,14 +28,14 @@ class File extends Component {
         this.backButton = this.backButton.bind(this);
         this.addFolder = this.addFolder.bind(this);
         this.overrideInput = this.overrideInput.bind(this);
-    
+
     }
 
     componentDidMount() {
         let _path = "";
-        try{
+        try {
             _path = "gs://theater2-d72bc.appspot.com/" + this.state.loc.path._name;
-        }catch(e){
+        } catch (e) {
             this.props.history.push({
                 pathname: '/Home'
             })
@@ -67,8 +67,8 @@ class File extends Component {
         let arr = []
         for (let j = 0; j < e.target.files.length; j++)
             arr.push(e.target.files[j]);
-        
-        for(let j = 0; j < arr.length; j++){
+
+        for (let j = 0; j < arr.length; j++) {
             let f = arr[j];
             let name = f.name;
             if (names.includes(name)) {
@@ -91,9 +91,9 @@ class File extends Component {
 
     render() {
         let _name = "";
-        try{
+        try {
             _name = this.state.loc.name._name;
-        }catch(e){
+        } catch (e) {
             this.props.history.push({
                 pathname: '/Home'
             })
@@ -109,12 +109,12 @@ class File extends Component {
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
                 {!this.state.loader ? <div className="spinner-border" ></div> : <div>
                     <div id="name_search">
-                    <h1 id="name">{_name}</h1>
-                    <input id="searchBox" className="searchBox" type="text" placeholder="חיפוש.."
-                        onChange={(event) => {
-                            this.setState({ ...this.state, searchVal: event.target.value })
-                        }}>
-                    </input>
+                        <h1 id="name">{_name}</h1>
+                        <input id="searchBox" className="searchBox" type="text" placeholder="חיפוש.."
+                            onChange={(event) => {
+                                this.setState({ ...this.state, searchVal: event.target.value })
+                            }}>
+                        </input>
                     </div>
                     {foldersToRender}
                     <br></br>
@@ -128,20 +128,22 @@ class File extends Component {
                     }}>למסך הבית</button>
                     <button id="go_back" onClick={this.backButton}><img src={back} alt=""></img></button>
                     <table id="menu">
-                        <tr>
-                            <td>
-                                <div id="file_up" onClick={this.overrideInput}>
-                                    <img id="file_img" alt="" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input>
-                                </div>
-                            </td>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="file_up" onClick={this.overrideInput}>
+                                        <img id="file_img" alt="" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input>
+                                    </div>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <td>
-                                <button id="add_folder" onClick={this.addFolder}><img id="add_img" alt="" src={folder_upload}></img></button>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button id="add_folder" onClick={this.addFolder}><img id="add_img" alt="" src={folder_upload}></img></button>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
 
                     {/* </div> */}
