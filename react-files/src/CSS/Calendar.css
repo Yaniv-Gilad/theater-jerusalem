@@ -36,3 +36,29 @@
   right: 0%;
   top: 0%;
 } */
+.Calendar #help{
+  background-image: url('../Photos/help.png');
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 6%;
+  height: 6%;
+}
+
+/* .Calendar #help_img{
+  width: 20px;
+} */
+.addEvent{
+  position: absolute;
+  right: 13%;
+  bottom:10%;
+  background-image:url('../Photos/addEvent.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 6%;
+  height: 6%;
+}
