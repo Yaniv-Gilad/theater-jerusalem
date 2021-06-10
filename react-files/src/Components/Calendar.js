@@ -283,7 +283,8 @@ class Calendar extends Component {
                                     }}></input>
                             </p>
                         </form>
-                        <button style={{ width: 100, height: 50 }} onClick={() => this.createEvent()}>הוספת אירוע</button>
+                        <button id="add_but" onClick={() => this.createEvent()}>הוספת אירוע</button>
+                        <p></p>
                     </div>}
 
                 

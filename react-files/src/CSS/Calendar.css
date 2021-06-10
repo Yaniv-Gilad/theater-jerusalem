@@ -17,9 +17,17 @@
   background-color: rgb(145, 0, 0);
   color: white;
   font-family: "verdana";
-  font-size: 60%;
+  font-size: 90%;
   border-radius: 10%;
 }
+.Calendar #add_but{
+  background-color: rgb(145, 0, 0);
+  color: white;
+  font-family: "verdana";
+  font-size: 80%;
+  border-radius: 10%;
+}
+
 .Calendar h4{
   margin-top: 2%;
   margin-bottom: 0.5%;
