@@ -18,15 +18,6 @@
   border: none;
 }
 
-.Calendar .line{
-  background-color: rgb(145, 0, 0);
-  color: beige;
-  padding:2px;
-  margin:2px;
-  width: 100%;
-  /* height: 20px; */
-}
-
 /* .Calendar #addCalendar{
   position: absolute;
   padding: 2px;
@@ -36,42 +27,48 @@
   right: 0%;
   top: 0%;
 } */
-.Calendar #help{
-  background-image: url('../Photos/help.png');
-  position: absolute;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 6%;
-  height: 6%;
+/* .Calendar #help{
+  width: 100%;
+  height: 100%;
 }
-
+.Calendar #help_but{
+  width: 30%;
+  height:30%;
+} */
 /* .Calendar #help_img{
   width: 20px;
 } */
-.addEvent{
-  
-  /* right: 13%;
-  bottom:10%; */
-  background-image:url('../Photos/addEvent.png'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 95%;
-  height:95%;
-  /* position: sticky; */
+
+/* .addEvent{
+  width: 30%;
+  height:30%;
 }
+.Calendar #add{
+  width: 100%;
+  height: 100%;
+} */
 
 .Calendar #icons{
+  display: flex;
   position: absolute;
-  right: 8%;
+  right: 2%;
   bottom: 10%;
+  align-items: center;
+  justify-content: center;
 }
-td{
-  width:40%;
-  height:40%;
+.Calendar button img{
+  background-color: transparent;
+  border: none;
+  width: 130%;
+  height: 130%;
+ 
 }
+
+.Calendar button:hover
+/* tr{
+  padding: 0%;
+} */
+
 .events{
   color:#74031b;
   font-family:"verdana";
