@@ -290,7 +290,7 @@ class Calendar extends Component {
                 
                 {!this.state.help ? <div></div> :
                     <div id="addCalendar">
-                        <h4 className="line">הנחיות לביצוע סינכרון ליומן של גוגל</h4>
+                        <h3 className="line"><u>הנחיות לביצוע סינכרון ליומן של גוגל</u></h3>
                         <h4>שלב א'</h4><h5>יש להעתיק את הכתובת הבאה: <h6>{window.URLcalendar}</h6><button id="copy_but"onClick={() => this.copyToClipboard(window.URLcalendar)}>העתק</button></h5>
                         
                         <h4>שלב ב'</h4><h5> הכנס ליומן של גוגל בכתובת</h5>
