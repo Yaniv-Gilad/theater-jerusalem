@@ -12,12 +12,14 @@ const WORD_A = ["docx", "docm", "dotx", "dotm"]
 const PDF_A = ["pdf"]
 const EXCEL_A = ["xlsx", "xlsm", "xltx", "xltm", "xlsb", "xlam"]
 const POWERPOINT_A = ["pptx", "pptm", "potx", "potm", "ppam", "ppsx", "ppsm", "sldx", "sldm"]
+const IMAGES_A = ["tif", "tiff", "bmp", "jpg", "jpeg", "gif", "png", "eps", "raw"]
 
 class FileObj extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            img_url: "",
             name: props.file.name,
             path: props.file.path,
             download: "",
@@ -52,8 +54,7 @@ class FileObj extends Component {
         }
 
         // pic the right image
-        let im_url;
-        console.log(type);
+        let im_url = this.state.img_url;
         if (TEXT_A.includes(type))
             im_url = WORD; // change to text pic
         else if (WORD_A.includes(type))
