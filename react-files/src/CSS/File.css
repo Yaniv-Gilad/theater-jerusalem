@@ -6,26 +6,29 @@
     padding: 1%;
     border-radius: 5%; 
     background-color:#b15550;
-    /* קישור לקובץ עצמו */
-    /* background-image: url('../Photos/background3.jpg');  */
-    /* border: #424649dc;
-    border-width: 5px;
-    border-style: solid; */
     color:#424649dc;
     font-size: 70%;
   }
-  
+
+#file_up{
+  width: 20%;
+  height: 30%;
+}
+
+#file_img{
+  width: 20%;
+  height: 30%;
+}
+
 #but_span{
   visibility: hidden;
-  /* width: 100px; */
   background-color: black;
-  color: #fff;
+  color: white;
   text-align: center;
+  margin-right: 0.5%;
   border-radius: 6px;
-  padding: 5px 0;
-
+  padding: 1%;
   /* Position the tooltip */
-  position: absolute;
   z-index: 1;
 }
 
@@ -38,14 +41,31 @@
 }
 
 #upload_but{
-  width: 40%;
-  height: 10%;
+  position: absolute;
+  /* background-color: black; */
+  background-image: url("../Photos/file_upload.png");
+  width: 30%;
+  height: 40%;
   
 }
-.HomePage #go_home:hover {
-  background-color: rgb(87, 0, 0);
+td{
+  padding: 0%;
+}
+#go_home_fromfile{
+  background-color: rgb(145, 0, 0);
+  color: white;
+  font-family: "verdana";
+  position: absolute;
+  left:2%;
+  bottom: 10%;
+  border-radius: 10%;
 }
 
+#go_back{
+  position: absolute;
+  left: 3%;
+  bottom:20%;
+}
 #delete_file{
   float: left;
 }
@@ -55,7 +75,8 @@
   height: 20px;  
 }
 
+
 .File #delete_file:hover .tooltiptext{
-  background-color: #424649dc; 
+  background-color: black; 
   visibility: visible;
 }

@@ -4,7 +4,7 @@ import '../CSS/HomePage.css'
 import Production from "./Production.js"
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
-import Calendar from "./Calendar"
+// import Calendar from "./Calendar"
 import CALENDAR from "../Photos/calendar.png"
 // import Calendar from "reactjs-google-calendar"
 
@@ -17,13 +17,14 @@ class HomePage extends Component {
       data: props.location.data,
       allUsers: [],
       projects: [],
-      archive: [] // all the archive projects
+      archive: [], // all the archive projects
+      searchVal: ""
     }
 
     this.getProjects = this.getProjects.bind(this);
     this.getArchive = this.getArchive.bind(this);
+    this.addProd = this.addProd.bind(this);
   }
-
 
   async componentDidMount() {
     auth.onAuthStateChanged(_user => {
@@ -51,6 +52,26 @@ class HomePage extends Component {
     )
   }
 
+  async addProd() {
+    const prod_name = prompt("אנא הכנס את שם ההפקה:");
+    const ignore = "ignore.txt";
+    if (!prod_name || prod_name === "")
+      return;
+
+    // if production already exist
+    let productions = this.state.projects.map(prod => prod["name"]);
+    if (productions.includes(prod_name)) {
+      alert("לא ניתן ליצור הפקה. \nקיימת הפקה בשם " + prod_name + ".");
+      return;
+    }
+
+    this.setState({ ...this, loader: false })
+    let def = ["תקציב", "תפאורה", "חזרות", "טקסטים", "סאונד", "מפרטים"];
+    for (let i = 0; i < def.length; i++) {
+      await storage.ref().child(prod_name).child(def[i]).child(ignore).put();
+    }
+    window.location.reload();
+  }
 
 
   render() {
@@ -66,25 +87,41 @@ class HomePage extends Component {
           <div>
             <p></p>
             <h1><b>הפקות</b></h1>
-            <h2 className="line"></h2>
-            <h2 className="line"></h2>
+            <div id="box">
+            <input className="searchBox" type="text" placeholder="חיפוש.."
+              onChange={(event) => {
+                this.setState({ ...this.state, searchVal: event.target.value })
+              }}>
+            </input>
             <p></p>
             <p></p>
             {dataToRender}
-            <div id="wrapper">
-              <button id="archive" onClick={() => {
-                this.props.history.push(
-                  {
-                    pathname: "/Archive"
-                  })
-              }}><img src={ARCHIVE}></img><span className="tooltiptext">מעבר לארכיון</span></button>
-              <button id="calendar" onClick={() => {
-                this.props.history.push(
-                  {
-                    pathname: "/Calendar"
-                  })
-              }}><img src={CALENDAR}></img><span className="tooltiptext">מעבר ליומן</span></button>
-
+            </div>
+            <table id="menu">
+              <tr>
+                <td>
+                  <button onClick={() => {
+                  this.props.history.push(
+                    {
+                      pathname: "/Archive"
+                    })
+                }}><img src={ARCHIVE}></img></button>
+                </td>
+                <td>
+                  <button onClick={this.addProd}><img src={ADD}></img></button>
+                </td>
+                <td>
+                  <button id="calendar" onClick={() => {
+                  this.props.history.push(
+                    {
+                      pathname: "/Calendar"
+                    })
+                  }}><img src={CALENDAR}></img></button>
+                </td>
+              </tr>
+              </table>
+              
+          
               <button id="logout" onClick={() => {
                 auth.signOut();
                 this.props.history.push(
@@ -93,8 +130,7 @@ class HomePage extends Component {
                   })
               }}>התנתק</button>
 
-              <button id="add"><img src={ADD}></img><span className="tooltiptext">הוספת הצגה</span></button>
-            </div>
+              
           </div>}
       </div>
 
@@ -103,8 +139,9 @@ class HomePage extends Component {
 
   // get the relevent projects to show on screen
   getData() {
-    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1);
-    let dataToReturn = notArchived.map((production, index) => <Production key={index} getArchive={this.getArchive} prod={production} />);
+    let searchVal = this.state.searchVal;
+    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1 && prod["name"].includes(searchVal));
+    let dataToReturn = notArchived.map((production, index) => <Production key={production.name} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }
 

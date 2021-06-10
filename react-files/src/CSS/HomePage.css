@@ -10,16 +10,8 @@
   background-color: transparent;
   border: none;
 }
-.HomePage #add{
-  position: absolute;
-  right:5%;
-  bottom:10%;
-}
-.HomePage #archive{
-  position: absolute;
-  right:10%;
-  bottom:10%;
-}
+
+
 
 .HomePage button img{
   background-color: transparent;
@@ -27,24 +19,6 @@
   width: 40px;
   height: 40px;
  
-}
-
-.HomePage #archive:hover .tooltiptext{
-  /* background-color: #424649dc; */
-  visibility: visible;
-  position: absolute;
-  right:10%;
-  bottom:100%;
-
-}
-
-.HomePage #add:hover .tooltiptext,
-.HomePage .File:hover .tooltiptextname{
-  /* background-color: #424649dc; */
-  visibility: visible;
-  position: absolute;
-  right:5%;
-  bottom:100%;
 }
 
 
@@ -65,9 +39,11 @@
 
 
 
-.HomePage #wrapper {
-  margin: 5%;
+.HomePage #menu{
   display: flex;
+  position: absolute;
+  right: 2%;
+  bottom: 10%;
   align-items: center;
   justify-content: center;
 }
@@ -84,27 +60,10 @@
   left:0%;
   bottom:7%;
 }
-#go_home{
-  border-radius: 50%;
-  background-color: rgb(145, 0, 0);
-  font-family:"verdana";
-  color: white;
-  height:36px;
-  text-align: center;
-  border-radius: 6px;
-  margin: 2%;
-  position: absolute;
-  left:0%;
-  bottom:7%;
-}
 
 
 .HomePage button:hover {
   cursor:pointer;
-}
-.HomePage h1{
-/* font-size: 50px; */
-font-family:"verdana";
 }
 
 
@@ -114,15 +73,6 @@ font-family:"verdana";
   height: 4rem;
   width: 4rem;
   left: 47%;
-  /* text-align: center; */
-  /* display: block;
-  margin-left: auto;
-  margin-right: auto;  */
-  /* width: 50%;
-  /* display: flex !important;
-  align-items:center !important;
-  text-align: center !important;
-  justify-content: center !important; */
 }
 
 .HomePage .line{
@@ -131,19 +81,24 @@ font-family:"verdana";
   padding:2px;
   margin:2px;
   width: 100%;
-  /* height: 20px; */
-
 }
 
 .HomePage #box{
   position: absolute;
-  height: 50%;
   width: 100%;
+  /* height: 70%;
   top: 10%;
-  bottom :40%;
+  bottom :40%; */
   z-index:-3;
   background-color: rgb(128, 44, 44);
-
+}
+.HomePage .searchBox{
+  width:10%;
+  font-size: 50%;
 }
 
+.HomePage .searchBox{
+  width:10%;
+  font-size: 60%;
+}
 
