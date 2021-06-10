@@ -49,12 +49,11 @@
   border-radius: 50%;
   font-family:"verdana";
   color: black;
-  height:36px;
   text-align: center;
-  border-radius: 6px;
   position: absolute;
   left: 1%;
   bottom: 10%;
+  font-size: 80%;
 }
 
 
