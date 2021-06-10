@@ -42,7 +42,7 @@ class ArchiveObj extends Component {
                 <button>{fixed_name}
                     <span className="tooltiptextname">{_name}</span>
                 </button>
-                    
+
 
                 <br></br>
                 <button className="smallButton">
@@ -89,8 +89,7 @@ class ArchiveObj extends Component {
                     this.deleteFolderContents(folderRef.fullPath);
                 })
             })
-            .catch(error => {
-                console.log(error);
+            .catch(() => {
             });
 
     }

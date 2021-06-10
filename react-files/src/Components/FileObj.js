@@ -57,29 +57,29 @@ class FileObj extends Component {
         }
 
         // pic the right image
-        if(!fixed_name){
+        if (!fixed_name) {
             fixed_name = _name.substring(0, 18);
         }
         let im_url = this.state.img_url;
-        if(!type){
-            im_url=DEF_FILE;
-        }
-        else{
-        let _type = type.substring(1);
-        if (TEXT_A.includes(_type))
-            im_url = TEXT; 
-        else if (WORD_A.includes(_type))
-            im_url = WORD;
-        else if (PDF_A.includes(_type))
-            im_url = PDF;
-        else if (EXCEL_A.includes(_type))
-            im_url = EXCEL;
-        else if (POWERPOINT_A.includes(_type))
-            im_url = POWERPOINT;
-        else if (IMAGES_A.includes(_type))
-            im_url = IMAGE;  
-        else
+        if (!type) {
             im_url = DEF_FILE;
+        }
+        else {
+            let _type = type.substring(1);
+            if (TEXT_A.includes(_type))
+                im_url = TEXT;
+            else if (WORD_A.includes(_type))
+                im_url = WORD;
+            else if (PDF_A.includes(_type))
+                im_url = PDF;
+            else if (EXCEL_A.includes(_type))
+                im_url = EXCEL;
+            else if (POWERPOINT_A.includes(_type))
+                im_url = POWERPOINT;
+            else if (IMAGES_A.includes(_type))
+                im_url = IMAGE;
+            else
+                im_url = DEF_FILE;
         }
 
         return (
@@ -110,10 +110,8 @@ class FileObj extends Component {
             return;
 
         storage.refFromURL(path).delete().then(() => {
-            console.log("file " + name + " deleted !");
             this.state.updateFiles();
         }).catch(() => {
-            console.log("file " + name + " did NOT delete");
         });
     }
 }
