@@ -39,8 +39,7 @@
 .Calendar #help{
   background-image: url('../Photos/help.png');
   position: absolute;
-  right: 8%;
-  bottom: 10%;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,13 +51,30 @@
   width: 20px;
 } */
 .addEvent{
-  position: absolute;
-  right: 13%;
-  bottom:10%;
+  
+  /* right: 13%;
+  bottom:10%; */
   background-image:url('../Photos/addEvent.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 6%;
-  height: 6%;
+  width: 95%;
+  height:95%;
+  /* position: sticky; */
+}
+
+.Calendar #icons{
+  position: absolute;
+  right: 8%;
+  bottom: 10%;
+}
+td{
+  width:40%;
+  height:40%;
+}
+.events{
+  color:#74031b;
+  font-family:"verdana";
+  margin-left: 5%;
+
 }
