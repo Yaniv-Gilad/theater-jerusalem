@@ -64,7 +64,6 @@ class ArchiveObj extends Component {
     moveToHome() {
         let _name = this.state.name.toString();
         db.collection("archive").doc(_name).delete().then(() => {
-            console.log("Document '" + _name + "' added to home!");
             this.state.getArchive();
         });
     }
@@ -76,7 +75,6 @@ class ArchiveObj extends Component {
             return;
 
         this.deleteFolderContents(_name);
-        console.log("Document '" + _name + "' files deleted!");
         this.state.getArchive();
     }
 

@@ -49,14 +49,17 @@ class FileObj extends Component {
         if (type_ind != -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
-            sub = sub.substring(0, 20 - type.length);
+            sub = sub.substring(0, 18 - type.length);
             fixed_name = sub;
         }
         else {
-            fixed_name = _name.substring(0, 20);
+            fixed_name = _name.substring(0, 18);
         }
 
         // pic the right image
+        if(!fixed_name){
+            fixed_name = _name.substring(0, 18);
+        }
         let im_url = this.state.img_url;
         if(!type){
             im_url=DEF_FILE;

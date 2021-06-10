@@ -56,7 +56,6 @@ class Login extends Component {
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 this.login()
-                console.log(this.state)
               }
             }}
           />

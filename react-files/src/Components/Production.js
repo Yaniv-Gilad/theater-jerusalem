@@ -47,7 +47,6 @@ class Production extends Component {
     moveToArchive() {
         let _name = this.state.name.toString();
         db.collection("archive").doc(_name).set({ name: _name }).then(() => {
-            console.log("Document '" + _name + "' added to archive!");
             this.state.getArchive();
             window.location.reload();
         });
