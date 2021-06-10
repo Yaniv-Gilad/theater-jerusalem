@@ -86,12 +86,14 @@ class File extends Component {
             <div className="HomePage">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
                 {!this.state.loader ? <div className="spinner-border" ></div> : <div>
-                    <h1>{_name}</h1>
-                    <input className="searchBox" type="text" placeholder="חיפוש.."
+                    <div id="name_search">
+                    <h1 id="name">{_name}</h1>
+                    <input id="searchBox" className="searchBox" type="text" placeholder="חיפוש.."
                         onChange={(event) => {
                             this.setState({ ...this.state, searchVal: event.target.value })
                         }}>
                     </input>
+                    </div>
                     {foldersToRender}
                     <br></br>
                     {filesToRender}
