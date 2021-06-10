@@ -90,7 +90,6 @@ class Calendar extends Component {
                 ]
             }
         }
-        console.log(event);
         this.setEvent(event)
     }
 
@@ -108,9 +107,7 @@ class Calendar extends Component {
                         'calendarId': 'primary',
                         'resource': event
                     }).then((res) => {
-                        console.log(event);
                         if (res) {
-                            console.log(res)
                             this.setState({ newEvent: res })
                             window.location.reload();
                         }
@@ -119,7 +116,6 @@ class Calendar extends Component {
                     });
                 })
             })
-        console.log(event);
     }
 
     // async getEvents() {
@@ -186,7 +182,6 @@ class Calendar extends Component {
         el.select();
         document.execCommand('copy');
         document.body.removeChild(el);
-        console.log("copy");
     };
 
     createTime(e) {//Format change

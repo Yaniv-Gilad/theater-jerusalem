@@ -18,17 +18,28 @@ class File extends Component {
             path: "",
             loader: false,
             files: [],
-            folders: []
+            folders: [],
+            // alive: false
+            loc: this.props.location
         }
         this.getData = this.getData.bind(this);
         this.Upload = this.Upload.bind(this);
         this.backButton = this.backButton.bind(this);
         this.addFolder = this.addFolder.bind(this);
         this.overrideInput = this.overrideInput.bind(this);
+    
     }
 
     componentDidMount() {
-        let _path = "gs://theater2-d72bc.appspot.com/" + this.props.location.path._name;
+        let _path = "";
+        try{
+            _path = "gs://theater2-d72bc.appspot.com/" + this.state.loc.path._name;
+        }catch(e){
+            this.props.history.push({
+                pathname: '/Home'
+            })
+            return;
+        }
         storage.refFromURL(_path).listAll().then((res) => {
             let p = []
             res.items.forEach((file) => {
@@ -50,12 +61,14 @@ class File extends Component {
         this.refs.uploader.click();
     }
 
-    Upload(e) {
+    async Upload(e) {
         let names = this.state.files.map(file => file["name"]);
         let arr = []
         for(let j = 0; j < e.target.files.length; j++)
             arr.push(e.target.files[j]);
-        arr.forEach(f => {
+        
+        for(let j = 0; j < arr.length; j++){
+            let f = arr[j];
             let name = f.name;
             if (names.includes(name)) {
                 if (window.confirm("קיים קובץ בשם " + name + "\n" + "האם ברצונך לדרוס אותו?") == false) {
@@ -68,16 +81,24 @@ class File extends Component {
             let p = this.state.path.substring(i);
             const storageRef = storage.ref();
             const fileRef = storageRef.child(p + "/" + name);
-            fileRef.put(f).then(() => {
-                console.log("העלה קובץ", name);
-                this.getData(this.state.path);
-            });
-        });
-        
+            await fileRef.put(f);
+        }
+        this.getData(this.state.path);
+
     }
 
     render() {
-        let _name = this.props.location.name._name;
+        let _name = "";
+        try{
+            _name = this.state.loc.name._name;
+        }catch(e){
+            this.props.history.push({
+                pathname: '/Home'
+            })
+            return (
+                <div></div>
+            );
+        }
         let foldersToRender = this.getFolders();
         let filesToRender = this.getFiles();
 
@@ -191,8 +212,6 @@ class File extends Component {
             if (path.charAt(i) === '/')
                 counter++;
 
-        console.log(path);
-        console.log(counter);
         // go back to home
         if (counter === 3)
             this.props.history.push({ pathname: "/home" });
