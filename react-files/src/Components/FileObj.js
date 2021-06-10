@@ -58,6 +58,10 @@ class FileObj extends Component {
 
         // pic the right image
         let im_url = this.state.img_url;
+        if(!type){
+            im_url=DEF_FILE;
+        }
+        else{
         let _type = type.substring(1);
         if (TEXT_A.includes(_type))
             im_url = TEXT; 
@@ -73,7 +77,7 @@ class FileObj extends Component {
             im_url = IMAGE;  
         else
             im_url = DEF_FILE;
-
+        }
 
         return (
             <div className="File" style={{ backgroundImage: `url(${im_url})` }}>
