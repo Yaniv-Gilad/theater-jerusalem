@@ -31,6 +31,7 @@
   font-family: "verdana";
   font-size: 80%;
   border-radius: 10%;
+  margin-top:8px;
 }
 .Calendar h3{
   margin: 0%;
@@ -62,6 +63,7 @@
     border: 0px;
     width: 60vw;
     height: 70vh;
+    margin-bottom: 5%;
   }
 
   .Calendar button{
@@ -90,8 +92,14 @@
 }
 
 .events{
-  color:#74031b;
+  /* color:#74031b; */
   font-family:"verdana";
-  margin-left: 5%;
-
+  margin-left: 6px;
 }
+
+#formAddEvent label,
+#formAddEvent input{
+  margin-bottom: 5px;
+}
+
+

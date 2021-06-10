@@ -243,14 +243,12 @@ class Calendar extends Component {
                 {!this.state.addEvent ? <div></div> :
                     <div id="formAddEvent">
                         <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
-                            <p>
-                                <label className="events"> שם</label>
+                                <label className="events">שם:</label>
                                 <input type="text" name="name" onBlur={(e) => {
                                     this.setState({ summery: e.target.value })
                                 }} placeholder="הכנס שם אירוע"></input>
-                            </p>
-                            <p>
-                                <label className="events">תאריך התחלה</label>
+                            <br></br>
+                                <label className="events">תאריך התחלה:</label>
                                 <input type="date" name="dateTimeStart"
                                     onChange={
                                         (e) => {
@@ -258,30 +256,26 @@ class Calendar extends Component {
                                             this.setState({ dateTimeStart: d })
                                         }
                                     }></input>
-                            </p>
-                            <p>
-                                <label className="events"> זמן התחלה</label>
+                            <br></br>
+                                <label className="events"> זמן התחלה:</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeStart: e.target.value })
                                     }}></input>
-                            </p>
-                            <p>
-                                <label className="events"> תאריך סיום</label>
+                            <br></br>
+                                <label className="events"> תאריך סיום:</label>
                                 <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
                                     onChange={
                                         (e) => {
                                             var d = this.createTime(e)
                                             this.setState({ dateTimeEnd: d })
                                         }}></input>
-                            </p>
-                            <p>
-                                <label className="events"> זמן סיום</label>
+                            <br></br>
+                                <label className="events"> זמן סיום:</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeEnd: e.target.value })
                                     }}></input>
-                            </p>
                         </form>
                         <button id="add_but" onClick={() => this.createEvent()}>הוספת אירוע</button>
                         <p></p>
