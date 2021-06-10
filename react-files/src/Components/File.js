@@ -2,9 +2,9 @@ import { Component } from "react"
 import FileObj from "./FileObj.js"
 import FolderObj from "./FolderObj.js"
 import { storage } from "../Firebase/firebase"
-import folder_upload from "../Photos/upload_folder.png"
+import folder_upload from "../Photos/add_folder.png"
 import back from "../Photos/arrow.png"
-import file_upload from "../Photos/file_upload.png"
+import file_upload from "../Photos/add_file.png"
 import '../CSS/File.css'
 import React from 'react';
 import '../App.css';
@@ -97,7 +97,7 @@ class File extends Component {
                             <tr>
                                 <td>
                                 <div id="file_up" onClick={this.overrideInput}>
-                                    <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input> 
+                                    <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload} multiple></input> 
                                 </div>
                                 </td>
                                 
