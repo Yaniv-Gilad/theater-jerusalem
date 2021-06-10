@@ -51,25 +51,29 @@ class File extends Component {
     }
 
     Upload(e) {
-        let name = e.target.files[0].name;
         let names = this.state.files.map(file => file["name"]);
-        if (names.includes(name)) {
-            if (window.confirm("קיים קובץ בשם " + name + "\n" + "האם ברצונך לדרוס אותו?") == false) {
-                this.getData(this.state.path);
-                return;
+        let arr = []
+        for(let j = 0; j < e.target.files.length; j++)
+            arr.push(e.target.files[j]);
+        arr.forEach(f => {
+            let name = f.name;
+            if (names.includes(name)) {
+                if (window.confirm("קיים קובץ בשם " + name + "\n" + "האם ברצונך לדרוס אותו?") == false) {
+                    this.getData(this.state.path);
+                    return;
+                }
             }
-        }
-
-        let i = this.state.path.indexOf(".com/");
-        i = i + 5;
-        let p = this.state.path.substring(i);
-        const file = e.target.files[0];
-        const storageRef = storage.ref();
-        const fileRef = storageRef.child(p + "/" + file.name);
-        fileRef.put(file).then(() => {
-            console.log("העלה קובץ", file.name);
-            this.getData(this.state.path);
+            let i = this.state.path.indexOf(".com/");
+            i = i + 5;
+            let p = this.state.path.substring(i);
+            const storageRef = storage.ref();
+            const fileRef = storageRef.child(p + "/" + name);
+            fileRef.put(f).then(() => {
+                console.log("העלה קובץ", name);
+                this.getData(this.state.path);
+            });
         });
+        
     }
 
     render() {
@@ -97,7 +101,7 @@ class File extends Component {
                             <tr>
                                 <td>
                                 <div id="file_up" onClick={this.overrideInput}>
-                                    <img id="file_img" src={file_upload} style={{cursor: "pointer"}}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input> 
+                                    <img id="file_img" src={file_upload} style={{cursor: "pointer"}}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload} multiple></input> 
                                 </div>
                                 </td>
                                 
