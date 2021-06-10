@@ -17,11 +17,9 @@
 }
 
 .Calendar iframe{
-    padding:0px;
-    margin:0px;
     border: 0px;
-    width: 600px;
-    height: 400px;
+    width: 50vw;
+    height: 60vh;
   }
 
   .Calendar button{
