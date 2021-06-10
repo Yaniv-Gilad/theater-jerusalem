@@ -40,7 +40,7 @@
 .HomePage #menu{
   position: fixed;
   right: 1%;
-  bottom: 8%;
+  bottom: 10%;
   align-items: center;
   justify-content: center;
 }
@@ -54,7 +54,7 @@
   border-radius: 6px;
   position: absolute;
   left: 1%;
-  bottom: 8%;
+  bottom: 10%;
 }
 
 
