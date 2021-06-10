@@ -5,6 +5,17 @@
   background-image: url("../Photos/background4.jpg") ;
 }
 
+#go_home_fromcalendar{
+  background-color: rgb(145, 0, 0);
+  color: white;
+  font-family: "verdana";
+  font-size: 60%;
+  position: fixed;
+  left:1%;
+  bottom: 10%;
+  border-radius: 10%;
+}
+
 .Calendar iframe{
     padding:0px;
     margin:0px;
@@ -18,35 +29,6 @@
   border: none;
 }
 
-/* .Calendar #addCalendar{
-  position: absolute;
-  padding: 2px;
-  margin: 2px;
-  width: 20%;
-  height: 89%;
-  right: 0%;
-  top: 0%;
-} */
-/* .Calendar #help{
-  width: 100%;
-  height: 100%;
-}
-.Calendar #help_but{
-  width: 30%;
-  height:30%;
-} */
-/* .Calendar #help_img{
-  width: 20px;
-} */
-
-/* .addEvent{
-  width: 30%;
-  height:30%;
-}
-.Calendar #add{
-  width: 100%;
-  height: 100%;
-} */
 
 .Calendar #icons{
   display: flex;
@@ -66,11 +48,6 @@
 .Calendar button:hover{
   cursor: pointer;
 }
-
-.Calendar button:hover
-/* tr{
-  padding: 0%;
-} */
 
 .events{
   color:#74031b;
