@@ -51,16 +51,16 @@
 .Calendar #icons{
   display: flex;
   position: fixed;
-  right: 0%;
-  bottom: 7%;
+  right: 1%;
+  bottom: 8%;
   align-items: center;
   justify-content: center;
 }
 .Calendar button img{
   background-color: transparent;
   border: none;
-  width: 130%;
-  height: 130%;
+  width: 40px;
+  height: 40px;
  
 }
 .Calendar button:hover{

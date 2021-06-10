@@ -4,8 +4,8 @@ import '../CSS/Calendar.css'
 import { auth, db, storage } from "../Firebase/firebase"
 import Calendar_new1 from "../Photos/AddGoogleCal1.png"
 import Calendar_new2 from "../Photos/AddGoogleCal2.png"
-import add from "../Photos/addEvent.png"
-import help from "../Photos/help.png"
+import add from "../Photos/addEvent2.png"
+import help from "../Photos/help2.png"
 
 
 
