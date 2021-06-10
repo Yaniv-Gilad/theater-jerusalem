@@ -41,7 +41,7 @@
 
 .HomePage #menu{
   display: flex;
-  position: absolute;
+  position: fixed;
   right: 2%;
   bottom: 10%;
   align-items: center;

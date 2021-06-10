@@ -59,14 +59,14 @@
   background-color: rgb(145, 0, 0);
   color: white;
   font-family: "verdana";
-  position: absolute;
+  position: fixed;
   left:2%;
   bottom: 10%;
   border-radius: 10%;
 }
 
 #go_back{
-  position: absolute;
+  position: fixed;
   left: 3%;
   bottom:20%;
 }
