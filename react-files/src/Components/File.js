@@ -24,11 +24,11 @@ class File extends Component {
         this.Upload = this.Upload.bind(this);
         this.backButton = this.backButton.bind(this);
         this.addFolder = this.addFolder.bind(this);
+        this.overrideInput = this.overrideInput.bind(this);
     }
 
     componentDidMount() {
         let _path = "gs://theater2-d72bc.appspot.com/" + this.props.location.path._name;
-
         storage.refFromURL(_path).listAll().then((res) => {
             let p = []
             res.items.forEach((file) => {
@@ -45,6 +45,9 @@ class File extends Component {
             this.setState({ ...this.state, path: _path, files: p, folders: fol, loader: true });
         }
         );
+    }
+    overrideInput(e){
+        this.refs.uploader.click();
     }
 
     Upload(e) {
@@ -90,18 +93,18 @@ class File extends Component {
                             })
                     }}>למסך הבית</button>
                     <button id="go_back" onClick={this.backButton}><img src={back}></img></button>
-                    <table id="menu" border="2">
+                    <table id="menu">
                             <tr>
                                 <td>
-                                <div id="file_up">
-                                    <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" onChange={this.Upload}></input> 
+                                <div id="file_up" onClick={this.overrideInput}>
+                                    <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input> 
                                 </div>
                                 </td>
                                 
                             </tr>
                             <tr>
                                 <td>
-                                <button id="add_folder" onClick={this.addFolder}><img src={folder_upload}></img></button>
+                                <button id="add_folder" onClick={this.addFolder}><img id="add_img" src={folder_upload}></img></button>
 
                                 </td>
                             </tr>
