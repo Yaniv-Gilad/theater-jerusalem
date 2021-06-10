@@ -37,11 +37,9 @@
   z-index: 1;
 }
 
-
-
 .HomePage #menu{
   position: fixed;
-  right: 2%;
+  right: 0%;
   bottom: 8%;
   align-items: center;
   justify-content: center;
