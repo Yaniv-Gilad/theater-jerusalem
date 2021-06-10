@@ -146,7 +146,7 @@ class File extends Component {
     }
 
     addFolder() {
-        let name = prompt("Please enter folder name");
+        let name = prompt("אנא הכנס שם תיקייה:");
 
         // if cancel
         if (name == null || name === "") {
