@@ -54,7 +54,7 @@ class File extends Component {
     Upload(e) {
         let names = this.state.files.map(file => file["name"]);
         let arr = []
-        for(let j = 0; j < e.target.files.length; j++)
+        for (let j = 0; j < e.target.files.length; j++)
             arr.push(e.target.files[j]);
         arr.forEach(f => {
             let name = f.name;
@@ -74,7 +74,7 @@ class File extends Component {
                 this.getData(this.state.path);
             });
         });
-        
+
     }
 
     render() {
