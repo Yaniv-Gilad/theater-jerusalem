@@ -1,13 +1,24 @@
  .File{
     display: inline-block;
-    width: 11%;
-    height: 60%;
+    width: 11.5%;
+    height: 100%;
     margin: 2%;
     padding: 1%;
     border-radius: 5%; 
-    background-color:#b15550;
     color:#424649dc;
     font-size: 70%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #imgBg{
+    background-image: url("../Photos/file.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
   }
 
 #file_up{
@@ -28,7 +39,6 @@
   margin-right: 0.5%;
   border-radius: 6px;
   padding: 1%;
-  /* Position the tooltip */
   z-index: 1;
 }
 
@@ -38,6 +48,7 @@
 .File #but{
   color: white;
   font-size: 70%;
+  padding-top: 8%;
 }
 
 #upload_but{
@@ -61,6 +72,8 @@
 }
 #delete_file{
   float: left;
+  padding-left: 0%;
+  padding-bottom: 6%;
 }
 
 #delete_file img{
