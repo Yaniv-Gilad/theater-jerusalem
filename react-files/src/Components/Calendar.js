@@ -4,6 +4,9 @@ import '../CSS/Calendar.css'
 import { auth, db, storage } from "../Firebase/firebase"
 import Calendar_new1 from "../Photos/AddGoogleCal1.png"
 import Calendar_new2 from "../Photos/AddGoogleCal2.png"
+import add from "../Photos/addEvent.png"
+import help from "../Photos/help.png"
+
 
 
 var gapi = window.gapi
@@ -90,6 +93,7 @@ class Calendar extends Component {
                 ]
             }
         }
+        console.log(event);
         this.setEvent(event)
     }
 
@@ -107,7 +111,9 @@ class Calendar extends Component {
                         'calendarId': 'primary',
                         'resource': event
                     }).then((res) => {
+                        console.log(event);
                         if (res) {
+                            console.log(res)
                             this.setState({ newEvent: res })
                             window.location.reload();
                         }
@@ -116,6 +122,7 @@ class Calendar extends Component {
                     });
                 })
             })
+        console.log(event);
     }
 
     // async getEvents() {
@@ -182,6 +189,7 @@ class Calendar extends Component {
         el.select();
         document.execCommand('copy');
         document.body.removeChild(el);
+        console.log("copy");
     };
 
     createTime(e) {//Format change
@@ -213,25 +221,36 @@ class Calendar extends Component {
         return (
             <div className="Calendar">
                 <h1><b>יומן</b></h1>
-                <h2 className="line"></h2>
-                <h2 className="line"></h2>
+                {/* <h2 className="line"></h2>
+                <h2 className="line"></h2> */}
                 {/* <button onClick={() => this.openWinEvents()}>delete Event</button>
                 <button onClick={() => this.getEvents()}>getEvent</button>
                 <button onClick={() => this.deleteEvent("notqbcjfuv0be19kvhkdkp1ifc_20210609T092600Z")}>deleteEvent</button> */}
-                <button className="addEvent" onClick={() => {
+                <table id="icons">
+                    <tbody>
+                    <tr>
+                        <td><button className="addEvent" onClick={() => {
                     this.setState({ addEvent: !this.state.addEvent })
-                }}>add Event</button>
+                }}><img id="add" alt="" src={add}></img></button></td>
+
+                <td><button id="help_but"  onClick={() => {
+                    this.setState({ help: !this.state.help })
+                }}><img id="help" alt="" src={help}></img></button></td>
+                    </tr>
+                    </tbody>
+                </table>
+                
                 {!this.state.addEvent ? <div></div> :
                     <div id="formAddEvent">
                         <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
                             <p>
-                                <label>הכנס שם אירוע</label>
+                                <label className="events">הכנס שם אירוע</label>
                                 <input type="text" name="name" onBlur={(e) => {
                                     this.setState({ summery: e.target.value })
                                 }} placeholder="הכנס שם אירוע"></input>
                             </p>
                             <p>
-                                <label>הכנס תאריך התחלת אירוע</label>
+                                <label className="events">הכנס תאריך התחלת אירוע</label>
                                 <input type="date" name="dateTimeStart"
                                     onChange={
                                         (e) => {
@@ -241,14 +260,14 @@ class Calendar extends Component {
                                     }></input>
                             </p>
                             <p>
-                                <label>הכנס זמן התחלת האירוע</label>
+                                <label className="events">הכנס זמן התחלת האירוע</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeStart: e.target.value })
                                     }}></input>
                             </p>
                             <p>
-                                <label>הכנס תאריך סיום האירוע</label>
+                                <label className="events">הכנס תאריך סיום האירוע</label>
                                 <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
                                     onChange={
                                         (e) => {
@@ -257,7 +276,7 @@ class Calendar extends Component {
                                         }}></input>
                             </p>
                             <p>
-                                <label>הכנס זמן סיום האירוע</label>
+                                <label className="events">הכנס זמן סיום האירוע</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeEnd: e.target.value })
@@ -267,9 +286,7 @@ class Calendar extends Component {
                         <button style={{ width: 100, height: 50 }} onClick={() => this.createEvent()}>הוספת אירוע</button>
                     </div>}
 
-                <button onClick={() => {
-                    this.setState({ help: !this.state.help })
-                }}>help</button>
+                
                 {!this.state.help ? <div></div> :
                     <div id="addCalendar">
                         <h2 className="line"><span className="fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
