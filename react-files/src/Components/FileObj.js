@@ -14,7 +14,7 @@ const TEXT_A = ["txt"]
 const WORD_A = ["docx", "docm", "dotx", "dotm"]
 const PDF_A = ["pdf"]
 const EXCEL_A = ["xlsx", "xlsm", "xltx", "xltm", "xlsb", "xlam"]
-const POWERPOINT_A = ["pptx", "pptm", "potx", "potm", "ppam", "ppsx", "ppsm", "sldx", "sldm"]
+const POWERPOINT_A = ["ppt","pptx", "pptm", "potx", "potm", "ppam", "ppsx", "ppsm", "sldx", "sldm"]
 const IMAGES_A = ["tif", "tiff", "bmp", "jpg", "jpeg", "gif", "png", "eps", "raw"]
 
 class FileObj extends Component {
