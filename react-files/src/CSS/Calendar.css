@@ -12,6 +12,11 @@
 .Calendar h6{
   margin: 0%;
 }
+.Calendar #addEvent{
+  text-align: right;
+  padding-right: 40%;
+}
+
 
 .Calendar #copy_but{
   background-color: rgb(145, 0, 0);

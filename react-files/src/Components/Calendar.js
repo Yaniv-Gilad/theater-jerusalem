@@ -244,13 +244,13 @@ class Calendar extends Component {
                     <div id="formAddEvent">
                         <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
                             <p>
-                                <label className="events">הכנס שם אירוע</label>
+                                <label className="events"> שם</label>
                                 <input type="text" name="name" onBlur={(e) => {
                                     this.setState({ summery: e.target.value })
                                 }} placeholder="הכנס שם אירוע"></input>
                             </p>
                             <p>
-                                <label className="events">הכנס תאריך התחלת אירוע</label>
+                                <label className="events">תאריך התחלה</label>
                                 <input type="date" name="dateTimeStart"
                                     onChange={
                                         (e) => {
@@ -260,14 +260,14 @@ class Calendar extends Component {
                                     }></input>
                             </p>
                             <p>
-                                <label className="events">הכנס זמן התחלת האירוע</label>
+                                <label className="events"> זמן התחלה</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeStart: e.target.value })
                                     }}></input>
                             </p>
                             <p>
-                                <label className="events">הכנס תאריך סיום האירוע</label>
+                                <label className="events"> תאריך סיום</label>
                                 <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
                                     onChange={
                                         (e) => {
@@ -276,7 +276,7 @@ class Calendar extends Component {
                                         }}></input>
                             </p>
                             <p>
-                                <label className="events">הכנס זמן סיום האירוע</label>
+                                <label className="events"> זמן סיום</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeEnd: e.target.value })
