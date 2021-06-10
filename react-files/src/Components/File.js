@@ -20,7 +20,6 @@ class File extends Component {
             loader: false,
             files: [],
             folders: [],
-            // alive: false
             loc: this.props.location
         }
         this.getData = this.getData.bind(this);
@@ -63,6 +62,7 @@ class File extends Component {
     }
 
     async Upload(e) {
+        this.setState({ ...this.state, loader: false });
         let names = this.state.files.map(file => file["name"]);
         let arr = []
         for (let j = 0; j < e.target.files.length; j++)
@@ -86,7 +86,6 @@ class File extends Component {
             await fileRef.put(f);
         }
         this.getData(this.state.path);
-
     }
 
     render() {
@@ -132,7 +131,7 @@ class File extends Component {
                             <tr>
                                 <td>
                                     <div id="file_up" onClick={this.overrideInput}>
-                                        <img id="file_img" alt="" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input>
+                                        <img id="file_img" alt="" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload} multiple></input>
                                     </div>
                                 </td>
 
