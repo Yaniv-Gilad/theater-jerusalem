@@ -45,7 +45,7 @@
   justify-content: center;
 }
 
-#logout {
+.HomePage #logout {
   border-radius: 50%;
   font-family:"verdana";
   color: black;
