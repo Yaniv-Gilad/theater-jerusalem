@@ -72,7 +72,8 @@ class File extends Component {
             let f = arr[j];
             let name = f.name;
             if (names.includes(name)) {
-                if (window.confirm("קיים קובץ בשם " + name + "\n" + "האם ברצונך לדרוס אותו?") == false) {
+                let mesg = "קיים קובץ בשם " + name + "\n" + "האם ברצונך לדרוס אותו?";
+                if (window.confirm(mesg) === false) {
                     this.getData(this.state.path);
                     return;
                 }
@@ -125,19 +126,19 @@ class File extends Component {
                                 pathname: "/home"
                             })
                     }}>למסך הבית</button>
-                    <button id="go_back" onClick={this.backButton}><img src={back}></img></button>
+                    <button id="go_back" onClick={this.backButton}><img src={back} alt=""></img></button>
                     <table id="menu">
                         <tr>
                             <td>
                                 <div id="file_up" onClick={this.overrideInput}>
-                                    <img id="file_img" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input>
+                                    <img id="file_img" alt="" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input>
                                 </div>
                             </td>
 
                         </tr>
                         <tr>
                             <td>
-                                <button id="add_folder" onClick={this.addFolder}><img id="add_img" src={folder_upload}></img></button>
+                                <button id="add_folder" onClick={this.addFolder}><img id="add_img" alt="" src={folder_upload}></img></button>
 
                             </td>
                         </tr>

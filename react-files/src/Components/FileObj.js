@@ -46,7 +46,7 @@ class FileObj extends Component {
         let fixed_name = null;
 
         // check for file or folder
-        if (type_ind != -1) {
+        if (type_ind !== -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
             sub = sub.substring(0, 18 - type.length);
@@ -86,7 +86,7 @@ class FileObj extends Component {
             <div className="File" style={{ backgroundImage: `url(${im_url})` }}>
                 <br></br>
                 <br></br>
-                <a href={this.state.download} target="_blank">
+                <a href={this.state.download} target="_blank" rel="noreferrer">
                     <button id="but">
                         <br></br>
                         {fixed_name}<span id="but_span">{_name}</span>
@@ -95,7 +95,7 @@ class FileObj extends Component {
                 </a>
                 <br></br>
                 <button id="delete_file">
-                    <img src={TRASH} onClick={this.delete}></img>
+                    <img src={TRASH} alt="" onClick={this.delete}></img>
                     <span className="tooltiptext">מחיקה</span>
                 </button>
             </div>
@@ -106,7 +106,7 @@ class FileObj extends Component {
         let name = this.state.name;
         let path = this.state.path;
 
-        if (window.confirm("למחוק את הקובץ \"" + name + "\" ?") == false)
+        if (window.confirm("למחוק את הקובץ \"" + name + "\" ?") === false)
             return;
 
         storage.refFromURL(path).delete().then(() => {

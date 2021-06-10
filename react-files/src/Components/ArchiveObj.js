@@ -3,7 +3,6 @@ import { db, storage } from "../Firebase/firebase"
 import RECYCLE from "../Photos/recycle.png"
 import TRASH from "../Photos/trash.png"
 import '../CSS/Production.css'
-import { BrowserRouter as Link } from "react-router-dom";
 
 class ArchiveObj extends Component {
 
@@ -27,7 +26,7 @@ class ArchiveObj extends Component {
         let fixed_name = null;
 
         // check for file or folder
-        if (type_ind != -1) {
+        if (type_ind !== -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
             sub = sub.substring(0, 20 - type.length);
@@ -47,12 +46,12 @@ class ArchiveObj extends Component {
 
                 <br></br>
                 <button className="smallButton">
-                    <img src={RECYCLE} onClick={this.moveToHome}></img>
+                    <img src={RECYCLE} alt="" onClick={this.moveToHome}></img>
                     <span className="tooltiptext">החזרה להפקות</span>
                 </button>
 
                 <button className="smallButton">
-                    <img src={TRASH} onClick={this.delete}></img>
+                    <img src={TRASH} alt="" onClick={this.delete}></img>
                     <span className="tooltiptext">מחיקת קבצים</span>
                 </button>
 
@@ -71,7 +70,7 @@ class ArchiveObj extends Component {
     // delete project content
     delete() {
         let _name = this.state.name.toString();
-        if (window.confirm("למחוק את הקבצים של פרויקט \"" + _name + "\" ?") == false)
+        if (window.confirm("למחוק את הקבצים של פרויקט \"" + _name + "\" ?") === false)
             return;
 
         this.deleteFolderContents(_name);

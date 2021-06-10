@@ -75,9 +75,6 @@ class HomePage extends Component {
 
 
   render() {
-    let id = "dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20";
-    let str = "https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=" + id + "&amp;color=%23039BE5&amp;showTitle=0"
-
     let dataToRender = this.getData();
     return (
 
@@ -105,10 +102,10 @@ class HomePage extends Component {
                     {
                       pathname: "/Archive"
                     })
-                }}><img src={ARCHIVE}></img></button>
+                }}><img alt="" src={ARCHIVE}></img></button>
                 </td>
                 <td>
-                  <button onClick={this.addProd}><img src={ADD}></img></button>
+                  <button onClick={this.addProd}><img alt="" src={ADD}></img></button>
                 </td>
                 <td>
                   <button id="calendar" onClick={() => {
@@ -116,7 +113,7 @@ class HomePage extends Component {
                     {
                       pathname: "/Calendar"
                     })
-                  }}><img src={CALENDAR}></img></button>
+                  }}><img alt="" src={CALENDAR}></img></button>
                 </td>
               </tr>
               </table>
@@ -140,7 +137,7 @@ class HomePage extends Component {
   // get the relevent projects to show on screen
   getData() {
     let searchVal = this.state.searchVal;
-    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) == -1 && prod["name"].includes(searchVal));
+    let notArchived = this.state.projects.filter(prod => this.state.archive.indexOf(prod["name"]) === -1 && prod["name"].includes(searchVal));
     let dataToReturn = notArchived.map((production, index) => <Production key={production.name} getArchive={this.getArchive} prod={production} />);
     return dataToReturn;
   }

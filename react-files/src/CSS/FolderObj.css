@@ -9,19 +9,11 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-color: black; */
-  /* קישור לקובץ עצמו */
-  /* background-image: url('../Photos/background3.jpg');  */
-  /* border: #424649dc;
-  border-width: 5px;
-  border-style: solid; */
-  /* color:#424649dc; */
   font-size: 70%;
 }
 
 #but_span{
 visibility: hidden;
-/* width: 100px; */
 background-color: black;
 color: #fff;
 text-align: center;
