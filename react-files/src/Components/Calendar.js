@@ -289,16 +289,16 @@ class Calendar extends Component {
                 
                 {!this.state.help ? <div></div> :
                     <div id="addCalendar">
-                        <h2 className="line"><span className="fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
-                        <h3>שלב א'</h3> יש להעתיק את הכתובת הבאה:<br></br>{window.URLcalendar}<br></br>
-                        <button onClick={() => this.copyToClipboard(window.URLcalendar)}>העתק</button>
-                        <h3>שלב ב'</h3> הכנס ליומן של גוגל בכתובת<br></br>
+                        <h4 className="line">הנחיות לביצוע סינכרון ליומן של גוגל</h4>
+                        <h4>שלב א'</h4><h5>יש להעתיק את הכתובת הבאה: <h6>{window.URLcalendar}</h6><button id="copy_but"onClick={() => this.copyToClipboard(window.URLcalendar)}>העתק</button></h5>
+                        
+                        <h4>שלב ב'</h4><h5> הכנס ליומן של גוגל בכתובת</h5>
                         <a href="https://calendar.google.com/" target="_blank">https://calendar.google.com</a>
-                        <h3>שלב ג'</h3><br></br> Add a Friend's Calendar -&gt; ושם לבחור From URL <br></br>
+                        <h4>שלב ג'</h4><h5>Add a Friend's Calendar -&gt; ושם לבחור From URL</h5>  
                         <img src={Calendar_new1} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
-                        <h3>שלב ד'</h3>הדבק את הכתובת משלב א' והוסף יומן <br></br>
+                        <h4>שלב ד'</h4><h5>הדבק את הכתובת משלב א' והוסף יומן </h5>
                         <img src={Calendar_new2} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
-                        <br></br>
+                        
                     </div>}
                 <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
