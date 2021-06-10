@@ -218,34 +218,25 @@ class Calendar extends Component {
         return (
             <div className="Calendar">
                 <h1><b>יומן</b></h1>
-                {/* <h2 className="line"></h2>
-                <h2 className="line"></h2> */}
+                <h2 className="line"></h2>
+                <h2 className="line"></h2>
                 {/* <button onClick={() => this.openWinEvents()}>delete Event</button>
                 <button onClick={() => this.getEvents()}>getEvent</button>
                 <button onClick={() => this.deleteEvent("notqbcjfuv0be19kvhkdkp1ifc_20210609T092600Z")}>deleteEvent</button> */}
-                <table id="icons" border="2">
-                    <tr>
-                        <td><button className="addEvent" onClick={() => {
+                <button className="addEvent" onClick={() => {
                     this.setState({ addEvent: !this.state.addEvent })
-                }}>.</button></td>
-
-                <td><button id= "help"  onClick={() => {
-                    this.setState({ help: !this.state.help })
-                }}>.</button></td>
-                    </tr>
-                </table>
-                
+                }}>add Event</button>
                 {!this.state.addEvent ? <div></div> :
                     <div id="formAddEvent">
                         <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
                             <p>
-                                <label className="events">הכנס שם אירוע</label>
+                                <label>הכנס שם אירוע</label>
                                 <input type="text" name="name" onBlur={(e) => {
                                     this.setState({ summery: e.target.value })
                                 }} placeholder="הכנס שם אירוע"></input>
                             </p>
                             <p>
-                                <label className="events">הכנס תאריך התחלת אירוע</label>
+                                <label>הכנס תאריך התחלת אירוע</label>
                                 <input type="date" name="dateTimeStart"
                                     onChange={
                                         (e) => {
@@ -255,14 +246,14 @@ class Calendar extends Component {
                                     }></input>
                             </p>
                             <p>
-                                <label className="events">הכנס זמן התחלת האירוע</label>
+                                <label>הכנס זמן התחלת האירוע</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeStart: e.target.value })
                                     }}></input>
                             </p>
                             <p>
-                                <label className="events">הכנס תאריך סיום האירוע</label>
+                                <label>הכנס תאריך סיום האירוע</label>
                                 <input type="date" name="dateTimeEnd"  /*value={this.state.dateTimeEnd}*/
                                     onChange={
                                         (e) => {
@@ -271,7 +262,7 @@ class Calendar extends Component {
                                         }}></input>
                             </p>
                             <p>
-                                <label className="events">הכנס זמן סיום האירוע</label>
+                                <label>הכנס זמן סיום האירוע</label>
                                 <input type="Time" name="dateTimeEnd"
                                     onChange={(e) => {
                                         this.setState({ timeEnd: e.target.value })
@@ -281,7 +272,9 @@ class Calendar extends Component {
                         <button style={{ width: 100, height: 50 }} onClick={() => this.createEvent()}>הוספת אירוע</button>
                     </div>}
 
-                
+                <button onClick={() => {
+                    this.setState({ help: !this.state.help })
+                }}>help</button>
                 {!this.state.help ? <div></div> :
                     <div id="addCalendar">
                         <h2 className="line"><span className="fas fa-plus"></span>הנחיות לביצוע סינכרון ליומן של גוגל</h2>
