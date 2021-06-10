@@ -2,10 +2,13 @@ import { Component } from "react"
 import { storage } from "../Firebase/firebase"
 import '../CSS/File.css'
 import TRASH from "../Photos/trash.png"
-import PDF from "../Photos/pdf.png"
-import WORD from "../Photos/word.png"
-import EXCEL from "../Photos/excel.png"
-import DEF_FILE from "../Photos/file.png"
+import PDF from "../Photos/file_pdf.png"
+import POWERPOINT from "../Photos/file_p.png"
+import TEXT from "../Photos/file_text.png"
+import IMAGE from "../Photos/file_pic.png"
+import WORD from "../Photos/file_w.png"
+import EXCEL from "../Photos/file_x.png"
+import DEF_FILE from "../Photos/file_s.png"
 
 const TEXT_A = ["txt"]
 const WORD_A = ["docx", "docm", "dotx", "dotm"]
@@ -45,9 +48,9 @@ class FileObj extends Component {
         // check for file or folder
         if (type_ind != -1) {
             sub = _name.substring(0, type_ind);
-            type = _name.substring(type_ind + 1, _name.length);
+            type = _name.substring(type_ind, _name.length);
             sub = sub.substring(0, 20 - type.length);
-            fixed_name = sub + type;
+            fixed_name = sub;
         }
         else {
             fixed_name = _name.substring(0, 20);
@@ -55,16 +58,19 @@ class FileObj extends Component {
 
         // pic the right image
         let im_url = this.state.img_url;
-        if (TEXT_A.includes(type))
-            im_url = WORD; // change to text pic
-        else if (WORD_A.includes(type))
+        let _type = type.substring(1);
+        if (TEXT_A.includes(_type))
+            im_url = TEXT; 
+        else if (WORD_A.includes(_type))
             im_url = WORD;
-        else if (PDF_A.includes(type))
+        else if (PDF_A.includes(_type))
             im_url = PDF;
-        else if (EXCEL_A.includes(type))
+        else if (EXCEL_A.includes(_type))
             im_url = EXCEL;
-        else if (POWERPOINT_A.includes(type))
-            im_url = DEF_FILE; // change to POWERPIONT pic
+        else if (POWERPOINT_A.includes(_type))
+            im_url = POWERPOINT;
+        else if (IMAGES_A.includes(_type))
+            im_url = IMAGE;  
         else
             im_url = DEF_FILE;
 
@@ -72,8 +78,10 @@ class FileObj extends Component {
         return (
             <div className="File" style={{ backgroundImage: `url(${im_url})` }}>
                 <br></br>
+                <br></br>
                 <a href={this.state.download} target="_blank">
                     <button id="but">
+                        <br></br>
                         {fixed_name}<span id="but_span">{_name}</span>
                         <br></br>
                     </button>
@@ -84,21 +92,6 @@ class FileObj extends Component {
                     <span className="tooltiptext">מחיקה</span>
                 </button>
             </div>
-
-
-            // <div className="File">
-            //     <a href={this.state.download} target="_blank">
-            //         <button id="but">
-            //             {fixed_name}<span id="but_span">{_name}</span>
-            //             <br></br>
-            //         </button>
-            //     </a>
-            //     <br></br>
-            //     <button id="delete_file">
-            //         <img src={TRASH} onClick={this.delete}></img>
-            //         <span className="tooltiptext">מחיקה</span>
-            //     </button>
-            // </div>
         )
     }
 
