@@ -242,6 +242,7 @@ class Calendar extends Component {
                 
                 {!this.state.addEvent ? <div></div> :
                     <div id="formAddEvent">
+                        <b className="line">הוספת אירוע ליומן</b>
                         <form className="modal-body" id="addEvent" role="dialog" aria-hidden="true">
                                 <label className="events">שם:</label>
                                 <input type="text" name="name" onBlur={(e) => {
@@ -284,8 +285,9 @@ class Calendar extends Component {
                 
                 {!this.state.help ? <div></div> :
                     <div id="addCalendar">
-                        <h3 className="line"><u>הנחיות לביצוע סינכרון ליומן של גוגל</u></h3>
-                        <h4>שלב א'</h4><h5>יש להעתיק את הכתובת הבאה: <h6>{window.URLcalendar}</h6><button id="copy_but"onClick={() => this.copyToClipboard(window.URLcalendar)}>העתק</button></h5>
+                        <b className="line">הנחיות לביצוע סינכרון ליומן של גוגל</b>
+                        <h4>שלב א'</h4><h5>יש להעתיק את הכתובת הבאה: </h5><h6>{window.URLcalendar}</h6>
+                        <button id="copy_but"onClick={() => this.copyToClipboard(window.URLcalendar)}>העתק</button>
                         
                         <h4>שלב ב'</h4><h5> הכנס ליומן של גוגל בכתובת</h5>
                         <a href="https://calendar.google.com/" target="_blank">https://calendar.google.com</a>
