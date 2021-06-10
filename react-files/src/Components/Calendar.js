@@ -303,13 +303,12 @@ class Calendar extends Component {
                 <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=theaterjerusalem%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=roipk123%40gmail.com&ctz=Asia%2FJerusalem"></iframe> */}
-                <button id="logout" onClick={() => {
-                    auth.signOut();
-                    this.props.history.push(
-                        {
-                            pathname: "/"
-                        })
-                }}>התנתק</button>
+                <button id="go_home_fromfile" onClick={() => {
+                        this.props.history.push(
+                            {
+                                pathname: "/home"
+                            })
+                    }}>למסך הבית</button>
             </div>
 
         )
