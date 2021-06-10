@@ -15,6 +15,7 @@ class File extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            searchVal: "",
             path: "",
             loader: false,
             files: [],
@@ -57,14 +58,14 @@ class File extends Component {
         }
         );
     }
-    overrideInput(e){
+    overrideInput(e) {
         this.refs.uploader.click();
     }
 
     async Upload(e) {
         let names = this.state.files.map(file => file["name"]);
         let arr = []
-        for(let j = 0; j < e.target.files.length; j++)
+        for (let j = 0; j < e.target.files.length; j++)
             arr.push(e.target.files[j]);
         
         for(let j = 0; j < arr.length; j++){
@@ -106,7 +107,14 @@ class File extends Component {
             <div className="HomePage">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></link>
                 {!this.state.loader ? <div className="spinner-border" ></div> : <div>
-                    <h1>{_name}</h1>
+                    <div id="name_search">
+                    <h1 id="name">{_name}</h1>
+                    <input id="searchBox" className="searchBox" type="text" placeholder="חיפוש.."
+                        onChange={(event) => {
+                            this.setState({ ...this.state, searchVal: event.target.value })
+                        }}>
+                    </input>
+                    </div>
                     {foldersToRender}
                     <br></br>
                     {filesToRender}
@@ -119,22 +127,22 @@ class File extends Component {
                     }}>למסך הבית</button>
                     <button id="go_back" onClick={this.backButton}><img src={back}></img></button>
                     <table id="menu">
-                            <tr>
-                                <td>
+                        <tr>
+                            <td>
                                 <div id="file_up" onClick={this.overrideInput}>
-                                    <img id="file_img" src={file_upload} style={{cursor: "pointer"}}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload} multiple></input> 
+                                    <img id="file_img" src={file_upload} style={{ cursor: "pointer" }}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input>
                                 </div>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
                                 <button id="add_folder" onClick={this.addFolder}><img id="add_img" src={folder_upload}></img></button>
 
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                     </table>
-                    
+
                     {/* </div> */}
                 </div>}
             </div>
@@ -167,12 +175,16 @@ class File extends Component {
     // get all files and folders to show on screen
 
     getFiles() {
-        let dataToReturn = this.state.files.map((_file, index) => <FileObj key={index} file={_file} updateFiles={this.getData} />);
+        let searchVal = this.state.searchVal;
+        let filtered = this.state.files.filter(_file => _file["name"].includes(searchVal));
+        let dataToReturn = filtered.map((_file) => <FileObj key={_file.name} file={_file} updateFiles={this.getData} />);
         return dataToReturn;
     }
 
     getFolders() {
-        let dataToReturn = this.state.folders.map((_folder, index) => <FolderObj key={index} folder={_folder} updatePath={this.getData} />);
+        let searchVal = this.state.searchVal;
+        let filtered = this.state.folders.filter(_folder => _folder["name"].includes(searchVal));
+        let dataToReturn = filtered.map((_folder) => <FolderObj key={_folder.name} folder={_folder} updatePath={this.getData} />);
         return dataToReturn;
     }
 
