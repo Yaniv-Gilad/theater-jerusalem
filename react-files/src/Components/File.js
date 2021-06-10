@@ -90,18 +90,21 @@ class File extends Component {
                             })
                     }}>למסך הבית</button>
                     <button id="go_back" onClick={this.backButton}><img src={back}></img></button>
-                    <table id="menu">
-                        <tr>
-                            <td>
+                    <table id="menu" border="2">
+                            <tr>
+                                <td>
                                 <div id="file_up">
                                     <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" onChange={this.Upload}></input> 
                                 </div>
+                                </td>
                                 
-                            </td>
-                            <td>
+                            </tr>
+                            <tr>
+                                <td>
                                 <button id="add_folder" onClick={this.addFolder}><img src={folder_upload}></img></button>
-                            </td>
-                        </tr>
+
+                                </td>
+                            </tr>
                     </table>
                     
                     {/* </div> */}
