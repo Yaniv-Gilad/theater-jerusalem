@@ -4,9 +4,6 @@ import '../CSS/Calendar.css'
 import { auth, db, storage } from "../Firebase/firebase"
 import Calendar_new1 from "../Photos/AddGoogleCal1.png"
 import Calendar_new2 from "../Photos/AddGoogleCal2.png"
-import add from "../Photos/addEvent.png"
-import help from "../Photos/help.png"
-
 
 
 var gapi = window.gapi
@@ -226,18 +223,16 @@ class Calendar extends Component {
                 {/* <button onClick={() => this.openWinEvents()}>delete Event</button>
                 <button onClick={() => this.getEvents()}>getEvent</button>
                 <button onClick={() => this.deleteEvent("notqbcjfuv0be19kvhkdkp1ifc_20210609T092600Z")}>deleteEvent</button> */}
-                <table id="icons">
-                    <tbody>
+                <table id="icons" border="2">
                     <tr>
                         <td><button className="addEvent" onClick={() => {
                     this.setState({ addEvent: !this.state.addEvent })
-                }}><img id="add" alt="" src={add}></img></button></td>
+                }}>.</button></td>
 
-                <td><button id="help_but"  onClick={() => {
+                <td><button id= "help"  onClick={() => {
                     this.setState({ help: !this.state.help })
-                }}><img id="help" alt="" src={help}></img></button></td>
+                }}>.</button></td>
                     </tr>
-                    </tbody>
                 </table>
                 
                 {!this.state.addEvent ? <div></div> :
