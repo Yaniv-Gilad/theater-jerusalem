@@ -97,7 +97,7 @@ class File extends Component {
                             <tr>
                                 <td>
                                 <div id="file_up" onClick={this.overrideInput}>
-                                    <img id="file_img" src={file_upload}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload} multiple></input> 
+                                    <img id="file_img" src={file_upload} style={{cursor: "pointer"}}></img><input type="file" id="upload_but" ref="uploader" onChange={this.Upload}></input> 
                                 </div>
                                 </td>
                                 

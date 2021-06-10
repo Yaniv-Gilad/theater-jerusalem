@@ -55,20 +55,25 @@
   display: none;
 }
 
+#upload_but:hover{
+  cursor: pointer;
+}
+
 #go_home_fromfile{
   background-color: rgb(145, 0, 0);
   color: white;
   font-family: "verdana";
-  position: absolute;
-  left:2%;
+  font-size: 60%;
+  position: fixed;
+  left:1%;
   bottom: 10%;
   border-radius: 10%;
 }
 
 #go_back{
-  position: absolute;
-  left: 3%;
-  bottom:20%;
+  position: fixed;
+  left: 1%;
+  bottom: 15%;
 }
 #delete_file{
   float: left;
