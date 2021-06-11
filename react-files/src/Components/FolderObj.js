@@ -37,6 +37,7 @@ class FolderObj extends Component {
         )
     }
 
+    // update the path at father comp
     updateFather() {
         let path = this.state.path;
         this.state.updatePath(path);

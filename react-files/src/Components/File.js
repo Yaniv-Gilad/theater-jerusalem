@@ -40,6 +40,8 @@ class File extends Component {
             })
             return;
         }
+
+        // get all files and folders
         storage.refFromURL(_path).listAll().then((res) => {
             let p = []
             res.items.forEach((file) => {
@@ -61,6 +63,7 @@ class File extends Component {
         this.refs.uploader.click();
     }
 
+    // upload multiple files
     async Upload(e) {
         this.setState({ ...this.state, loader: false });
         let names = this.state.files.map(file => file["name"]);
@@ -151,6 +154,7 @@ class File extends Component {
         )
     }
 
+    // get all files and folders n the new path
     getData(new_path = this.state.path) {
         this.setState({ ...this.state, path: new_path, files: [], folders: [], loader: false });
         storage.refFromURL(new_path).listAll()
