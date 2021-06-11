@@ -29,12 +29,12 @@ class ArchiveObj extends Component {
         if (type_ind !== -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
-            sub = sub.substring(0, 20 - type.length);
+            sub = sub.substring(0, 18 - type.length);
             fixed_name = sub + type;
         }
 
         else {
-            fixed_name = _name.substring(0, 20);
+            fixed_name = _name.substring(0, 18);
         }
 
         return (
