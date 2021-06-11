@@ -116,64 +116,7 @@ class Calendar extends Component {
             })
         console.log(event);
     }
-
-    // async getEvents() {
-    //     // get events
-    //     // console.log(  gapi.client.calendar)
-    //     gapi = await window.gapi;
-    //     gapi.client.setApiKey(API_KEY);
-    //     console.log(gapi.client);
-    //     gapi.auth.authorize(
-    //         {
-    //             'client_id': CLIENT_ID,
-    //             'scope': SCOPES.join(' '),
-    //             'immediate': true
-    //         }, (authResult) => {
-    //             gapi.client.load('calendar', 'v3', () => {
-    //                 gapi.client.calendar.events.list({
-    //                     'calendarId': 'primary',
-    //                     'timeMin': (new Date()).toISOString(),
-    //                     'showDeleted': false,
-    //                     'singleEvents': true,
-    //                     'maxResults': 10,
-    //                     'orderBy': 'startTime'
-    //                 }).then(response => {
-    //                     const events = response.result.items;
-    //                     console.log('EVENTS: ', events);
-    //                     this.setState({ ...this, event: events }).then(()=>{return events;});
-    //                     // return events;
-    //                 })
-    //             })
-    //         })
-    // }
-
-    // deleteEvent(eventId) {
-    //     console.log("delete");
-    //     gapi.client.setApiKey(API_KEY);
-    //     gapi.auth.authorize(
-    //         {
-    //             'client_id': CLIENT_ID,
-    //             'scope': SCOPES.join(' '),
-    //             'immediate': true
-    //         }, (authResult) => {
-    //             gapi.client.load('calendar', 'v3', () => {
-    //                 gapi.client.calendar.events.delete({
-    //                     'auth': auth,
-    //                     'calendarId': 'primary',
-    //                     'eventId': eventId
-    //                 }).then((res) => {
-    //                     console.log(res);
-    //                     if (res) {
-    //                         console.log(res);
-    //                         this.setState({ newEvent: res })
-    //                         window.location.reload();
-    //                     }
-    //                 })
-    //             })
-    //         })
-    // }
-
-    
+        
     copyToClipboard = (URLcalendar) => {//copy the url
         const el = document.createElement('textarea');
         el.value = URLcalendar;
@@ -192,24 +135,7 @@ class Calendar extends Component {
         return d;
     }
 
-    // openWinEvents() {
-    //     let myWindow = window.open("", "myWindow", "width=200, height=100");
-    //     this.getEvents();
-    //     let events = this.state.event;
-    //     console.log(events);
-    //     let StringEvents = "<table className = \"listEvent\">";
-    //     events.forEach(e => {
-    //         StringEvents += "<tr>";
-    //         StringEvents += "<td> " + e.summary + "</td>";
-    //         StringEvents += "</tr>";
-    //     });
-
-    //     StringEvents += "</table>";
-    //     // let v = <button>yaniv</button>;
-    //     myWindow.document.write(StringEvents);
-    // }
-
-    render() {
+        render() {
         return (
             <div className="Calendar">
                 <h1><b>יומן</b></h1>
