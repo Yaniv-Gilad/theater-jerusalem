@@ -134,7 +134,7 @@ class Calendar extends Component {
         d = d.substring(0, d.length - 5)
         return d;
     }
-
+    
         render() {
         return (
             <div className="Calendar">
