@@ -24,6 +24,7 @@
   font-family: "verdana";
   font-size: 90%;
   border-radius: 10%;
+  margin-top:8px;
 }
 .Calendar #add_but{
   background-color: rgb(145, 0, 0);
@@ -31,7 +32,13 @@
   font-family: "verdana";
   font-size: 80%;
   border-radius: 10%;
+  margin-top:8px;
 }
+
+.Calendar #addCalendar a{
+  font-size: 0.85em;
+}
+
 .Calendar h3{
   margin: 0%;
   color: #74031b;
@@ -42,7 +49,7 @@
   font-family: "verdana";
 }
 .Calendar h4{
-  margin-top: 2%;
+  margin-top: 12px;
   margin-bottom: 0.5%;
   color: #74031b;
   font-family: "verdana";
@@ -62,6 +69,7 @@
     border: 0px;
     width: 60vw;
     height: 70vh;
+    margin-bottom: 5%;
   }
 
   .Calendar button{
@@ -90,8 +98,19 @@
 }
 
 .events{
-  color:#74031b;
+  /* color:#74031b; */
   font-family:"verdana";
-  margin-left: 5%;
-
+  margin-left: 6px;
 }
+
+#formAddEvent input{
+  
+  margin-bottom: 5px;
+}
+
+#formAddEvent label{
+  font-size: 0.83em;
+  margin-bottom: 5px;
+}
+
+
