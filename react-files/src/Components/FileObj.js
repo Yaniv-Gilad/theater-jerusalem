@@ -102,6 +102,7 @@ class FileObj extends Component {
         )
     }
 
+    // delete file
     delete() {
         let name = this.state.name;
         let path = this.state.path;

@@ -29,12 +29,12 @@ class ArchiveObj extends Component {
         if (type_ind !== -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
-            sub = sub.substring(0, 20 - type.length);
+            sub = sub.substring(0, 18 - type.length);
             fixed_name = sub + type;
         }
 
         else {
-            fixed_name = _name.substring(0, 20);
+            fixed_name = _name.substring(0, 18);
         }
 
         return (
@@ -52,7 +52,7 @@ class ArchiveObj extends Component {
 
                 <button className="smallButton">
                     <img src={TRASH} alt="" onClick={this.delete}></img>
-                    <span className="tooltiptext">מחיקת קבצים</span>
+                    <span className="tooltiptext">מחיקת הפקה</span>
                 </button>
 
             </div>
@@ -67,14 +67,16 @@ class ArchiveObj extends Component {
         });
     }
 
-    // delete project content
+    // delete project
     delete() {
         let _name = this.state.name.toString();
-        if (window.confirm("למחוק את הקבצים של פרויקט \"" + _name + "\" ?") === false)
+        if (window.confirm("למחוק את הפרויקט \"" + _name + "\" ?") === false)
             return;
 
         this.deleteFolderContents(_name);
-        this.state.getArchive();
+        db.collection("archive").doc(_name).delete().then(() => {
+            this.state.getArchive();
+        });
     }
 
     // delete using BFS

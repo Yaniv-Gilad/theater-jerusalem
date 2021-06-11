@@ -85,7 +85,6 @@ class Calendar extends Component {
                 ]
             }
         }
-        console.log(event);
         this.setEvent(event)
     }
 
@@ -103,9 +102,7 @@ class Calendar extends Component {
                         'calendarId': 'primary',
                         'resource': event
                     }).then((res) => {
-                        console.log(event);
                         if (res) {
-                            console.log(res)
                             this.setState({ newEvent: res })
                             window.location.reload();//Refresh the page to see the added event
                         }
@@ -114,7 +111,6 @@ class Calendar extends Component {
                     });
                 })
             })
-        console.log(event);
     }
         
     copyToClipboard = (URLcalendar) => {//copy the url
@@ -124,7 +120,6 @@ class Calendar extends Component {
         el.select();
         document.execCommand('copy');
         document.body.removeChild(el);
-        console.log("copy");
     };
 
     createTime(e) {//Format change

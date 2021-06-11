@@ -22,7 +22,7 @@ class FolderObj extends Component {
     render() {
         // substring the name to fixed length
         let _name = this.state.name;
-        let fixed_name = _name.substring(0, 20);
+        let fixed_name = _name.substring(0, 17);
 
         return (
             <div className="Folder">
@@ -37,6 +37,7 @@ class FolderObj extends Component {
         )
     }
 
+    // update the path at father comp
     updateFather() {
         let path = this.state.path;
         this.state.updatePath(path);

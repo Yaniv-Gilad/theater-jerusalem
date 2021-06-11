@@ -4,9 +4,7 @@ import '../CSS/HomePage.css'
 import Production from "./Production.js"
 import ARCHIVE from "../Photos/archive.png"
 import ADD from "../Photos/add_black_24dp.png"
-// import Calendar from "./Calendar"
 import CALENDAR from "../Photos/calendar.png"
-// import Calendar from "reactjs-google-calendar"
 
 class HomePage extends Component {
   constructor(props) {
