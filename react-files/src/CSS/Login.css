@@ -28,6 +28,13 @@ input[type="password"]:focus, input[type="text"]:focus {
   box-shadow: 0 0 4px 1px rgba(55, 166, 155, 0.3);
   outline: 0;
 }
+
+.Login #username:not(:placeholder-shown),
+.Login #password:not(:placeholder-shown){
+  background-color: rgb(232, 240, 254) ;
+}
+
+
 .show-password {
   display: block;
   height: 16px;
