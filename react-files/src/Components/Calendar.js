@@ -15,7 +15,7 @@ window.URLcalendar = "https://calendar.google.com/calendar/u/1?cid=dGhlYXRlcmplc
 var CLIENT_ID = "25532945063-7d85q8c7socv0ic5l8h5lhdupqkc0k3n.apps.googleusercontent.com"
 var API_KEY = "AIzaSyDLfXSRbdMnZCiQLpOPQ0SdgzEMigMqFwE"
 
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
+// var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
 var SCOPES = [
     "https://www.googleapis.com/auth/calendar",                     //read/write access to Calendars
     "https://www.googleapis.com/auth/calendar.readonly",            //read-only access to Calendars
@@ -173,8 +173,8 @@ class Calendar extends Component {
     //         })
     // }
 
-    //copy the url
-    copyToClipboard = (URLcalendar) => {
+    
+    copyToClipboard = (URLcalendar) => {//copy the url
         const el = document.createElement('textarea');
         el.value = URLcalendar;
         document.body.appendChild(el);
@@ -279,7 +279,7 @@ class Calendar extends Component {
                         <button id="copy_but" onClick={() => this.copyToClipboard(window.URLcalendar)}>העתק</button>
 
                         <h4>שלב ב'</h4><h5> הכנס ליומן של גוגל בכתובת</h5>
-                        <a href="https://calendar.google.com/" target="_blank">https://calendar.google.com</a>
+                        <a href="https://calendar.google.com/" target="_blank" rel="noreferrer">https://calendar.google.com</a>
                         <h4>שלב ג'</h4><h5>Add a Friend's Calendar -&gt; ושם לבחור From URL</h5>
                         <img src={Calendar_new1} className="img-fluid" alt="תמונה שמציגה היכן ביומן של גוגל יש להוסיף את הקישור"></img>
                         <h4>שלב ד'</h4><h5>הדבק את הכתובת משלב א' והוסף יומן </h5>
@@ -287,7 +287,7 @@ class Calendar extends Component {
 
                     </div>}
                 {/* Implementing Google Calendar */}
-                <iframe src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
+                <iframe title="calendar" src="https://calendar.google.com/calendar/embed?height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FJerusalem&amp;src=dGhlYXRlcmplcnVzYWxlbUBnbWFpbC5jb20&amp;color=%23039BE5&amp;showTitle=0&amp;showNav=1&amp;showDate=1&amp;showPrint=1&amp;showTabs=0&amp;showCalendars=1&amp;showTz=0"></iframe>
                 {/* Button back to home page */}
                 <button id="go_home_fromcalendar" onClick={() => {
                     this.props.history.push(
