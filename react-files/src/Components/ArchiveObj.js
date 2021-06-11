@@ -67,14 +67,16 @@ class ArchiveObj extends Component {
         });
     }
 
-    // delete project content
+    // delete project
     delete() {
         let _name = this.state.name.toString();
-        if (window.confirm("למחוק את הקבצים של פרויקט \"" + _name + "\" ?") === false)
+        if (window.confirm("למחוק את הפרויקט \"" + _name + "\" ?") === false)
             return;
 
         this.deleteFolderContents(_name);
-        this.state.getArchive();
+        db.collection("archive").doc(_name).delete().then(() => {
+            this.state.getArchive();
+        });
     }
 
     // delete using BFS
