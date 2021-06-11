@@ -52,7 +52,7 @@ class ArchiveObj extends Component {
 
                 <button className="smallButton">
                     <img src={TRASH} alt="" onClick={this.delete}></img>
-                    <span className="tooltiptext">מחיקת קבצים</span>
+                    <span className="tooltiptext">מחיקת הפקה</span>
                 </button>
 
             </div>
