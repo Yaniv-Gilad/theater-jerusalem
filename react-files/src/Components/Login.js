@@ -83,9 +83,8 @@ class Login extends Component {
           })
 
       }).catch((e) => {
-
         // if invalid user
-        alert("Wrong Email or password")
+        alert("אימייל או סיסמא לא נכונים")
       })
   }
 }
