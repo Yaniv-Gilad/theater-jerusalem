@@ -43,13 +43,13 @@ class Login extends Component {
         <img src={LOGO} id="logo" alt="logo pic"></img>
         <div className="login">
           <img src={curtain} id="curtain" alt="curtain"></img>
-          <input type="text" placeholder="username@email.com" id="username"
+          <input type="text" placeholder="דואר אלקטרוני" id="username"
             onChange={(event) => {
               this.setState({ ...this.state, email: event.target.value })
             }}
           />
 
-          <input type="password" placeholder="password" id="password"
+          <input type="password" placeholder="סיסמה" id="password"
             onChange={(event) => {
               this.setState({ ...this.state, password: event.target.value })
             }}
@@ -84,7 +84,7 @@ class Login extends Component {
 
       }).catch((e) => {
         // if invalid user
-        alert("אימייל או סיסמה לא נכונים")
+        alert("דואר אלקטרוני או סיסמה לא נכונים")
       })
   }
 }
