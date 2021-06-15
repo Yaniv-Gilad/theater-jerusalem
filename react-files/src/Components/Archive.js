@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { auth, db, storage } from "../Firebase/firebase"
-import '../CSS/HomePage.css'
+import '../CSS/archive.css'
 import ArchiveObj from "./ArchiveObj.js"
 
 
@@ -57,14 +57,12 @@ class Archive extends Component {
                 </input>
                 <br></br>
                 {dataToRender}
-                <div id="wrapper">
-                    <button id="go_home" onClick={() => {
-                        this.props.history.push(
-                            {
-                                pathname: "/home"
-                            })
-                    }}>למסך הבית</button>
-                </div>
+                <button id="go_home_fromarchive" onClick={() => {
+                    this.props.history.push(
+                        {
+                            pathname: "/home"
+                        })
+                }}>למסך הבית</button>
             </div>
         )
     }

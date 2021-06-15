@@ -1,61 +1,24 @@
-.archive {
-    min-width: 100vw;
-    min-height: 100vh;
-    color: black;
-    background-image: url("../Photos/background4.jpg") ;
-  }
-  .archive button{
-    background-color: transparent;
-    border: none;
-  }
-  .archive h1{
-    font-family:"verdana";
-    }
-  
-.archive #go_home{
-    border-radius: 50%;
-    background-color: rgb(145, 0, 0);
-    font-family:"verdana";
-    color: white;
-    height:36px;
-    text-align: center;
-    border-radius: 6px;
-    margin: 2%;
-    position: absolute;
-    left:5%;
-    bottom:7%;
-
+#go_home_fromarchive{
+  background-color: rgb(145, 0, 0);
+  color: white;
+  font-family: "verdana";
+  font-size: 60%;
+  position: fixed;
+  left:1%;
+  bottom: 10%;
+  border-radius: 10%;
 }
-.archive #go_home:hover {
-    background-color: rgb(87, 0, 0);
-  }
-.archive #logout {
-    border-radius: 50%;
-    background-color: rgb(145, 0, 0);
-    font-family:"verdana";
-    color: white;
-    height:36px;
-    text-align: center;
-    border-radius: 6px;
-    margin: 2%;
-    position: absolute;
-    left:0%;
-    bottom:7%;
-  }
-  
-  .archive #logout:hover {
-    background-color: rgb(87, 0, 0);
-  }
-  .Production .tooltiptextname {
-    visibility: hidden;
-    width: 100px;
-    background-color: rgb(15, 1, 1);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-  
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-  }
+
+.Production .tooltiptextname {
+  visibility: hidden;
+  width: 100px;
+  background-color: rgb(15, 1, 1);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}

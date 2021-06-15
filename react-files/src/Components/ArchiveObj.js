@@ -3,7 +3,6 @@ import { db, storage } from "../Firebase/firebase"
 import RECYCLE from "../Photos/recycle.png"
 import TRASH from "../Photos/trash.png"
 import '../CSS/Production.css'
-import { BrowserRouter as Link } from "react-router-dom";
 
 class ArchiveObj extends Component {
 
@@ -27,34 +26,33 @@ class ArchiveObj extends Component {
         let fixed_name = null;
 
         // check for file or folder
-        if (type_ind != -1) {
+        if (type_ind !== -1) {
             sub = _name.substring(0, type_ind);
             type = _name.substring(type_ind, _name.length);
-            sub = sub.substring(0, 20 - type.length);
+            sub = sub.substring(0, 18 - type.length);
             fixed_name = sub + type;
         }
 
         else {
-            fixed_name = _name.substring(0, 20);
+            fixed_name = _name.substring(0, 18);
         }
 
         return (
             <div className="Production">
-                <Link
-                    id="linkName" style={{ color: 'inherit', textDecoration: 'inherit' }}
-                    to={{ pathname: "/file", name: { _name } }}>{fixed_name}
+                <button>{fixed_name}
                     <span className="tooltiptextname">{_name}</span>
-                </Link>
+                </button>
+
 
                 <br></br>
                 <button className="smallButton">
-                    <img src={RECYCLE} onClick={this.moveToHome}></img>
+                    <img src={RECYCLE} alt="" onClick={this.moveToHome}></img>
                     <span className="tooltiptext">החזרה להפקות</span>
                 </button>
 
                 <button className="smallButton">
-                    <img src={TRASH} onClick={this.delete}></img>
-                    <span className="tooltiptext">מחיקת קבצים</span>
+                    <img src={TRASH} alt="" onClick={this.delete}></img>
+                    <span className="tooltiptext">מחיקת הפקה</span>
                 </button>
 
             </div>
@@ -65,20 +63,20 @@ class ArchiveObj extends Component {
     moveToHome() {
         let _name = this.state.name.toString();
         db.collection("archive").doc(_name).delete().then(() => {
-            console.log("Document '" + _name + "' added to home!");
             this.state.getArchive();
         });
     }
 
-    // delete project content
+    // delete project
     delete() {
         let _name = this.state.name.toString();
-        if (window.confirm("למחוק את הקבצים של פרויקט \"" + _name + "\" ?") == false)
+        if (window.confirm("למחוק את הפרויקט \"" + _name + "\" ?") === false)
             return;
 
         this.deleteFolderContents(_name);
-        console.log("Document '" + _name + "' files deleted!");
-        this.state.getArchive();
+        db.collection("archive").doc(_name).delete().then(() => {
+            this.state.getArchive();
+        });
     }
 
     // delete using BFS
@@ -93,8 +91,7 @@ class ArchiveObj extends Component {
                     this.deleteFolderContents(folderRef.fullPath);
                 })
             })
-            .catch(error => {
-                console.log(error);
+            .catch(() => {
             });
 
     }

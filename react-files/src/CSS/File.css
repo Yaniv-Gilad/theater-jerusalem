@@ -1,31 +1,57 @@
  .File{
     display: inline-block;
-    width: 11%;
-    height: 60%;
-    margin: 2%;
-    padding: 1%;
+    width: 11.5%;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 0.5%;
     border-radius: 5%; 
-    background-color:#b15550;
-    /* קישור לקובץ עצמו */
-    /* background-image: url('../Photos/background3.jpg');  */
-    /* border: #424649dc;
-    border-width: 5px;
-    border-style: solid; */
     color:#424649dc;
     font-size: 70%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
-  
+
+  #name{
+    display: inline-block;
+  }
+
+  #searchBox{
+    position: absolute;
+    left: 1%;
+    margin-top: 1%;
+    display: inline-block;
+  }
+
+  #name_search{
+    margin-top: 1%;
+  }
+
+#file_up{
+  width: 50px;
+  opacity: 0.7;
+}
+
+#add_img{
+  opacity: 0.7;
+}
+#file_img{
+  width: 100%;
+  height: 100%;
+}
+
 #but_span{
   visibility: hidden;
-  /* width: 100px; */
   background-color: black;
-  color: #fff;
+  color: white;
   text-align: center;
+  margin-right: 0.5%;
   border-radius: 6px;
-  padding: 5px 0;
-
-  /* Position the tooltip */
-  position: absolute;
+  padding: 1%;
   z-index: 1;
 }
 
@@ -35,19 +61,37 @@
 .File #but{
   color: white;
   font-size: 70%;
+  padding-top: 8%;
 }
 
 #upload_but{
-  width: 40%;
-  height: 10%;
-  
-}
-.HomePage #go_home:hover {
-  background-color: rgb(87, 0, 0);
+  display: none;
 }
 
+#upload_but:hover{
+  cursor: pointer;
+}
+
+#go_home_fromfile{
+  background-color: rgb(145, 0, 0);
+  color: white;
+  font-family: "verdana";
+  font-size: 60%;
+  position: fixed;
+  left:1%;
+  bottom: 10%;
+  border-radius: 10%;
+}
+
+#go_back{
+  position: fixed;
+  left: 1%;
+  bottom: 15%;
+}
 #delete_file{
   float: left;
+  padding-left: 0%;
+  padding-bottom: 6%;
 }
 
 #delete_file img{
@@ -56,6 +100,6 @@
 }
 
 .File #delete_file:hover .tooltiptext{
-  background-color: #424649dc; 
+  background-color: black; 
   visibility: visible;
 }
